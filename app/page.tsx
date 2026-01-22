@@ -1,13 +1,14 @@
 import { Container } from "./components/container";
+import HeroSection from "./components/hero-section";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen w-full flex-col items-center justify-between bg-background">
-      <Container>
-        <section>
-          <h1>Home</h1>
-        </section>
-      </Container>
+    <main className="bg-background m-auto">
+      <section className="min-h-screen pt-30 lg:pt-0 flex items-center text-text">
+        <Container>
+          <HeroSection />
+        </Container>
+      </section>
     </main>
   );
 }

@@ -21,10 +21,14 @@ export function Header() {
   }, [mobileMenuOpen]);
 
   return (
-    <header className="bg-primary sticky top-0 z-50">
+    <header className="bg-accent text-text  fixed top-0 md:static  w-full z-50">
       <Container>
         <div className="flex items-center justify-between py-4">
-          <Link href="/" className="text-2xl font-bold">
+          <Link
+            href="/"
+            role="link"
+            aria-label="Logo"
+            className="text-2xl font-bold">
             Parenthese
           </Link>
 
@@ -33,7 +37,14 @@ export function Header() {
             className="hidden md:flex items-center space-x-8"
             aria-label="Main navigation">
             {navItems.map((item) => (
-              <Link key={item.label} href={item.href}>
+              <Link
+                key={item.label}
+                href={item.href}
+                aria-label={item.ariaLabel}
+                role="link"
+                className="relative font-medium after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-0.5 
+                after:w-full after:bg-primary after:scale-x-0 after:origin-left after:transition-transform after:duration-300 
+                hover:after:scale-x-100 focus-visible:after:scale-x-100">
                 {item.label}
               </Link>
             ))}
@@ -42,8 +53,10 @@ export function Header() {
           {/* CTA */}
           <Link
             href="rdv"
-            className="hidden md:block px-6 py-2 bg-white text-primary rounded-lg hover:bg-opacity-90 transition-colors">
-            Prendre RDV
+            aria-label="Prendre rendez-vous en ligne"
+            role="link"
+            className="hidden md:flex items-center justify-center px-6 h-12 bg-white text-primary rounded-full  hover:bg-primary hover:text-secondary shadow-m">
+            Prendre rendez-vous
           </Link>
 
           {/* Mobile Hamburger */}
@@ -54,17 +67,17 @@ export function Header() {
             aria-label="Toggle menu">
             <div className="w-6 h-5 flex flex-col justify-between">
               <span
-                className={`w-full h-0.5 bg-white transition-transform ${
+                className={`w-full h-0.5 bg-text transition-transform ${
                   mobileMenuOpen ? "rotate-45 translate-y-2.5" : ""
                 }`}
               />
               <span
-                className={`w-full h-0.5 bg-white transition-opacity ${
+                className={`w-full h-0.5 bg-text transition-opacity ${
                   mobileMenuOpen ? "opacity-0" : ""
                 }`}
               />
               <span
-                className={`w-full h-0.5 bg-white transition-transform ${
+                className={`w-full h-0.5 bg-text transition-transform ${
                   mobileMenuOpen ? "-rotate-45 -translate-y-2" : ""
                 }`}
               />
@@ -84,15 +97,17 @@ export function Header() {
               <Link
                 key={item.label}
                 href={item.href}
-                className="text-xl hover:opacity-80 transition-opacity"
+                className="text-xl text-secondary"
                 onClick={() => setMobileMenuOpen(false)}>
                 {item.label}
               </Link>
             ))}
             <Link
               href="rdv"
-              className="mt-4 px-6 py-3 bg-white text-primary rounded-lg hover:bg-opacity-90 transition-colors">
-              Prendre RDV
+              aria-label="Prendre rendez-vous en ligne"
+              role="link"
+              className="mt-4 flex items-center justify-center px-6 h-12 border bg-white text-primary rounded-full  hover:bg-primary hover:text-secondary">
+              Prendre rendez-vous
             </Link>
           </nav>
         </div>
