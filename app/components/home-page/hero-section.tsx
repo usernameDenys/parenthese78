@@ -1,6 +1,6 @@
 import heroImage from "@/assets/Image Placeholder.jpg";
 import Image from "next/image";
-import ActionButton from "./action-button";
+import ActionButton from "../action-button";
 
 export default function HeroSection() {
   return (
