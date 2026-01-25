@@ -18,9 +18,10 @@ export default function ActionButton({
       aria-label={ariaLabel}
       className="
         w-full sm:flex-1
-        h-12 sm:h-14
+        h-12 max-h-14
         flex items-center justify-center
         rounded-full
+        shadow-m
         bg-accent text-primary
         font-medium
         transition-colors duration-200
