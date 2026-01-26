@@ -1,4 +1,4 @@
-import img from "@/assets/img.png";
+import img from "@/assets/char.png";
 import Image from "next/image";
 import ActionButton from "../action-button";
 

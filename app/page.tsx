@@ -1,6 +1,7 @@
 import { Container } from "./components/container";
 import AboutSection from "./components/home-page/about-section";
 import HeroSection from "./components/home-page/hero-section";
+import HomeVisit from "./components/home-page/home-visit-section";
 import ServicesSection from "./components/home-page/services-section";
 
 export default function Home() {
@@ -19,6 +20,11 @@ export default function Home() {
       <section className="min-h-screen lg:pt-0 flex items-center text-text">
         <Container>
           <ServicesSection />
+        </Container>
+      </section>
+      <section className="min-h-screen lg:pt-0 flex items-center text-text">
+        <Container>
+          <HomeVisit />
         </Container>
       </section>
     </main>
