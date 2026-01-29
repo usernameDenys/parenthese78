@@ -1,4 +1,4 @@
-import ServicesSlider from "../services-slider";
+import ServicesSlider from "../services/services-slider";
 
 export default function ServicesSection() {
   return (

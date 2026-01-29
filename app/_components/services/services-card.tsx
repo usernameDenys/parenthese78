@@ -1,4 +1,4 @@
-import ActionButton from "./action-button";
+import ActionButton from "../action-button";
 import { cards } from "./cardItems";
 
 export default function Card() {
