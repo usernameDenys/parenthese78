@@ -7,7 +7,7 @@ import TestimonialCard from "./testimonial-card";
 export default function TestimonialsSlider() {
   const autoplayRef = useRef(
     Autoplay({
-      delay: 2000,
+      delay: 3000,
       stopOnInteraction: false,
       stopOnMouseEnter: true,
     })
