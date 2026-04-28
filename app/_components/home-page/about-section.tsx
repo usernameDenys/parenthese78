@@ -24,25 +24,26 @@ export default function AboutSection() {
       {/* Text */}
       <div className="order-1 lg:order-2 w-full mt-8 md:max-w-1/2 flex flex-col items-start *:pb-4 *:px-4">
         <h2 className="font-bold mb-4 text-3xl md:text-left md:text-4xl lg:text-5xl">
-          Qui suis-je?
+          Qui suis-je ?
         </h2>
         <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae, eius
-          dolor eaque animi iste aperiam odio nemo fugiat. Animi debitis totam
-          dicta, vitae pariatur aliquam repellat voluptates voluptatem alias.
-          Quisquam?
+          Je suis Faustine, Infirmière Puéricultrice diplômée depuis 2009,
+          aujourd&apos;hui accompagnante périnatale, et maman. J&apos;accompagne
+          les parents et leurs bébés à domicile, avec douceur, écoute et
+          présence.
         </p>
 
         <p className="text-sm text-muted-foreground">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
-          consequatur reprehenderit excepturi, eaque alias sapiente delectus
-          architecto aliquam eos sed magni aspernatur at sunt soluta libero
-          molestias nemo vitae officia.
+          Ambassadrice de l&apos;École du Bien Naître (connue notamment pour les
+          bains de Sonia), je m&apos;appuie sur une approche transmise et
+          reconnue, centrée sur le respect du rythme et des besoins de chacun.
+          J&apos;offre des soins qui prennent le temps, pour soutenir les débuts
+          de la vie avec justesse, présence et confiance.
         </p>
 
-        <div className=" flex flex-col gap-3 pt-4 sm:flex-row sm:gap-4 w-1/2">
-          <ActionButton href="about" ariaLabel="Voir plus">
-            Voir plus
+        <div className="flex flex-col gap-3 pt-4 sm:flex-row sm:gap-4 w-full sm:w-auto">
+          <ActionButton href="/about" ariaLabel="En savoir plus sur Faustine">
+            En savoir plus
           </ActionButton>
         </div>
       </div>
