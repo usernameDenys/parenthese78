@@ -20,7 +20,7 @@ export default function HomeVisit() {
         />
       </div>
       <div className="order-2 lg:order-1 w-full md:max-w-1/2 flex flex-col items-start *:pb-4 *:px-4">
-        <h2 className="font-bold mb-4 text-3xl md:text-left md:text-4xl lg:text-5xl">
+        <h2 className="font-bold mb-4 text-4xl md:text-left md:text-5xl lg:text-6xl">
           Chez vous, en toute sérénité
         </h2>
         <p>

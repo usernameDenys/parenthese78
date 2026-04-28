@@ -23,22 +23,23 @@ export default function AboutSection() {
       </div>
       {/* Text */}
       <div className="order-1 lg:order-2 w-full mt-8 md:max-w-1/2 flex flex-col items-start *:pb-4 *:px-4">
-        <h2 className="font-bold mb-4 text-3xl md:text-left md:text-4xl lg:text-5xl">
-          Qui suis-je ?
+        <h2 className="font-bold mb-4 text-4xl md:text-left md:text-5xl lg:text-6xl">
+          Une parenthèse de douceur pour votre famille
         </h2>
         <p>
-          Je suis Faustine, Infirmière Puéricultrice diplômée depuis 2009,
-          aujourd&apos;hui accompagnante périnatale, et maman. J&apos;accompagne
-          les parents et leurs bébés à domicile, avec douceur, écoute et
-          présence.
+          Je suis Faustine, infirmière puéricultrice depuis plus de 15 ans,
+          et j&apos;accompagne les futurs et jeunes parents dans ces moments si
+          précieux et parfois fragiles que sont la grossesse, la naissance et
+          les premières années de vie.
         </p>
 
-        <p className="text-sm text-muted-foreground">
-          Ambassadrice de l&apos;École du Bien Naître (connue notamment pour les
-          bains de Sonia), je m&apos;appuie sur une approche transmise et
-          reconnue, centrée sur le respect du rythme et des besoins de chacun.
-          J&apos;offre des soins qui prennent le temps, pour soutenir les débuts
-          de la vie avec justesse, présence et confiance.
+        <p className="text-muted-foreground">
+          À travers des soins et ateliers à domicile, je vous propose des temps
+          pour ralentir, prendre soin du corps, apaiser les émotions et
+          renforcer la confiance, dans un cadre doux et sécurisant. Mon approche
+          s&apos;appuie sur mon expérience auprès des tout-petits et sur des
+          formations certifiées, pour vous offrir un accompagnement profondément
+          humain, respectueux de votre rythme et de votre histoire.
         </p>
 
         <div className="flex flex-col gap-3 pt-4 sm:flex-row sm:gap-4 w-full sm:w-auto">

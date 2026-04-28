@@ -4,7 +4,7 @@ import TestimonialsSlider from "../testimonials/testimonials-slider";
 export default function TestimonialsSection() {
   return (
     <div className="flex flex-col w-full items-center">
-      <h2 className="font-bold my-10 text-3xl md:text-left md:text-4xl lg:text-5xl">
+      <h2 className="font-bold my-10 text-4xl md:text-left md:text-5xl lg:text-6xl">
         Ils en parlent
       </h2>
       <p className="w-full md:w-1/2 text-center text-muted-foreground">

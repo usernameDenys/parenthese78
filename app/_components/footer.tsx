@@ -35,33 +35,6 @@ const Footer = () => {
 
   return (
     <footer>
-      {/* Pre-footer CTA */}
-      <div className="bg-secondary">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 flex flex-col items-center gap-6 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-primary">
-            Prête à vivre votre parenthèse ?
-          </h2>
-          <p className="text-muted-foreground max-w-md">
-            Réservez votre soin à domicile à Versailles et ses environs, ou
-            offrez un moment de douceur à ceux que vous aimez.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-            <Link
-              href="/rdv"
-              aria-label="Prendre rendez-vous en ligne"
-              className="flex items-center justify-center px-8 h-12 bg-primary text-secondary rounded-full font-medium hover:opacity-90 transition-opacity duration-200 shadow-m">
-              Prendre rendez-vous
-            </Link>
-            <Link
-              href="/offrir"
-              aria-label="Offrir une parenthèse en cadeau"
-              className="flex items-center justify-center px-8 h-12 border border-primary text-primary rounded-full font-medium hover:bg-primary hover:text-secondary transition-colors duration-200">
-              Offrir une parenthèse
-            </Link>
-          </div>
-        </div>
-      </div>
-
       {/* Main footer */}
       <div className="bg-background border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -69,7 +42,7 @@ const Footer = () => {
 
             {/* Brand + Contact */}
             <div className="space-y-4">
-              <p className="text-xl font-bold text-primary">PARENTHÈSE</p>
+              <p className="text-xl font-bold text-primary [font-family:var(--font-playfair)]">PARENTHÈSE</p>
               <p className="text-muted-foreground text-sm leading-relaxed">
                 Soins bien-être périnataux à domicile à Versailles et ses
                 environs, pour les bébés et leurs parents.
@@ -77,14 +50,14 @@ const Footer = () => {
               <ul className="space-y-2 pt-2">
                 <li className="flex items-center gap-2 text-sm text-muted-foreground">
                   <FiPhone className="shrink-0 text-primary" />
-                  <a href="tel:+33600000000" className="hover:text-primary transition-colors duration-200">
-                    +33 6 00 00 00 00
+                  <a href="tel:+33622009039" className="hover:text-primary transition-colors duration-200">
+                    06.22.00.90.39
                   </a>
                 </li>
                 <li className="flex items-center gap-2 text-sm text-muted-foreground">
                   <FiMail className="shrink-0 text-primary" />
-                  <a href="mailto:contact@parenthese78.fr" className="hover:text-primary transition-colors duration-200">
-                    contact@parenthese78.fr
+                  <a href="mailto:parenthese78.faustine@gmail.com" className="hover:text-primary transition-colors duration-200">
+                    parenthese78.faustine@gmail.com
                   </a>
                 </li>
                 <li className="flex items-start gap-2 text-sm text-muted-foreground">
