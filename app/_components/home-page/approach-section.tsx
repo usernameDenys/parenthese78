@@ -52,7 +52,7 @@ export default function ApproachSection() {
             initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.5, ease, delay: i * 0.1 }}>
+            transition={{ duration: 0.8, ease, delay: i * 0.15 }}>
             <span className="text-primary">{point.icon}</span>
             <h3 className="font-bold text-lg text-primary">{point.title}</h3>
             <p className="text-muted-foreground text-sm leading-relaxed">
