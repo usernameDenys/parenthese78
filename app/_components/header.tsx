@@ -29,7 +29,7 @@ export function Header() {
             role="link"
             aria-label="Logo"
             className="text-2xl font-bold">
-            Parenthese
+            PARENTHÈSE
           </Link>
 
           {/* Desktop */}

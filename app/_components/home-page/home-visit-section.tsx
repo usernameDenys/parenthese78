@@ -20,15 +20,24 @@ export default function HomeVisit() {
         />
       </div>
       <div className="order-2 lg:order-1 w-full md:max-w-1/2 flex flex-col items-start *:pb-4 *:px-4">
-        <h3 className="font-bold mb-4 text-3xl md:text-left md:text-4xl lg:text-5xl">
-          Déplacement à domicile
-        </h3>
+        <h2 className="font-bold mb-4 text-3xl md:text-left md:text-4xl lg:text-5xl">
+          Chez vous, en toute sérénité
+        </h2>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae
-          accusantium accusamus hic iure cupiditate provident voluptates dolorum
-          repellendus! Quis, in deleniti. Totam odit asperiores illo cum animi.
-          Et, sunt suscipit.
+          Je me déplace à votre domicile, à Versailles et ses environs, afin de
+          vous offrir un moment de soin dans votre cocon, sans contraintes de
+          déplacement, dans un environnement familier et rassurant, propice au
+          lien et à la détente.
         </p>
+        <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:gap-4 w-full sm:w-auto">
+          <Link
+            href="/services"
+            aria-label="Découvrir les soins à domicile"
+            role="link"
+            className="flex items-center justify-center px-6 h-12 bg-white text-primary rounded-full hover:bg-primary hover:text-secondary shadow-m font-medium transition-colors duration-200">
+            Découvrir les soins à domicile
+          </Link>
+        </div>
       </div>
     </div>
   );
