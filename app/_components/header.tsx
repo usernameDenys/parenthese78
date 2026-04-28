@@ -28,7 +28,7 @@ export function Header() {
             href="/"
             role="link"
             aria-label="Logo"
-            className="text-2xl font-bold">
+            className="text-2xl font-bold [font-family:var(--font-playfair)]">
             PARENTHÈSE
           </Link>
 

@@ -24,11 +24,13 @@ const categories = [
 export default function ServicesSection() {
   return (
     <div className="flex flex-col w-full items-center">
-      <h2 className="font-bold my-10 text-3xl md:text-left md:text-4xl lg:text-5xl">
-        Les soins proposés
+      <h2 className="font-bold my-10 text-4xl md:text-5xl lg:text-6xl text-center">
+        Soins et ateliers pour bébé, enfant et parents
       </h2>
       <p className="w-full md:w-1/2 text-center text-muted-foreground mb-12">
-        Des parenthèses de douceur à vivre ou à offrir
+        De la naissance aux premières années, et tout au long de la maternité,
+        je vous accompagne avec des soins et ateliers pensés pour répondre à
+        vos besoins, avec douceur et expertise.
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
