@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-dm-sans), sans-serif;
-  --font-heading: var(--font-playfair), serif;
+  --font-sans: var(--font-cormorant), serif;
+  --font-heading: var(--font-dancing-script), cursive;
 
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
@@ -74,9 +74,16 @@
 body {
   background-color: var(--color-background);
   color: var(--color-foreground);
-  font-family: var(--font-dm-sans), sans-serif;
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.75;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-playfair), serif;
+h1, h2 {
+  font-family: var(--font-dancing-script), cursive;
+}
+
+h3, h4, h5, h6 {
+  font-family: var(--font-cormorant), serif;
 }

@@ -1,5 +1,4 @@
 import { Container } from "./_components/container";
-import AboutSection from "./_components/home-page/about-section";
 import ApproachSection from "./_components/home-page/approach-section";
 import HeroSection from "./_components/home-page/hero-section";
 import ManifesteSection from "./_components/home-page/manifeste-section";
@@ -14,12 +13,6 @@ export default function Home() {
       <section className="min-h-screen pt-30 lg:pt-0 flex items-center text-text">
         <Container>
           <HeroSection />
-        </Container>
-      </section>
-
-      <section className="min-h-screen lg:pt-0 flex items-center text-text bg-secondary">
-        <Container>
-          <AboutSection />
         </Container>
       </section>
 

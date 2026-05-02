@@ -12,7 +12,7 @@ const formations = [
     detail: "Institut de Puériculture et de Périnatalogie de Paris",
   },
   {
-    year: "15 ans",
+    year: "2009-2025",
     title: "Expérience en néonatologie",
     detail: "Accompagnement de nouveau-nés et de leurs familles",
   },
@@ -34,7 +34,8 @@ const formations = [
   {
     year: "2026",
     title: "Praticienne Réflexologie Bébé Émotionnelle EDBN®",
-    detail: "Formée par Caroline Hamon — École du Bien Naître (EDBN®, Suresnes)",
+    detail:
+      "Formée par Caroline Hamon — École du Bien Naître (EDBN®, Suresnes)",
   },
   {
     year: "2026",
@@ -71,7 +72,6 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <main className="bg-background">
-
       {/* Qui suis-je */}
       <section className="min-h-screen pt-30 lg:pt-0 flex items-center">
         <Container>
@@ -87,15 +87,15 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="w-full lg:w-1/2 flex flex-col gap-6">
-              <h1 className="font-bold text-4xl md:text-5xl lg:text-6xl">
+              <h1 className="font-bold text-5xl md:text-6xl lg:text-7xl">
                 Qui suis-je ?
               </h1>
               <p className="leading-relaxed">
-                Je suis Faustine, Infirmière Puéricultrice diplômée
-                d&apos;État depuis 2009, avec plus de 15 ans d&apos;expérience
-                en service de néonatologie. Aujourd&apos;hui, je mets cette
-                expertise au service des parents et de leurs enfants à domicile,
-                avec un accompagnement sur mesure, en douceur et en confiance.
+                Je suis Faustine, Infirmière Puéricultrice diplômée d&apos;État
+                depuis 2009, avec plus de 15 ans d&apos;expérience en service de
+                néonatologie. Aujourd&apos;hui, je mets cette expertise au
+                service des parents et de leurs enfants à domicile, avec un
+                accompagnement sur mesure, en douceur et en confiance.
               </p>
               <p className="text-muted-foreground leading-relaxed">
                 Chaque soin et chaque atelier est pensé pour renforcer le lien
@@ -103,10 +103,15 @@ export default function AboutPage() {
                 confiance aux familles.
               </p>
               <div className="flex flex-col gap-3 sm:flex-row sm:gap-4 w-full sm:w-auto">
-                <ActionButton href="/services" ariaLabel="Découvrir les prestations">
+                <ActionButton
+                  href="/services"
+                  ariaLabel="Découvrir les prestations">
                   Découvrir les prestations
                 </ActionButton>
-                <ActionButton href="/contact" ariaLabel="Me contacter" variant="outline">
+                <ActionButton
+                  href="/contact"
+                  ariaLabel="Me contacter"
+                  variant="outline">
                   Me contacter
                 </ActionButton>
               </div>
@@ -125,7 +130,7 @@ export default function AboutPage() {
                 Manifeste Parenthèse
               </span>
             </div>
-            <h2 className="font-bold text-4xl md:text-5xl text-primary">
+            <h2 className="font-bold text-5xl md:text-6xl text-primary">
               Ce en quoi je crois
             </h2>
             <div className="flex flex-col gap-5">
@@ -156,7 +161,7 @@ export default function AboutPage() {
                   Parcours & formations
                 </span>
               </div>
-              <h2 className="font-bold text-4xl md:text-5xl lg:text-6xl">
+              <h2 className="font-bold text-5xl md:text-6xl lg:text-7xl">
                 Mon expertise
               </h2>
             </div>
@@ -170,31 +175,35 @@ export default function AboutPage() {
       <section className="py-24 bg-secondary">
         <Container>
           <div className="max-w-3xl mx-auto flex flex-col items-center text-center gap-6">
-            <h2 className="font-bold text-4xl md:text-5xl lg:text-6xl">
+            <h2 className="font-bold text-5xl md:text-6xl lg:text-7xl">
               Mon engagement
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              Parenthèse est un espace où prendre soin n&apos;est pas un
-              détail, mais une fondation. Chaque famille que j&apos;accompagne
-              reçoit écoute, attention et gestes professionnels, dans la douceur
-              et la confiance.
+              Parenthèse est un espace où prendre soin n&apos;est pas un détail,
+              mais une fondation. Chaque famille que j&apos;accompagne reçoit
+              écoute, attention et gestes professionnels, dans la douceur et la
+              confiance.
             </p>
             <p className="text-muted-foreground leading-relaxed">
               Mon objectif est simple : vous offrir un accompagnement qui vous
               ressemble, sécurisant et sur mesure, pour vous et votre enfant.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row sm:gap-4 w-full sm:w-auto mt-4">
-              <ActionButton href="/services" ariaLabel="Découvrir les prestations">
+              <ActionButton
+                href="/services"
+                ariaLabel="Découvrir les prestations">
                 Découvrir les prestations
               </ActionButton>
-              <ActionButton href="/rdv" ariaLabel="Prendre rendez-vous" variant="outline">
+              <ActionButton
+                href="/rdv"
+                ariaLabel="Prendre rendez-vous"
+                variant="outline">
                 Prendre rendez-vous
               </ActionButton>
             </div>
           </div>
         </Container>
       </section>
-
     </main>
   );
 }

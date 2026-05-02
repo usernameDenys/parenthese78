@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
-import { Playfair_Display, DM_Sans } from "next/font/google";
+import { Dancing_Script, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import { Header } from "./_components/header";
 import Footer from "./_components/footer";
 
-const playfair = Playfair_Display({
+const dancingScript = Dancing_Script({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
-  variable: "--font-playfair",
+  variable: "--font-dancing-script",
 });
 
-const dmSans = DM_Sans({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-dm-sans",
+  style: ["normal", "italic"],
+  variable: "--font-cormorant",
 });
 
 export const metadata: Metadata = {
@@ -30,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body className={`${playfair.variable} ${dmSans.variable} antialiased`}>
+      <body className={`${dancingScript.variable} ${cormorant.variable} antialiased`}>
         <Header />
         {children}
         <Footer />

@@ -12,7 +12,7 @@ export default function MentionsLegalesPage() {
         <Container>
           <div className="max-w-3xl mx-auto flex flex-col gap-12">
 
-            <h1 className="font-bold text-4xl md:text-5xl">Mentions légales</h1>
+            <h1 className="font-bold text-5xl md:text-6xl">Mentions légales</h1>
 
             <div className="flex flex-col gap-4">
               <h2 className="font-bold text-xl text-primary">Éditeur du site</h2>
@@ -38,7 +38,7 @@ export default function MentionsLegalesPage() {
 
             <div className="flex flex-col gap-4">
               <h2 className="font-bold text-xl text-primary">Propriété intellectuelle</h2>
-              <p className="text-muted-foreground text-sm leading-relaxed">
+              <p className="text-muted-foreground text-base leading-relaxed">
                 L'ensemble du contenu de ce site (textes, images, logo, structure) est la propriété
                 exclusive de Parenthèse, sauf mention contraire. Toute reproduction, distribution
                 ou utilisation sans autorisation préalable est strictement interdite.
@@ -47,7 +47,7 @@ export default function MentionsLegalesPage() {
 
             <div className="flex flex-col gap-4">
               <h2 className="font-bold text-xl text-primary">Responsabilité</h2>
-              <p className="text-muted-foreground text-sm leading-relaxed">
+              <p className="text-muted-foreground text-base leading-relaxed">
                 Les informations présentées sur ce site sont données à titre indicatif et ne
                 constituent pas un avis médical. Parenthèse ne saurait être tenu responsable
                 des dommages directs ou indirects résultant de l'utilisation de ce site.
@@ -57,7 +57,7 @@ export default function MentionsLegalesPage() {
 
             <div className="flex flex-col gap-4">
               <h2 className="font-bold text-xl text-primary">Création du site</h2>
-              <p className="text-muted-foreground text-sm leading-relaxed">
+              <p className="text-muted-foreground text-base leading-relaxed">
                 Site conçu et développé par{" "}
                 <a
                   href="https://www.denys-holenko.com/"

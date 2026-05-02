@@ -13,7 +13,7 @@ export default function PartnersSection() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.6, ease }}>
-        <h2 className="font-bold text-4xl md:text-5xl lg:text-6xl">
+        <h2 className="font-bold text-5xl md:text-6xl lg:text-7xl">
           Les partenaires Parenthèse
         </h2>
         <p className="text-muted-foreground max-w-xl mx-auto">
@@ -45,7 +45,7 @@ export default function PartnersSection() {
         <p className="font-bold text-primary text-lg">
           Regard&apos;Hélina Photographie
         </p>
-        <p className="text-muted-foreground text-sm leading-relaxed">
+        <p className="text-muted-foreground text-base leading-relaxed">
           Je collabore avec Cécile, photographe spécialisée dans la maternité
           et les premiers jours de vie. Elle capture avec délicatesse les
           moments précieux de votre famille — son approche douce et respectueuse

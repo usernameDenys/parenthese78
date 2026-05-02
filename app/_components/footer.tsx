@@ -42,8 +42,8 @@ const Footer = () => {
 
             {/* Brand + Contact */}
             <div className="space-y-4">
-              <p className="text-xl font-bold text-primary [font-family:var(--font-playfair)]">PARENTHÈSE</p>
-              <p className="text-muted-foreground text-sm leading-relaxed">
+              <p className="text-xl font-bold text-primary [font-family:var(--font-dancing-script)]">PARENTHÈSE</p>
+              <p className="text-muted-foreground text-base leading-relaxed">
                 Soins bien-être périnataux à domicile à Versailles et ses
                 environs, pour les bébés et leurs parents.
               </p>
@@ -125,7 +125,7 @@ const Footer = () => {
           {/* Bottom bar */}
           <div className="mt-12 pt-8 border-t border-border">
             <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-              <p className="text-muted-foreground text-sm text-center sm:text-left">
+              <p className="text-muted-foreground text-base text-center sm:text-left">
                 © {currentYear} PARENTHÈSE. Tous droits réservés.
               </p>
               <Link

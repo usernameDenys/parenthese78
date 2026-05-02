@@ -36,7 +36,7 @@ export default function ApproachSection() {
   return (
     <div className="flex flex-col w-full items-center">
       <motion.h2
-        className="font-bold my-10 text-4xl md:text-5xl lg:text-6xl text-center"
+        className="font-bold my-10 text-5xl md:text-6xl lg:text-7xl text-center"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
@@ -55,7 +55,7 @@ export default function ApproachSection() {
             transition={{ duration: 0.8, ease, delay: i * 0.15 }}>
             <span className="text-primary">{point.icon}</span>
             <h3 className="font-bold text-lg text-primary">{point.title}</h3>
-            <p className="text-muted-foreground text-sm leading-relaxed">
+            <p className="text-muted-foreground text-base leading-relaxed">
               {point.desc}
             </p>
           </motion.div>

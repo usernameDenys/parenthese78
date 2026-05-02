@@ -23,7 +23,7 @@ export default function AboutSection() {
       </div>
       {/* Text */}
       <div className="order-1 lg:order-2 w-full mt-8 md:max-w-1/2 flex flex-col items-start *:pb-4 *:px-4">
-        <h2 className="font-bold mb-4 text-4xl md:text-left md:text-5xl lg:text-6xl">
+        <h2 className="font-bold mb-4 text-5xl md:text-left md:text-6xl lg:text-7xl">
           Une parenthèse de douceur pour votre famille
         </h2>
         <p>
