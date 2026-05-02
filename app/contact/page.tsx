@@ -43,7 +43,7 @@ export default function ContactPage() {
       <section className="pt-36 pb-16 bg-secondary">
         <Container>
           <div className="max-w-2xl flex flex-col gap-4">
-            <h1 className="font-bold text-4xl md:text-5xl lg:text-6xl">
+            <h1 className="font-bold text-5xl md:text-6xl lg:text-7xl">
               Contact
             </h1>
             <p className="text-muted-foreground leading-relaxed text-lg">

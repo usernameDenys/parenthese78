@@ -88,7 +88,7 @@ export default function OffrirPage() {
             <p className="text-sm font-semibold text-primary uppercase tracking-widest">
               Carte cadeau
             </p>
-            <h1 className="font-bold text-4xl md:text-5xl lg:text-6xl">
+            <h1 className="font-bold text-5xl md:text-6xl lg:text-7xl">
               Offrir une parenthèse
             </h1>
             <p className="text-muted-foreground leading-relaxed text-lg">
@@ -107,7 +107,7 @@ export default function OffrirPage() {
             <div className="flex flex-col gap-2 p-6 rounded-2xl bg-secondary">
               <span className="text-2xl">🎁</span>
               <p className="font-semibold text-primary">Personnalisable</p>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-base text-muted-foreground">
                 Soin spécifique, formule ou montant libre — avec prénom et
                 message.
               </p>
@@ -115,7 +115,7 @@ export default function OffrirPage() {
             <div className="flex flex-col gap-2 p-6 rounded-2xl bg-secondary">
               <span className="text-2xl">📅</span>
               <p className="font-semibold text-primary">Valable 6 mois</p>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-base text-muted-foreground">
                 À compter de la date d&apos;émission. Prolongation
                 exceptionnelle sur demande.
               </p>
@@ -123,7 +123,7 @@ export default function OffrirPage() {
             <div className="flex flex-col gap-2 p-6 rounded-2xl bg-secondary">
               <span className="text-2xl">💌</span>
               <p className="font-semibold text-primary">Numérique ou imprimée</p>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-base text-muted-foreground">
                 Nominative et non remboursable. Envoyée après réception du
                 règlement.
               </p>
@@ -137,7 +137,7 @@ export default function OffrirPage() {
         <Container>
           <div className="flex flex-col gap-10">
             <div className="flex flex-col gap-2">
-              <h2 className="font-bold text-4xl md:text-5xl">
+              <h2 className="font-bold text-5xl md:text-6xl">
                 Idées de cadeaux
               </h2>
               <p className="text-muted-foreground">
@@ -173,7 +173,7 @@ export default function OffrirPage() {
       <section className="py-16">
         <Container>
           <div className="flex flex-col gap-10">
-            <h2 className="font-bold text-4xl md:text-5xl">
+            <h2 className="font-bold text-5xl md:text-6xl">
               Comment commander ?
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -184,7 +184,7 @@ export default function OffrirPage() {
                   </div>
                   <div className="flex flex-col gap-1">
                     <p className="font-semibold">{step.title}</p>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
+                    <p className="text-base text-muted-foreground leading-relaxed">
                       {step.desc}
                     </p>
                   </div>
@@ -200,7 +200,7 @@ export default function OffrirPage() {
         <Container>
           <div className="flex flex-col items-center text-center gap-6 max-w-xl mx-auto">
             <span className="text-4xl">🎁</span>
-            <h2 className="font-bold text-4xl md:text-5xl">
+            <h2 className="font-bold text-5xl md:text-6xl">
               Prête à offrir ce moment ?
             </h2>
             <p className="text-muted-foreground">

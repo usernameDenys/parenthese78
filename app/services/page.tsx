@@ -13,19 +13,16 @@ export const metadata = {
 export default function ServicesPage() {
   return (
     <main className="bg-background">
-
       {/* Header */}
       <section className="pt-36 pb-16 bg-secondary">
         <Container>
           <div className="max-w-2xl flex flex-col gap-6">
-            <h1 className="font-bold text-4xl md:text-5xl lg:text-6xl">
+            <h1 className="font-bold text-5xl md:text-6xl lg:text-7xl">
               Prestations & Tarifs
             </h1>
             <p className="text-muted-foreground leading-relaxed text-lg">
               De la naissance aux premières années, je vous accompagne avec des
-              soins et ateliers pensés pour répondre à vos besoins, avec douceur
-              et expertise. Toutes les prestations sont réalisées à domicile,
-              à Versailles et ses environs.
+              parenthese de douceur à vivre ou à offrir
             </p>
           </div>
         </Container>
@@ -57,7 +54,9 @@ export default function ServicesPage() {
         <section
           key={cat.id}
           id={cat.anchor}
-          className={`py-20 ${catIndex % 2 !== 0 ? "bg-secondary" : "bg-background"}`}>
+          className={`py-20 ${
+            catIndex % 2 !== 0 ? "bg-secondary" : "bg-background"
+          }`}>
           <Container>
             <div className="flex flex-col gap-10">
               {/* Titre catégorie */}
@@ -65,7 +64,7 @@ export default function ServicesPage() {
                 <p className="text-sm font-semibold text-primary uppercase tracking-widest">
                   {cat.subtitle}
                 </p>
-                <h2 className="font-bold text-4xl md:text-5xl">{cat.title}</h2>
+                <h2 className="font-bold text-5xl md:text-6xl">{cat.title}</h2>
               </div>
 
               {/* Grille de services */}
@@ -73,12 +72,14 @@ export default function ServicesPage() {
                 {cat.services.map((service) => (
                   <div
                     key={service.id}
-                    className={`flex flex-col justify-between gap-5 p-8 rounded-2xl border border-border ${catIndex % 2 !== 0 ? "bg-background" : "bg-secondary/40"}`}>
+                    className={`flex flex-col justify-between gap-5 p-8 rounded-2xl border border-border ${
+                      catIndex % 2 !== 0 ? "bg-background" : "bg-secondary/40"
+                    }`}>
                     <div className="flex flex-col gap-3">
                       <h3 className="font-bold text-xl text-primary">
                         {service.title}
                       </h3>
-                      <p className="text-muted-foreground text-sm leading-relaxed">
+                      <p className="text-muted-foreground text-base leading-relaxed">
                         {service.description}
                       </p>
                       {service.note && (
@@ -90,7 +91,7 @@ export default function ServicesPage() {
                     </div>
                     <div className="flex flex-col gap-4">
                       <div className="flex gap-4">
-                        <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
+                        <span className="flex items-center gap-1.5 text-base text-muted-foreground">
                           <FiClock size={14} className="text-primary" />
                           {service.duration}
                         </span>
@@ -128,7 +129,7 @@ export default function ServicesPage() {
               <p className="text-sm font-semibold text-primary uppercase tracking-widest">
                 Packs
               </p>
-              <h2 className="font-bold text-4xl md:text-5xl">
+              <h2 className="font-bold text-5xl md:text-6xl">
                 Les Formules Parenthèse
               </h2>
               <p className="text-muted-foreground max-w-xl mt-2">
@@ -149,19 +150,19 @@ export default function ServicesPage() {
                         {formula.title}
                       </h3>
                       {formula.variant && (
-                        <p className="text-sm text-muted-foreground capitalize">
+                        <p className="text-base text-muted-foreground capitalize">
                           {formula.variant}
                         </p>
                       )}
                     </div>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-base text-muted-foreground">
                       {formula.subtitle}
                     </p>
                     <ul className="flex flex-col gap-2">
                       {formula.includes.map((item, i) => (
                         <li
                           key={i}
-                          className="flex items-center gap-2 text-sm text-muted-foreground">
+                          className="flex items-center gap-2 text-base text-muted-foreground">
                           <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
                           {item}
                         </li>
@@ -173,7 +174,7 @@ export default function ServicesPage() {
                       <span className="text-2xl font-bold text-primary">
                         {formula.price} €
                       </span>
-                      <span className="text-sm text-muted-foreground line-through">
+                      <span className="text-base text-muted-foreground line-through">
                         {formula.originalPrice} €
                       </span>
                     </div>
@@ -195,7 +196,7 @@ export default function ServicesPage() {
         <Container>
           <div className="max-w-2xl mx-auto flex flex-col gap-6">
             <h2 className="font-bold text-2xl">Frais de déplacement</h2>
-            <p className="text-muted-foreground text-sm">
+            <p className="text-muted-foreground text-base">
               Toutes les prestations sont réalisées à votre domicile, à
               Versailles et ses environs. Un forfait déplacement s&apos;applique
               au-delà de la zone incluse. Vous êtes informés avant chaque
@@ -205,26 +206,44 @@ export default function ServicesPage() {
               <table className="w-full text-sm">
                 <thead>
                   <tr className="bg-secondary">
-                    <th className="text-left px-4 py-3 font-semibold text-primary">Zone</th>
-                    <th className="text-left px-4 py-3 font-semibold text-primary">Distance</th>
-                    <th className="text-left px-4 py-3 font-semibold text-primary">Forfait</th>
+                    <th className="text-left px-4 py-3 font-semibold text-primary">
+                      Zone
+                    </th>
+                    <th className="text-left px-4 py-3 font-semibold text-primary">
+                      Distance
+                    </th>
+                    <th className="text-left px-4 py-3 font-semibold text-primary">
+                      Forfait
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr className="bg-background">
                     <td className="px-4 py-3 font-medium">Zone 1</td>
-                    <td className="px-4 py-3 text-muted-foreground">Versailles + 10 km</td>
-                    <td className="px-4 py-3 font-semibold text-primary">Inclus</td>
+                    <td className="px-4 py-3 text-muted-foreground">
+                      Versailles + 10 km
+                    </td>
+                    <td className="px-4 py-3 font-semibold text-primary">
+                      Inclus
+                    </td>
                   </tr>
                   <tr className="bg-secondary/40">
                     <td className="px-4 py-3 font-medium">Zone 2</td>
-                    <td className="px-4 py-3 text-muted-foreground">10 à 20 km</td>
-                    <td className="px-4 py-3 font-semibold text-primary">+ 10 €</td>
+                    <td className="px-4 py-3 text-muted-foreground">
+                      10 à 20 km
+                    </td>
+                    <td className="px-4 py-3 font-semibold text-primary">
+                      + 10 €
+                    </td>
                   </tr>
                   <tr className="bg-background">
                     <td className="px-4 py-3 font-medium">Zone 3</td>
-                    <td className="px-4 py-3 text-muted-foreground">20 à 30 km</td>
-                    <td className="px-4 py-3 font-semibold text-primary">+ 20 €</td>
+                    <td className="px-4 py-3 text-muted-foreground">
+                      20 à 30 km
+                    </td>
+                    <td className="px-4 py-3 font-semibold text-primary">
+                      + 20 €
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -237,7 +256,7 @@ export default function ServicesPage() {
       <section className="py-16 bg-secondary">
         <Container>
           <div className="flex flex-col items-center text-center gap-6">
-            <h2 className="font-bold text-4xl md:text-5xl">
+            <h2 className="font-bold text-5xl md:text-6xl">
               Prête à réserver votre parenthèse ?
             </h2>
             <p className="text-muted-foreground max-w-md">
@@ -248,14 +267,16 @@ export default function ServicesPage() {
               <ActionButton href="/rdv" ariaLabel="Prendre rendez-vous">
                 Prendre rendez-vous
               </ActionButton>
-              <ActionButton href="/offrir" ariaLabel="Offrir une parenthèse" variant="outline">
+              <ActionButton
+                href="/offrir"
+                ariaLabel="Offrir une parenthèse"
+                variant="outline">
                 Offrir une parenthèse
               </ActionButton>
             </div>
           </div>
         </Container>
       </section>
-
     </main>
   );
 }

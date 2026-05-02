@@ -29,7 +29,7 @@ export default function ActionButton({
         flex items-center justify-center
         rounded-full
         shadow-m
-        font-medium
+        text-lg font-medium
         transition-colors duration-200
         focus:outline-none
         focus-visible:ring-2

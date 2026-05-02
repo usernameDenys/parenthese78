@@ -14,7 +14,7 @@ export default function ZoneSection() {
       {/* Texte + Tableau */}
       <div className="flex flex-col lg:flex-row gap-12">
         <div className="flex flex-col gap-4 lg:w-1/2">
-          <h2 className="font-bold text-4xl md:text-5xl lg:text-6xl">
+          <h2 className="font-bold text-5xl md:text-6xl lg:text-7xl">
             Je viens à vous
           </h2>
           <p className="text-muted-foreground leading-relaxed">
@@ -44,7 +44,7 @@ export default function ZoneSection() {
         </div>
 
         <div className="lg:w-1/2 rounded-2xl overflow-hidden border border-border">
-          <table className="w-full text-sm">
+          <table className="w-full text-base">
             <thead>
               <tr className="bg-secondary">
                 <th className="text-left px-4 py-3 font-semibold text-primary">Zone</th>
@@ -55,9 +55,9 @@ export default function ZoneSection() {
             <tbody>
               {zones.map((row, i) => (
                 <tr key={row.zone} className={i % 2 === 0 ? "bg-background" : "bg-secondary/40"}>
-                  <td className="px-4 py-3 font-medium">{row.zone}</td>
-                  <td className="px-4 py-3 text-muted-foreground">{row.distance}</td>
-                  <td className="px-4 py-3 font-semibold text-primary">{row.tarif}</td>
+                  <td className="px-4 py-4 font-medium">{row.zone}</td>
+                  <td className="px-4 py-4 text-muted-foreground">{row.distance}</td>
+                  <td className="px-4 py-4 font-semibold text-primary">{row.tarif}</td>
                 </tr>
               ))}
             </tbody>

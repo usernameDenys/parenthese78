@@ -29,19 +29,19 @@ export default function HeroSection() {
       </motion.div>
       <div className="order-2 lg:order-1 w-full md:max-w-1/2 flex flex-col items-start *:pb-4 *:px-4">
         <motion.div className="flex gap-3 flex-wrap" {...fadeUp(0)}>
-          <span className="text-xs font-medium px-3 py-1 rounded-full bg-secondary text-primary">
+          <span className="text-sm font-medium px-3 py-1 rounded-full bg-secondary text-primary">
             Pour les bébés et leurs parents
           </span>
-          <span className="text-xs font-medium px-3 py-1 rounded-full bg-secondary text-primary">
+          <span className="text-sm font-medium px-3 py-1 rounded-full bg-secondary text-primary">
             À vivre ou à offrir
           </span>
         </motion.div>
         <motion.h1
-          className="font-bold mb-4 text-4xl md:text-left md:text-5xl lg:text-6xl xl:text-7xl"
+          className="font-bold mb-4 text-5xl md:text-left md:text-6xl lg:text-7xl xl:text-8xl"
           {...fadeUp(0.1)}>
           Des parenthèses pour naître parents en douceur
         </motion.h1>
-        <motion.p {...fadeUp(0.2)}>
+        <motion.p className="text-xl" {...fadeUp(0.2)}>
           Soins bien-être périnataux à domicile à Versailles et ses environs
         </motion.p>
 

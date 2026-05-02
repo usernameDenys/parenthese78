@@ -24,13 +24,12 @@ const categories = [
 export default function ServicesSection() {
   return (
     <div className="flex flex-col w-full items-center">
-      <h2 className="font-bold my-10 text-4xl md:text-5xl lg:text-6xl text-center">
+      <h2 className="font-bold my-10 text-5xl md:text-6xl lg:text-7xl text-center">
         Soins et ateliers pour bébé, enfant et parents
       </h2>
       <p className="w-full md:w-1/2 text-center text-muted-foreground mb-12">
         De la naissance aux premières années, et tout au long de la maternité,
-        je vous accompagne avec des soins et ateliers pensés pour répondre à
-        vos besoins, avec douceur et expertise.
+        je vous accompagne avec des parenthese de douceur à vivre ou à offrir.
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
@@ -40,7 +39,7 @@ export default function ServicesSection() {
             className="flex flex-col gap-4 p-8 rounded-2xl bg-secondary">
             <span className="text-primary text-2xl">{cat.icon}</span>
             <h3 className="font-bold text-xl text-primary">{cat.title}</h3>
-            <p className="text-muted-foreground text-sm leading-relaxed">
+            <p className="text-muted-foreground text-base leading-relaxed">
               {cat.desc}
             </p>
           </div>
