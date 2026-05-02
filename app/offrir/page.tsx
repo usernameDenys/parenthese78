@@ -15,42 +15,42 @@ const giftIdeas = [
     soin: "Thérapeutique Bain Bébé®",
     emoji: "🌸",
     price: "130 €",
-    href: "/services#soins-bebe",
+    href: "/parentheses#naissance",
   },
   {
     occasion: "Pour une future maman",
     soin: "Massage prénatal",
     emoji: "🌺",
     price: "110 €",
-    href: "/services#soins-femme",
+    href: "/parentheses#maternite",
   },
   {
     occasion: "Pour un post-partum soutenu",
     soin: "Soin Rebozo",
     emoji: "🌿",
     price: "170 €",
-    href: "/services#soins-femme",
+    href: "/parentheses#maternite",
   },
   {
     occasion: "Pour un jeune parent",
     soin: "Accompagnement sommeil",
     emoji: "🌙",
     price: "80 €",
-    href: "/services#accompagnement-parental",
+    href: "/parentheses#parentalite",
   },
   {
     occasion: "Pour un enfant",
     soin: "Massage enfant",
     emoji: "🌼",
     price: "45 €",
-    href: "/services#soins-enfant",
+    href: "/parentheses#massage-enfant",
   },
   {
     occasion: "Pour un accompagnement complet",
     soin: "Formule « Premiers jours »",
     emoji: "✨",
     price: "185 €",
-    href: "/services#formules",
+    href: "/parentheses#formules",
   },
 ];
 
@@ -96,6 +96,56 @@ export default function OffrirPage() {
               vous aimez. La carte cadeau Parenthèse est disponible pour un
               soin spécifique, une formule ou un montant libre.
             </p>
+          </div>
+        </Container>
+      </section>
+
+      {/* Choisir un soin */}
+      <section className="py-16 bg-accent">
+        <Container>
+          <div className="max-w-2xl flex flex-col gap-4">
+            <h2 className="font-bold text-4xl md:text-5xl">Choisir un soin à offrir</h2>
+            <p className="text-muted-foreground">Sélectionnez le soin que vous souhaitez offrir, puis contactez-moi pour finaliser la carte cadeau.</p>
+            <div className="flex flex-col gap-2">
+              <label htmlFor="soin-select" className="font-semibold text-sm text-muted-foreground uppercase tracking-wide">
+                Soin
+              </label>
+              <select
+                id="soin-select"
+                className="w-full rounded-xl border border-border bg-background px-4 py-3 text-foreground font-medium focus:outline-none focus:ring-2 focus:ring-primary">
+                <option value="">— Choisir un soin —</option>
+                <optgroup label="Pour la femme">
+                  <option value="maternite">Parenthèse Maternité — 110 € / 150 €</option>
+                  <option value="postnatale">Parenthèse Postnatale — 110 € / 150 €</option>
+                  <option value="rebozo">Soin Rebozo — 170 €</option>
+                  <option value="equilibre">Parenthèse Équilibre féminin — 110 € / 150 €</option>
+                  <option value="reflexologie">Réflexologie émotionnelle — 90 €</option>
+                  <option value="rituel">Rituel Rebozo — 500 €</option>
+                </optgroup>
+                <optgroup label="Pour le bébé">
+                  <option value="naissance">Parenthèse Naissance (Bain bébé) — 130 €</option>
+                  <option value="lien">Parenthèse Lien (Bain enveloppé) — à définir</option>
+                  <option value="massage-bebe">Massage bébé — à définir</option>
+                  <option value="reflexologie-bebe">Réflexologie bébé émotionnelle — à définir</option>
+                </optgroup>
+                <optgroup label="Pour les parents">
+                  <option value="sommeil">Sommeil de l&apos;enfant (0–3 ans) — à définir</option>
+                </optgroup>
+                <optgroup label="Pour les enfants">
+                  <option value="massage-enfant">Massage enfant — à définir</option>
+                  <option value="reflexologie-enfant">Réflexologie émotionnelle enfant — à définir</option>
+                </optgroup>
+                <optgroup label="Formules">
+                  <option value="formule-maternite">Parenthèse Continuité — Maternité</option>
+                  <option value="formule-naissance">Parenthèse Continuité — Naissance</option>
+                  <option value="formule-postpartum">Parenthèse Continuité — Post-partum</option>
+                  <option value="formule-enfance">Parenthèse Continuité — Enfance</option>
+                </optgroup>
+              </select>
+            </div>
+            <ActionButton href="/contact" ariaLabel="Contacter pour offrir un soin">
+              Contacter pour offrir ce soin
+            </ActionButton>
           </div>
         </Container>
       </section>
@@ -210,7 +260,7 @@ export default function OffrirPage() {
               <ActionButton href="/contact" ariaLabel="Commander une carte cadeau">
                 Commander une carte cadeau
               </ActionButton>
-              <ActionButton href="/services" ariaLabel="Voir tous les soins" variant="outline">
+              <ActionButton href="/parentheses" ariaLabel="Voir tous les soins" variant="outline">
                 Voir tous les soins
               </ActionButton>
             </div>
