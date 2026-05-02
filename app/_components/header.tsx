@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { Container } from "./container";
 import { navItems } from "./navItems";
 import Link from "next/link";
+import Image from "next/image";
+import logo from "@/public/logo.png";
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -24,12 +26,8 @@ export function Header() {
     <header className="bg-accent text-text  fixed top-0 md:static  w-full z-50">
       <Container>
         <div className="flex items-center justify-between py-4">
-          <Link
-            href="/"
-            role="link"
-            aria-label="Logo"
-            className="text-2xl font-bold [font-family:var(--font-dancing-script)]">
-            PARENTHÈSE
+          <Link href="/" role="link" aria-label="Retour à l'accueil">
+            <Image src={logo} alt="Parenthèse" height={48} className="h-12 w-auto" />
           </Link>
 
           {/* Desktop */}

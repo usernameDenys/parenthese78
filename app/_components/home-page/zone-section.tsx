@@ -20,7 +20,8 @@ export default function ZoneSection() {
           <p className="text-muted-foreground leading-relaxed">
             Je me déplace à votre domicile, à Versailles et ses environs, afin de
             vous offrir un moment de soin dans votre cocon, sans contraintes de
-            déplacement.
+            déplacement, dans un environnement familier et rassurant, propice au
+            lien et à la détente.
           </p>
           <p className="text-muted-foreground leading-relaxed">
             Au-delà de la zone incluse, un forfait déplacement s&apos;applique
@@ -29,16 +30,16 @@ export default function ZoneSection() {
           </p>
           <div className="flex flex-col gap-3 sm:flex-row sm:gap-4 w-full sm:w-auto pt-2">
             <Link
-              href="/contact"
-              aria-label="Contactez-moi"
+              href="/parentheses"
+              aria-label="Découvrir les soins à domicile"
               className="flex items-center justify-center px-8 h-12 bg-primary text-secondary rounded-full font-medium hover:opacity-90 transition-opacity duration-200 shadow-m">
-              Contactez-moi
+              Découvrir les soins
             </Link>
             <Link
-              href="/rdv"
-              aria-label="Réserver un RDV"
+              href="/contact"
+              aria-label="Contactez-moi"
               className="flex items-center justify-center px-8 h-12 border border-primary text-primary rounded-full font-medium hover:bg-primary hover:text-secondary transition-colors duration-200">
-              Réserver un RDV
+              Contactez-moi
             </Link>
           </div>
         </div>

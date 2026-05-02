@@ -36,34 +36,25 @@
 
 @layer base {
   :root {
-    --primary: hsl(243 35% 45%);
-    --primary-foreground: hsl(0 0% 100%);
-    --secondary: hsl(248 60% 96%);
-    --secondary-foreground: hsl(243 35% 45%);
-    --background: hsl(0 0% 100%);
-    --foreground: hsl(0 0% 9%);
-    --muted: hsl(248 60% 96%);
-    --muted-foreground: hsl(243 20% 40%);
-    --accent: hsl(248 60% 96%);
-    --accent-foreground: hsl(243 35% 45%);
-    --border: hsl(243 15% 85%);
-    --input: hsl(243 15% 85%);
-    --card: hsl(0 0% 100%);
-    --card-foreground: hsl(0 0% 9%);
-    --text: hsl(243 20% 25%);
+    --primary: #B88A8A;
+    --primary-foreground: #FFFFFF;
+    --secondary: #FBF7F2;
+    --secondary-foreground: #B88A8A;
+    --background: #FFFFFF;
+    --foreground: #3D3530;
+    --muted: #FBF7F2;
+    --muted-foreground: #6B5F58;
+    --accent: #F4ECDF;
+    --accent-foreground: #B88A8A;
+    --border: #E5DAD0;
+    --input: #E5DAD0;
+    --card: #FFFFFF;
+    --card-foreground: #3D3530;
+    --text: #3D3530;
 
-    --shadow-col: 216 100% 4%;
-
-    --shadow-s: inset 0 1px 2px hsl(var(--shadow-col) / 0.1),
-      0 2px 4px hsl(var(--shadow-col) / 0.05);
-
-    --shadow-m: 0 2px 4px hsl(var(--shadow-col) / 0.2),
-      0 2px 4px hsl(var(--shadow-col) / 0.6),
-      0 4px 8px hsl(var(--shadow-col) / 0.1);
-
-    --shadow-l: 0 4px 8px hsl(var(--shadow-col) / 0.2),
-      0 12px 24px hsl(var(--shadow-col) / 0.2),
-      0 24px 48px hsl(var(--shadow-col) / 0.2);
+    --shadow-s: 0 2px 12px rgba(61, 53, 48, 0.04);
+    --shadow-m: 0 8px 32px rgba(184, 138, 138, 0.10);
+    --shadow-l: 0 20px 60px rgba(184, 138, 138, 0.14);
   }
 }
 
