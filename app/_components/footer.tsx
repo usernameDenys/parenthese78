@@ -1,4 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
+import logo from "@/public/logo.png";
 import { FiInstagram, FiFacebook, FiMail, FiPhone, FiMapPin } from "react-icons/fi";
 
 const Footer = () => {
@@ -7,7 +9,7 @@ const Footer = () => {
   const navigationLinks = [
     { name: "Accueil", href: "/" },
     { name: "Qui suis-je ?", href: "/about" },
-    { name: "Prestations & Tarifs", href: "/services" },
+    { name: "Les Parenthèses", href: "/parentheses" },
     { name: "Offrir une parenthèse", href: "/offrir" },
     { name: "Prendre RDV", href: "/rdv" },
     { name: "Contact", href: "/contact" },
@@ -42,7 +44,9 @@ const Footer = () => {
 
             {/* Brand + Contact */}
             <div className="space-y-4">
-              <p className="text-xl font-bold text-primary [font-family:var(--font-dancing-script)]">PARENTHÈSE</p>
+              <Link href="/">
+                <Image src={logo} alt="Parenthèse" height={40} className="h-10 w-auto" />
+              </Link>
               <p className="text-muted-foreground text-base leading-relaxed">
                 Soins bien-être périnataux à domicile à Versailles et ses
                 environs, pour les bébés et leurs parents.

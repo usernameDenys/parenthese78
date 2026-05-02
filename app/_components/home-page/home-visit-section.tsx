@@ -7,7 +7,7 @@ export default function HomeVisit() {
     <div className="flex flex-col items-center w-full lg:flex-row bg-secondary rounded-4xl p-12">
       <div className="relative order-1 lg:order-2 w-full h-fit rounded overflow-hidden max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto shadow-2xl">
         <Link
-          href="services"
+          href="/parentheses"
           aria-label="Prendre rendez-vous en ligne"
           role="link"
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center px-6 h-12 bg-white text-primary rounded-full  hover:bg-primary hover:text-secondary shadow-m">
@@ -31,7 +31,7 @@ export default function HomeVisit() {
         </p>
         <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:gap-4 w-full sm:w-auto">
           <Link
-            href="/services"
+            href="/parentheses"
             aria-label="Découvrir les soins à domicile"
             role="link"
             className="flex items-center justify-center px-6 h-12 bg-white text-primary rounded-full hover:bg-primary hover:text-secondary shadow-m font-medium transition-colors duration-200">

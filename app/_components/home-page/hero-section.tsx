@@ -1,6 +1,6 @@
 "use client";
 
-import heroImage from "@/assets/Image Placeholder.jpg";
+import heroImage from "@/assets/IMG-20260323-WA0087.jpg";
 import Image from "next/image";
 import ActionButton from "../action-button";
 import { motion } from "framer-motion";
@@ -48,7 +48,7 @@ export default function HeroSection() {
         <motion.div
           className="flex flex-col gap-3 pt-4 sm:flex-row sm:gap-4 w-full"
           {...fadeUp(0.3)}>
-          <ActionButton href="/services" ariaLabel="Découvrir les soins proposés">
+          <ActionButton href="/parentheses" ariaLabel="Découvrir les soins proposés">
             Découvrir les soins
           </ActionButton>
           <ActionButton
