@@ -16,8 +16,8 @@ export default function ActionButton({
 }: ActionButtonProps) {
   const styles =
     variant === "outline"
-      ? "bg-transparent text-primary border border-primary hover:bg-primary hover:text-secondary"
-      : "bg-primary text-secondary hover:opacity-90";
+      ? "bg-transparent text-primary border border-[#E8CFCF] hover:bg-[#F5E6E2] hover:border-primary"
+      : "bg-primary text-secondary hover:bg-[#D4A0A0] hover:-translate-y-px";
 
   return (
     <Link

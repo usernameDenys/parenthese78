@@ -1,7 +1,19 @@
 import Link from "next/link";
 import { Container } from "../_components/container";
 import ActionButton from "../_components/action-button";
-import { FiGift, FiMail, FiSmartphone, FiCalendar } from "react-icons/fi";
+import {
+  FiGift,
+  FiMail,
+  FiSmartphone,
+  FiCalendar,
+  FiDroplet,
+  FiHeart,
+  FiWind,
+  FiMoon,
+  FiStar,
+  FiLayers,
+} from "react-icons/fi";
+import { ReactNode } from "react";
 
 export const metadata = {
   title: "Offrir une parenthèse — PARENTHÈSE",
@@ -9,46 +21,46 @@ export const metadata = {
     "Offrez un moment de douceur avec une carte cadeau Parenthèse — soins bébé, massages, accompagnement. Valable 6 mois, personnalisable.",
 };
 
-const giftIdeas = [
+const giftIdeas: { occasion: string; soin: string; icon: ReactNode; price: string; href: string }[] = [
   {
     occasion: "Pour une naissance",
     soin: "Thérapeutique Bain Bébé®",
-    emoji: "🌸",
+    icon: <FiDroplet size={20} />,
     price: "130 €",
     href: "/parentheses#naissance",
   },
   {
     occasion: "Pour une future maman",
     soin: "Massage prénatal",
-    emoji: "🌺",
+    icon: <FiHeart size={20} />,
     price: "110 €",
     href: "/parentheses#maternite",
   },
   {
     occasion: "Pour un post-partum soutenu",
     soin: "Soin Rebozo",
-    emoji: "🌿",
+    icon: <FiWind size={20} />,
     price: "170 €",
     href: "/parentheses#maternite",
   },
   {
     occasion: "Pour un jeune parent",
     soin: "Accompagnement sommeil",
-    emoji: "🌙",
+    icon: <FiMoon size={20} />,
     price: "80 €",
     href: "/parentheses#parentalite",
   },
   {
     occasion: "Pour un enfant",
     soin: "Massage enfant",
-    emoji: "🌼",
+    icon: <FiStar size={20} />,
     price: "45 €",
     href: "/parentheses#massage-enfant",
   },
   {
     occasion: "Pour un accompagnement complet",
     soin: "Formule « Premiers jours »",
-    emoji: "✨",
+    icon: <FiLayers size={20} />,
     price: "185 €",
     href: "/parentheses#formules",
   },
@@ -85,7 +97,7 @@ export default function OffrirPage() {
       <section className="pt-36 pb-16 bg-secondary">
         <Container>
           <div className="max-w-2xl flex flex-col gap-4">
-            <p className="text-sm font-semibold text-primary uppercase tracking-widest">
+            <p className="text-sm font-semibold text-primary uppercase tracking-widest italic">
               Carte cadeau
             </p>
             <h1 className="font-bold text-5xl md:text-6xl lg:text-7xl">
@@ -155,7 +167,7 @@ export default function OffrirPage() {
         <Container>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl">
             <div className="flex flex-col gap-2 p-6 rounded-2xl bg-secondary">
-              <span className="text-2xl">🎁</span>
+              <FiGift className="text-primary" size={24} />
               <p className="font-semibold text-primary">Personnalisable</p>
               <p className="text-base text-muted-foreground">
                 Soin spécifique, formule ou montant libre — avec prénom et
@@ -163,7 +175,7 @@ export default function OffrirPage() {
               </p>
             </div>
             <div className="flex flex-col gap-2 p-6 rounded-2xl bg-secondary">
-              <span className="text-2xl">📅</span>
+              <FiCalendar className="text-primary" size={24} />
               <p className="font-semibold text-primary">Valable 6 mois</p>
               <p className="text-base text-muted-foreground">
                 À compter de la date d&apos;émission. Prolongation
@@ -171,7 +183,7 @@ export default function OffrirPage() {
               </p>
             </div>
             <div className="flex flex-col gap-2 p-6 rounded-2xl bg-secondary">
-              <span className="text-2xl">💌</span>
+              <FiMail className="text-primary" size={24} />
               <p className="font-semibold text-primary">Numérique ou imprimée</p>
               <p className="text-base text-muted-foreground">
                 Nominative et non remboursable. Envoyée après réception du
@@ -200,7 +212,7 @@ export default function OffrirPage() {
                   key={idea.soin}
                   href={idea.href}
                   className="group flex flex-col gap-3 p-6 rounded-2xl bg-background border border-border hover:border-primary transition-colors duration-200">
-                  <span className="text-3xl">{idea.emoji}</span>
+                  <span className="text-primary">{idea.icon}</span>
                   <div className="flex flex-col gap-1">
                     <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
                       {idea.occasion}
@@ -249,7 +261,6 @@ export default function OffrirPage() {
       <section className="py-16 bg-secondary">
         <Container>
           <div className="flex flex-col items-center text-center gap-6 max-w-xl mx-auto">
-            <span className="text-4xl">🎁</span>
             <h2 className="font-bold text-5xl md:text-6xl">
               Prête à offrir ce moment ?
             </h2>

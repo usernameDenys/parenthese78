@@ -23,7 +23,7 @@ export function Header() {
   }, [mobileMenuOpen]);
 
   return (
-    <header className="bg-accent text-text  fixed top-0 md:static  w-full z-50">
+    <header className="text-text fixed top-0 w-full z-50 bg-white/92 backdrop-blur-md">
       <Container>
         <div className="flex items-center justify-between py-4">
           <Link href="/" role="link" aria-label="Retour à l'accueil">
