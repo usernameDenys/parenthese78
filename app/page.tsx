@@ -1,66 +1,47 @@
 import { Container } from "./_components/container";
-import AboutSection from "./_components/home-page/about-section";
-import ApproachSection from "./_components/home-page/approach-section";
 import HeroSection from "./_components/home-page/hero-section";
-import ManifesteSection from "./_components/home-page/manifeste-section";
-import ParallaxSection from "./_components/home-page/parallax-section";
-import PartnersSection from "./_components/home-page/partners-section";
 import ServicesSection from "./_components/home-page/services-section";
-import TestimonialsSection from "./_components/home-page/testimonials-section";
+import ParallaxSection from "./_components/home-page/parallax-section";
 import ZoneSection from "./_components/home-page/zone-section";
+import TestimonialsSection from "./_components/home-page/testimonials-section";
+import CTASection from "./_components/home-page/cta-section";
 
 export default function Home() {
   return (
-    <main className="bg-background m-auto">
-      <section className="min-h-screen pt-24 flex items-center text-text">
+    <main className="bg-background">
+      {/* Hero */}
+      <section className="pt-36 pb-24 bg-background">
         <Container>
           <HeroSection />
         </Container>
       </section>
 
-      <section className="py-24 flex items-center text-text">
+      {/* Services overview */}
+      <section className="py-24 bg-secondary">
         <Container>
           <ServicesSection />
         </Container>
       </section>
 
+      {/* Parallax */}
       <ParallaxSection />
 
-      <section className="py-24 flex items-center text-text bg-secondary">
-        <Container>
-          <AboutSection />
-        </Container>
-      </section>
-
-      <section className="py-24 flex items-center text-text bg-secondary">
-        <Container>
-          <ApproachSection />
-        </Container>
-      </section>
-
-      <section className="py-24 flex items-center text-text">
-        <Container>
-          <TestimonialsSection />
-        </Container>
-      </section>
-
-      <section className="py-24 flex items-center text-text">
-        <Container>
-          <ManifesteSection />
-        </Container>
-      </section>
-
-      <section className="py-24 flex items-center text-text">
+      {/* Zone d'intervention */}
+      <section className="py-24 bg-secondary">
         <Container>
           <ZoneSection />
         </Container>
       </section>
 
-      <section className="py-24 flex items-center text-text bg-secondary">
+      {/* Testimonials */}
+      <section className="py-24 bg-background">
         <Container>
-          <PartnersSection />
+          <TestimonialsSection />
         </Container>
       </section>
+
+      {/* CTA banner */}
+      <CTASection />
     </main>
   );
 }

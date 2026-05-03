@@ -1,10 +1,7 @@
 import { Container } from "@/app/_components/container";
 import ActionButton from "@/app/_components/action-button";
-import Image from "next/image";
-import bain4 from "@/assets/bain4.jpg";
-import bain5 from "@/assets/bain5.jpg";
-import bain6 from "@/assets/bain6.jpg";
-import bain7 from "@/assets/bain7.jpg";
+import SoinsAccordion, { type Soin } from "./_components/soins-accordion";
+import CatNav from "./_components/cat-nav";
 
 export const metadata = {
   title: "Les Parenthèses — Soins & accompagnements | Parenthèse",
@@ -96,7 +93,7 @@ const soinsF = [
     sous: "Pieds & centres énergétiques",
     accroche: "Un soin pour apaiser les émotions, relâcher les tensions et retrouver un mieux-être, en douceur.",
     description:
-      "La réflexologie émotionnelle s'appuie sur la stimulation de zones réflexes au niveau des pieds, en lien avec les centres énergétiques du corps. Elle permet d'accompagner les émotions et d'apaiser le corps, pour retrouver plus de calme et de légèreté.",
+      "La réflexologie émotionnelle s'appuie sur la stimulation de zones réflexes au niveau des pieds, en lien avec les centres énergétiques du corps. Par des pressions douces, accompagnées de pierres, elle permet d'accompagner les émotions et d'apaiser le corps, pour retrouver plus de calme et de légèreté.",
     bienfaits: [
       "Apaiser les émotions",
       "Relâcher les tensions",
@@ -238,167 +235,58 @@ const soinsEnfants = [
 
 const formules = [
   {
-    nom: "Parenthèse Continuité — Maternité",
+    nom: "Parenthèse Maternité",
     desc: "Accompagner la grossesse avec plusieurs temps de soin, pour soulager le corps, se détendre et créer un lien avec son bébé au fil des mois.",
     contenu: "2 à 3 séances au choix",
   },
   {
-    nom: "Parenthèse Continuité — Naissance",
+    nom: "Parenthèse Naissance",
     desc: "Offrir à bébé et à ses parents plusieurs moments de douceur pour accompagner les premiers jours de vie.",
     contenu: "Bain, massage, accompagnement",
   },
   {
-    nom: "Parenthèse Continuité — Post-partum",
+    nom: "Parenthèse Post-partum",
     desc: "Soutenir la récupération, les émotions et l'adaptation à la vie avec bébé.",
     contenu: "Soins + accompagnement",
   },
   {
-    nom: "Parenthèse Continuité — Enfance",
+    nom: "Parenthèse Enfance",
     desc: "Accompagner l'enfant dans son bien-être et ses émotions sur plusieurs séances.",
     contenu: "Tarif sur demande",
   },
 ];
 
-// ─── Types ────────────────────────────────────────────────────────────────────
-
-type Soin = {
-  id: string;
-  nom: string;
-  sous: string;
-  accroche: string;
-  description: string;
-  bienfaits: string[];
-  pourQui: string;
-  duree: string;
-  tarif: string;
-  premium?: boolean;
-  comingSoon?: boolean;
-};
-
 // ─── Components ──────────────────────────────────────────────────────────────
 
-function SoinCard({ soin, images }: { soin: Soin; images?: React.ReactNode }) {
-  return (
-    <div className="flex flex-col gap-6 py-10 border-b border-border last:border-0">
-      <div className="flex flex-col lg:flex-row gap-10">
-        {/* Contenu */}
-        <div className="flex flex-col gap-5 lg:w-3/5">
-          <div>
-            {soin.premium && (
-              <span className="text-xs font-semibold uppercase tracking-widest text-primary bg-accent px-3 py-1 rounded-full mb-3 inline-block">
-                Soin d'exception
-              </span>
-            )}
-            {soin.comingSoon && (
-              <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground bg-secondary px-3 py-1 rounded-full mb-3 inline-block">
-                À venir
-              </span>
-            )}
-            <p className="text-sm font-semibold text-primary uppercase tracking-widest mb-1">
-              {soin.sous}
-            </p>
-            <h3 className="font-bold text-3xl md:text-4xl">{soin.nom}</h3>
-          </div>
-
-          <p className="text-muted-foreground italic text-lg leading-relaxed">
-            {soin.accroche}
-          </p>
-
-          {!soin.comingSoon && (
-            <p className="text-muted-foreground leading-relaxed">{soin.description}</p>
-          )}
-
-          {soin.bienfaits.length > 0 && (
-            <div>
-              <p className="font-semibold mb-2">Les bienfaits</p>
-              <ul className="flex flex-col gap-1.5">
-                {soin.bienfaits.map((b, i) => (
-                  <li key={i} className="flex gap-2 text-muted-foreground">
-                    <span className="text-primary mt-1 shrink-0">—</span>
-                    {b}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-
-          {soin.pourQui && (
-            <div>
-              <p className="font-semibold mb-1">Pour qui ?</p>
-              <p className="text-muted-foreground">{soin.pourQui}</p>
-            </div>
-          )}
-
-          {/* Infos pratiques */}
-          <div className="flex flex-wrap gap-4 pt-2">
-            <div className="flex flex-col gap-0.5 bg-secondary rounded-xl px-4 py-3">
-              <span className="text-xs text-muted-foreground uppercase tracking-wide font-semibold">Durée</span>
-              <span className="font-semibold">{soin.duree}</span>
-            </div>
-            <div className="flex flex-col gap-0.5 bg-secondary rounded-xl px-4 py-3">
-              <span className="text-xs text-muted-foreground uppercase tracking-wide font-semibold">Tarif</span>
-              <span className="font-semibold text-primary">{soin.tarif}</span>
-            </div>
-            <div className="flex flex-col gap-0.5 bg-secondary rounded-xl px-4 py-3">
-              <span className="text-xs text-muted-foreground uppercase tracking-wide font-semibold">Lieu</span>
-              <span className="font-semibold">À domicile</span>
-            </div>
-          </div>
-
-          <div className="flex flex-wrap gap-3 pt-1">
-            <ActionButton href="/contact" ariaLabel={`Réserver ${soin.nom}`}>
-              Réserver ce moment
-            </ActionButton>
-            <ActionButton href="/offrir" ariaLabel={`Offrir ${soin.nom}`} variant="outline">
-              Offrir ce moment
-            </ActionButton>
-          </div>
-        </div>
-
-        {/* Image */}
-        {images && (
-          <div className="lg:w-2/5 rounded-2xl overflow-hidden aspect-[4/5]">
-            {images}
-          </div>
-        )}
-      </div>
-    </div>
-  );
-}
-
 function CategorySection({
+  id,
   title,
   subtitle,
   desc,
   soins,
-  images,
   ctaLabel,
   ctaHref,
+  bg,
 }: {
+  id: string;
   title: string;
   subtitle: string;
   desc: string;
   soins: Soin[];
-  images: React.ReactNode[];
   ctaLabel: string;
   ctaHref: string;
+  bg?: string;
 }) {
   return (
-    <section className="py-24">
+    <section id={"cat-" + id} className="py-24 scroll-mt-36" style={bg ? { background: bg } : undefined}>
       <Container>
-        <div className="flex flex-col gap-2 mb-12">
-          <span className="text-sm font-semibold text-primary uppercase tracking-widest">
-            {subtitle}
-          </span>
-          <h2 className="font-bold text-5xl md:text-6xl lg:text-7xl">{title}</h2>
-          <p className="text-muted-foreground text-lg mt-2">{desc}</p>
+        <div className="section-head">
+          <span className="eyebrow">{subtitle}</span>
+          <h2>{title}</h2>
+          <p>{desc}</p>
         </div>
 
-        <div className="flex flex-col">
-          {soins.map((soin, i) => (
-            <SoinCard key={soin.id} soin={soin} images={images[i]} />
-          ))}
-        </div>
+        <SoinsAccordion soins={soins} />
 
         <div className="flex flex-wrap gap-4 mt-12">
           <ActionButton href={ctaHref} ariaLabel={ctaLabel}>
@@ -419,28 +307,22 @@ export default function ParenthesesPage() {
   return (
     <main>
       {/* En-tête */}
-      <section className="pt-32 pb-16 bg-secondary">
+      <section className="pt-40 pb-16 bg-secondary text-center">
         <Container>
-          <div className="flex flex-col gap-4 max-w-3xl">
-            <div className="flex gap-3 flex-wrap">
-              <span className="text-sm font-medium px-3 py-1 rounded-full bg-accent text-primary">
-                À domicile, à Versailles et ses environs
-              </span>
-              <span className="text-sm font-medium px-3 py-1 rounded-full bg-accent text-primary">
-                À vivre ou à offrir
-              </span>
-            </div>
-            <h1 className="font-bold text-5xl md:text-6xl lg:text-7xl">
-              Les Parenthèses
-            </h1>
-            <p className="text-xl text-muted-foreground italic">
+          <div className="flex flex-col items-center gap-4 max-w-2xl mx-auto">
+            <span className="eyebrow">Soins & accompagnements</span>
+            <h1>Les Parenthèses</h1>
+            <p className="text-xl italic">
               Des accompagnements bien-être pour la femme, le bébé et les parents
             </p>
-            <p className="text-muted-foreground leading-relaxed max-w-xl">
+            <p className="leading-relaxed max-w-lg">
               Des moments pour ralentir, prendre un temps pour soi, et vivre les débuts
               de la vie avec douceur et présence.
             </p>
-            <div className="flex flex-wrap gap-3 mt-2">
+            <p className="italic text-sm" style={{ color: "var(--sage-deep)" }}>
+              À domicile, à Versailles et ses environs · À vivre ou à offrir
+            </p>
+            <div className="flex flex-wrap gap-3 mt-2 justify-center">
               <ActionButton href="/contact" ariaLabel="Réserver un soin">
                 Réserver un soin
               </ActionButton>
@@ -452,104 +334,61 @@ export default function ParenthesesPage() {
         </Container>
       </section>
 
+      <CatNav />
+
       {/* Pour la femme */}
       <CategorySection
+        id="femme"
         title="Pour la femme"
         subtitle="Parenthèse au féminin"
         desc="Des soins pour accompagner les grandes étapes de la vie féminine"
         soins={soinsF}
-        images={[
-          <Image key="bain4" src={bain4} alt="Massage prénatal" className="w-full h-full object-cover" />,
-          <Image key="bain5" src={bain5} alt="Massage postnatal" className="w-full h-full object-cover" />,
-          <Image key="bain6" src={bain6} alt="Soin Rebozo" className="w-full h-full object-cover" />,
-          null,
-          null,
-          null,
-        ]}
         ctaLabel="Réserver un soin femme"
         ctaHref="/contact"
       />
 
-      {/* Séparateur */}
-      <div className="bg-secondary">
-        <Container>
-          <div className="h-px bg-border" />
-        </Container>
-      </div>
-
       {/* Pour le bébé */}
       <CategorySection
+        id="bebe"
         title="Pour le bébé"
         subtitle="Parenthèse pour bébé"
         desc="Accueillir, apaiser et créer du lien dès les premiers instants"
         soins={soinsBebe}
-        images={[
-          <Image key="bain7" src={bain7} alt="Bain bébé thérapeutique" className="w-full h-full object-cover" />,
-          null,
-          null,
-          null,
-        ]}
         ctaLabel="Réserver un soin bébé"
+        ctaHref="/contact"
+        bg="var(--secondary)"
+      />
+
+      {/* Pour les parents */}
+      <CategorySection
+        id="parents"
+        title="Pour les parents"
+        subtitle="Parenthèse pour les parents"
+        desc="Soutenir, rassurer et accompagner votre nouveau rôle"
+        soins={soinsParents}
+        ctaLabel="Réserver un accompagnement"
         ctaHref="/contact"
       />
 
-      {/* Séparateur */}
-      <div className="bg-secondary">
-        <Container>
-          <div className="h-px bg-border" />
-        </Container>
-      </div>
-
-      {/* Pour les parents */}
-      <section className="py-24 bg-secondary">
-        <Container>
-          <div className="flex flex-col gap-2 mb-12">
-            <span className="text-sm font-semibold text-primary uppercase tracking-widest">
-              Parenthèse pour les parents
-            </span>
-            <h2 className="font-bold text-5xl md:text-6xl lg:text-7xl">Pour les parents</h2>
-            <p className="text-muted-foreground text-lg mt-2">
-              Soutenir, rassurer et accompagner votre nouveau rôle
-            </p>
-          </div>
-          <div className="flex flex-col">
-            {soinsParents.map((soin) => (
-              <SoinCard key={soin.id} soin={soin} />
-            ))}
-          </div>
-          <div className="flex flex-wrap gap-4 mt-12">
-            <ActionButton href="/contact" ariaLabel="Réserver un accompagnement">
-              Réserver un accompagnement
-            </ActionButton>
-            <ActionButton href="/offrir" ariaLabel="Offrir une parenthèse" variant="outline">
-              Offrir une Parenthèse
-            </ActionButton>
-          </div>
-        </Container>
-      </section>
-
       {/* Pour les enfants */}
       <CategorySection
+        id="enfants"
         title="Pour les enfants"
         subtitle="Parenthèse enfance"
         desc="Des soins pour accompagner les enfants dans leur développement émotionnel et leur bien-être"
         soins={soinsEnfants}
-        images={[null, null]}
         ctaLabel="Réserver un soin"
         ctaHref="/contact"
+        bg="var(--secondary)"
       />
 
       {/* Les Formules */}
       <section className="py-24 bg-accent">
         <Container>
-          <div className="flex flex-col gap-2 mb-12">
-            <span className="text-sm font-semibold text-primary uppercase tracking-widest">
-              Dans la durée
-            </span>
-            <h2 className="font-bold text-5xl md:text-6xl">Les formules Parenthèse</h2>
-            <p className="text-muted-foreground text-lg mt-2 max-w-xl">
-              Un accompagnement dans la durée, pour prendre soin de chaque étape.
-            </p>
+          <div className="section-head">
+            <span className="eyebrow">Dans la durée</span>
+            <h2>Les formules Parenthèse</h2>
+            <p>Un accompagnement dans la durée, pour prendre soin de chaque étape.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
