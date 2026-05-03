@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Container } from "../_components/container";
 import ActionButton from "../_components/action-button";
-import placeholderImage from "@/assets/Image Placeholder.jpg";
+import placeholderImage from "@/assets/IMG-20260323-WA0087.jpg";
 import { FiAward, FiBookOpen } from "react-icons/fi";
 import FormationsTimeline from "./_components/formations-timeline";
 
@@ -104,7 +104,7 @@ export default function AboutPage() {
               </p>
               <div className="flex flex-col gap-3 sm:flex-row sm:gap-4 w-full sm:w-auto">
                 <ActionButton
-                  href="/services"
+                  href="/parentheses"
                   ariaLabel="Découvrir les prestations">
                   Découvrir les prestations
                 </ActionButton>
@@ -190,7 +190,7 @@ export default function AboutPage() {
             </p>
             <div className="flex flex-col gap-3 sm:flex-row sm:gap-4 w-full sm:w-auto mt-4">
               <ActionButton
-                href="/services"
+                href="/parentheses"
                 ariaLabel="Découvrir les prestations">
                 Découvrir les prestations
               </ActionButton>
