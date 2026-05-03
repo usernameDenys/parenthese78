@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import bg from "@/assets/bain7.jpg";
+import bg from "@/assets/bain7.webp";
 
 export default function ParallaxSection() {
   const ref = useRef<HTMLDivElement>(null);
@@ -13,14 +13,13 @@ export default function ParallaxSection() {
     offset: ["start end", "end start"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
+  const y = useTransform(scrollYProgress, [0, 1], ["-22%", "22%"]);
 
   return (
     <div
       ref={ref}
       className="relative overflow-hidden w-full"
       style={{ height: "clamp(480px, 70vh, 720px)" }}>
-      {/* Background image with parallax */}
       <motion.div
         className="absolute inset-0 w-full"
         style={{ y }}
@@ -35,7 +34,6 @@ export default function ParallaxSection() {
         />
       </motion.div>
 
-      {/* Gradient overlay */}
       <div
         className="absolute inset-0"
         style={{
@@ -45,7 +43,6 @@ export default function ParallaxSection() {
         aria-hidden="true"
       />
 
-      {/* Content */}
       <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 gap-5 max-w-3xl mx-auto">
         <span className="eyebrow" style={{ color: "rgba(255,255,255,0.85)" }}>
           Une présence, un souffle

@@ -6,6 +6,11 @@ export interface NavItems {
 
 export const navItems: NavItems[] = [
   {
+    label: "Accueil",
+    href: "/",
+    ariaLabel: "Retour à l'accueil",
+  },
+  {
     label: "Les Parenthèses",
     href: "parentheses",
     ariaLabel: "Découvrir tous les soins et accompagnements",

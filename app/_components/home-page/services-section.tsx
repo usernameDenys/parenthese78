@@ -1,9 +1,9 @@
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import { FiHeart, FiDroplet, FiUsers } from "react-icons/fi";
-import femmeImg from "@/assets/bain5.jpg";
-import bebeImg from "@/assets/bain4.jpg";
-import parentsImg from "@/assets/bain7.jpg";
+import femmeImg from "@/assets/IMG-20260323-WA0087.webp";
+import bebeImg from "@/assets/IMG-20250912-WA0075.webp";
+import parentsImg from "@/assets/bain6.webp";
 
 const categories: {
   id: string;
@@ -12,6 +12,7 @@ const categories: {
   icon: React.ReactNode;
   image: StaticImageData;
   alt: string;
+  objectPosition?: string;
 }[] = [
   {
     id: "femme",
@@ -20,6 +21,7 @@ const categories: {
     icon: <FiHeart size={22} />,
     image: femmeImg,
     alt: "Massage prénatal et postnatal — Parenthèse",
+    objectPosition: "bottom",
   },
   {
     id: "bebe",
@@ -61,7 +63,7 @@ export default function ServicesSection() {
                 alt={cat.alt}
                 fill
                 className="object-cover transition-transform duration-500 hover:scale-[1.04]"
-                style={{ filter: "grayscale(0.1)" }}
+                style={{ filter: "grayscale(0.1)", objectPosition: cat.objectPosition ?? "center" }}
               />
             </div>
 

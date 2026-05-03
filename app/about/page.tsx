@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Container } from "../_components/container";
 import ActionButton from "../_components/action-button";
-import placeholderImage from "@/assets/IMG-20260323-WA0087.jpg";
+import placeholderImage from "@/assets/IMG-20260323-WA0087.webp";
 import { FiAward, FiBookOpen } from "react-icons/fi";
 import FormationsTimeline from "./_components/formations-timeline";
 
@@ -77,13 +77,35 @@ export default function AboutPage() {
         <Container>
           <div className="flex flex-col items-center w-full lg:flex-row gap-12 lg:gap-20">
             <div className="w-full lg:w-1/2 flex justify-center">
-              <div className="relative w-72 h-80 md:w-96 md:h-[480px] rounded-[34%_66%_64%_36%/30%_32%_68%_70%] overflow-hidden shadow-2xl">
-                <Image
-                  src={placeholderImage}
-                  alt="Faustine, accompagnante périnatale à domicile à Versailles"
-                  fill
-                  className="object-cover"
-                />
+              <div className="relative">
+                <div className="relative w-72 h-80 md:w-96 md:h-[480px] rounded-[34%_66%_64%_36%/30%_32%_68%_70%] overflow-hidden shadow-2xl">
+                  <Image
+                    src={placeholderImage}
+                    alt="Faustine, accompagnante périnatale à domicile à Versailles"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                {/* Badge expérience */}
+                <div
+                  className="absolute -bottom-6 -right-4 bg-white flex items-center gap-3"
+                  style={{
+                    padding: "16px 20px",
+                    borderRadius: "var(--radius-card)",
+                    boxShadow: "var(--shadow-m)",
+                    maxWidth: "240px",
+                  }}>
+                  <span
+                    className="font-heading leading-none shrink-0"
+                    style={{ fontSize: "2.2rem", color: "var(--primary)" }}>
+                    {new Date().getFullYear() - 2009}+
+                  </span>
+                  <span
+                    className="text-sm italic leading-snug"
+                    style={{ color: "var(--muted-foreground)" }}>
+                    années d&apos;expérience auprès des familles, depuis 2009
+                  </span>
+                </div>
               </div>
             </div>
             <div className="w-full lg:w-1/2 flex flex-col gap-6">
