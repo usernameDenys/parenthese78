@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { FiCheckCircle } from "react-icons/fi";
 
 const subjects = [
   "Réservation d'un soin",
@@ -27,7 +28,7 @@ export default function ContactForm() {
   if (status === "success") {
     return (
       <div className="flex flex-col items-center justify-center gap-4 py-16 text-center">
-        <span className="text-4xl">🌸</span>
+        <FiCheckCircle className="text-primary" size={40} />
         <h3 className="font-bold text-xl text-primary">Message envoyé !</h3>
         <p className="text-muted-foreground text-base max-w-sm">
           Merci pour votre message. Je vous répondrai dans les 24 à 48h.

@@ -1,6 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
+import bain4 from "@/assets/bain4.jpg";
+import bain5 from "@/assets/bain5.jpg";
+import bain6 from "@/assets/bain6.jpg";
+import bain7 from "@/assets/bain7.jpg";
+import edbn from "@/assets/Macaron ABN.png";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -22,18 +28,37 @@ export default function PartnersSection() {
       </motion.div>
 
       {/* Photos grid */}
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-3 w-full">
-        {Array.from({ length: 6 }).map((_, i) => (
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 w-full">
+        {[bain4, bain5, bain6, bain7].map((img, i) => (
           <motion.div
             key={i}
-            className="rounded-2xl aspect-square bg-border"
+            className="rounded-2xl aspect-square overflow-hidden"
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.45, ease, delay: i * 0.07 }}
-          />
+            transition={{ duration: 0.45, ease, delay: i * 0.07 }}>
+            <Image src={img} alt="Soin Parenthèse" className="w-full h-full object-cover" />
+          </motion.div>
         ))}
       </div>
+
+      {/* Badge EDBN */}
+      <motion.div
+        className="flex items-center gap-6 p-6 rounded-2xl bg-background border border-border"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, ease }}>
+        <Image src={edbn} alt="École du Bien Naître — EDBN" className="h-20 w-auto shrink-0" />
+        <div className="flex flex-col gap-1">
+          <p className="font-bold text-primary">Ambassadrice École du Bien Naître</p>
+          <p className="text-muted-foreground text-base leading-relaxed">
+            Praticienne formée et certifiée par l&apos;EDBN® — Méthodes Sonia Krief.
+            Une approche transmise et reconnue, centrée sur le respect du rythme
+            et des besoins de chacun.
+          </p>
+        </div>
+      </motion.div>
 
       {/* Texte partenaire */}
       <motion.div

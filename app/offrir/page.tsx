@@ -1,7 +1,19 @@
 import Link from "next/link";
 import { Container } from "../_components/container";
 import ActionButton from "../_components/action-button";
-import { FiGift, FiMail, FiSmartphone, FiCalendar } from "react-icons/fi";
+import {
+  FiGift,
+  FiMail,
+  FiSmartphone,
+  FiCalendar,
+  FiDroplet,
+  FiHeart,
+  FiWind,
+  FiMoon,
+  FiStar,
+  FiLayers,
+} from "react-icons/fi";
+import { ReactNode } from "react";
 
 export const metadata = {
   title: "Offrir une parenthèse — PARENTHÈSE",
@@ -9,48 +21,48 @@ export const metadata = {
     "Offrez un moment de douceur avec une carte cadeau Parenthèse — soins bébé, massages, accompagnement. Valable 6 mois, personnalisable.",
 };
 
-const giftIdeas = [
+const giftIdeas: { occasion: string; soin: string; icon: ReactNode; price: string; href: string }[] = [
   {
     occasion: "Pour une naissance",
     soin: "Thérapeutique Bain Bébé®",
-    emoji: "🌸",
+    icon: <FiDroplet size={20} />,
     price: "130 €",
-    href: "/services#soins-bebe",
+    href: "/parentheses#naissance",
   },
   {
     occasion: "Pour une future maman",
     soin: "Massage prénatal",
-    emoji: "🌺",
+    icon: <FiHeart size={20} />,
     price: "110 €",
-    href: "/services#soins-femme",
+    href: "/parentheses#maternite",
   },
   {
     occasion: "Pour un post-partum soutenu",
     soin: "Soin Rebozo",
-    emoji: "🌿",
+    icon: <FiWind size={20} />,
     price: "170 €",
-    href: "/services#soins-femme",
+    href: "/parentheses#maternite",
   },
   {
     occasion: "Pour un jeune parent",
     soin: "Accompagnement sommeil",
-    emoji: "🌙",
+    icon: <FiMoon size={20} />,
     price: "80 €",
-    href: "/services#accompagnement-parental",
+    href: "/parentheses#parentalite",
   },
   {
     occasion: "Pour un enfant",
     soin: "Massage enfant",
-    emoji: "🌼",
+    icon: <FiStar size={20} />,
     price: "45 €",
-    href: "/services#soins-enfant",
+    href: "/parentheses#massage-enfant",
   },
   {
     occasion: "Pour un accompagnement complet",
     soin: "Formule « Premiers jours »",
-    emoji: "✨",
+    icon: <FiLayers size={20} />,
     price: "185 €",
-    href: "/services#formules",
+    href: "/parentheses#formules",
   },
 ];
 
@@ -85,7 +97,7 @@ export default function OffrirPage() {
       <section className="pt-36 pb-16 bg-secondary">
         <Container>
           <div className="max-w-2xl flex flex-col gap-4">
-            <p className="text-sm font-semibold text-primary uppercase tracking-widest">
+            <p className="text-sm font-semibold text-primary uppercase tracking-widest italic">
               Carte cadeau
             </p>
             <h1 className="font-bold text-5xl md:text-6xl lg:text-7xl">
@@ -100,12 +112,62 @@ export default function OffrirPage() {
         </Container>
       </section>
 
+      {/* Choisir un soin */}
+      <section className="py-16 bg-accent">
+        <Container>
+          <div className="max-w-2xl flex flex-col gap-4">
+            <h2 className="font-bold text-4xl md:text-5xl">Choisir un soin à offrir</h2>
+            <p className="text-muted-foreground">Sélectionnez le soin que vous souhaitez offrir, puis contactez-moi pour finaliser la carte cadeau.</p>
+            <div className="flex flex-col gap-2">
+              <label htmlFor="soin-select" className="font-semibold text-sm text-muted-foreground uppercase tracking-wide">
+                Soin
+              </label>
+              <select
+                id="soin-select"
+                className="w-full rounded-xl border border-border bg-background px-4 py-3 text-foreground font-medium focus:outline-none focus:ring-2 focus:ring-primary">
+                <option value="">— Choisir un soin —</option>
+                <optgroup label="Pour la femme">
+                  <option value="maternite">Parenthèse Maternité — 110 € / 150 €</option>
+                  <option value="postnatale">Parenthèse Postnatale — 110 € / 150 €</option>
+                  <option value="rebozo">Soin Rebozo — 170 €</option>
+                  <option value="equilibre">Parenthèse Équilibre féminin — 110 € / 150 €</option>
+                  <option value="reflexologie">Réflexologie émotionnelle — 90 €</option>
+                  <option value="rituel">Rituel Rebozo — 500 €</option>
+                </optgroup>
+                <optgroup label="Pour le bébé">
+                  <option value="naissance">Parenthèse Naissance (Bain bébé) — 130 €</option>
+                  <option value="lien">Parenthèse Lien (Bain enveloppé) — à définir</option>
+                  <option value="massage-bebe">Massage bébé — à définir</option>
+                  <option value="reflexologie-bebe">Réflexologie bébé émotionnelle — à définir</option>
+                </optgroup>
+                <optgroup label="Pour les parents">
+                  <option value="sommeil">Sommeil de l&apos;enfant (0–3 ans) — à définir</option>
+                </optgroup>
+                <optgroup label="Pour les enfants">
+                  <option value="massage-enfant">Massage enfant — à définir</option>
+                  <option value="reflexologie-enfant">Réflexologie émotionnelle enfant — à définir</option>
+                </optgroup>
+                <optgroup label="Formules">
+                  <option value="formule-maternite">Parenthèse Continuité — Maternité</option>
+                  <option value="formule-naissance">Parenthèse Continuité — Naissance</option>
+                  <option value="formule-postpartum">Parenthèse Continuité — Post-partum</option>
+                  <option value="formule-enfance">Parenthèse Continuité — Enfance</option>
+                </optgroup>
+              </select>
+            </div>
+            <ActionButton href="/contact" ariaLabel="Contacter pour offrir un soin">
+              Contacter pour offrir ce soin
+            </ActionButton>
+          </div>
+        </Container>
+      </section>
+
       {/* Infos pratiques */}
       <section className="py-16">
         <Container>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl">
             <div className="flex flex-col gap-2 p-6 rounded-2xl bg-secondary">
-              <span className="text-2xl">🎁</span>
+              <FiGift className="text-primary" size={24} />
               <p className="font-semibold text-primary">Personnalisable</p>
               <p className="text-base text-muted-foreground">
                 Soin spécifique, formule ou montant libre — avec prénom et
@@ -113,7 +175,7 @@ export default function OffrirPage() {
               </p>
             </div>
             <div className="flex flex-col gap-2 p-6 rounded-2xl bg-secondary">
-              <span className="text-2xl">📅</span>
+              <FiCalendar className="text-primary" size={24} />
               <p className="font-semibold text-primary">Valable 6 mois</p>
               <p className="text-base text-muted-foreground">
                 À compter de la date d&apos;émission. Prolongation
@@ -121,7 +183,7 @@ export default function OffrirPage() {
               </p>
             </div>
             <div className="flex flex-col gap-2 p-6 rounded-2xl bg-secondary">
-              <span className="text-2xl">💌</span>
+              <FiMail className="text-primary" size={24} />
               <p className="font-semibold text-primary">Numérique ou imprimée</p>
               <p className="text-base text-muted-foreground">
                 Nominative et non remboursable. Envoyée après réception du
@@ -150,7 +212,7 @@ export default function OffrirPage() {
                   key={idea.soin}
                   href={idea.href}
                   className="group flex flex-col gap-3 p-6 rounded-2xl bg-background border border-border hover:border-primary transition-colors duration-200">
-                  <span className="text-3xl">{idea.emoji}</span>
+                  <span className="text-primary">{idea.icon}</span>
                   <div className="flex flex-col gap-1">
                     <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
                       {idea.occasion}
@@ -199,7 +261,6 @@ export default function OffrirPage() {
       <section className="py-16 bg-secondary">
         <Container>
           <div className="flex flex-col items-center text-center gap-6 max-w-xl mx-auto">
-            <span className="text-4xl">🎁</span>
             <h2 className="font-bold text-5xl md:text-6xl">
               Prête à offrir ce moment ?
             </h2>
@@ -210,7 +271,7 @@ export default function OffrirPage() {
               <ActionButton href="/contact" ariaLabel="Commander une carte cadeau">
                 Commander une carte cadeau
               </ActionButton>
-              <ActionButton href="/services" ariaLabel="Voir tous les soins" variant="outline">
+              <ActionButton href="/parentheses" ariaLabel="Voir tous les soins" variant="outline">
                 Voir tous les soins
               </ActionButton>
             </div>

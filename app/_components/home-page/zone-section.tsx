@@ -1,82 +1,130 @@
 import Link from "next/link";
-import ZoneMapClient from "../zone-map-client";
 
-const zones = [
-  { zone: "Zone 1", distance: "Versailles + 10 km", tarif: "Inclus" },
-  { zone: "Zone 2", distance: "10 à 20 km", tarif: "+ 10 €" },
-  { zone: "Zone 3", distance: "20 à 30 km", tarif: "+ 20 €" },
+const cities = [
+  "Versailles", "Le Chesnay", "Viroflay", "Vélizy",
+  "Saint-Cloud", "Marnes-la-Coquette", "Bougival", "La Celle Saint-Cloud",
+  "Buc", "Jouy-en-Josas", "Bièvres", "Vaucresson",
 ];
 
 export default function ZoneSection() {
   return (
-    <div className="flex flex-col w-full gap-12">
-
-      {/* Texte + Tableau */}
-      <div className="flex flex-col lg:flex-row gap-12">
-        <div className="flex flex-col gap-4 lg:w-1/2">
-          <h2 className="font-bold text-5xl md:text-6xl lg:text-7xl">
-            Je viens à vous
-          </h2>
-          <p className="text-muted-foreground leading-relaxed">
-            Je me déplace à votre domicile, à Versailles et ses environs, afin de
-            vous offrir un moment de soin dans votre cocon, sans contraintes de
-            déplacement.
-          </p>
-          <p className="text-muted-foreground leading-relaxed">
-            Au-delà de la zone incluse, un forfait déplacement s&apos;applique
-            selon la distance. Vous êtes informés avant chaque réservation pour
-            une totale transparence.
-          </p>
-          <div className="flex flex-col gap-3 sm:flex-row sm:gap-4 w-full sm:w-auto pt-2">
-            <Link
-              href="/contact"
-              aria-label="Contactez-moi"
-              className="flex items-center justify-center px-8 h-12 bg-primary text-secondary rounded-full font-medium hover:opacity-90 transition-opacity duration-200 shadow-m">
-              Contactez-moi
-            </Link>
-            <Link
-              href="/rdv"
-              aria-label="Réserver un RDV"
-              className="flex items-center justify-center px-8 h-12 border border-primary text-primary rounded-full font-medium hover:bg-primary hover:text-secondary transition-colors duration-200">
-              Réserver un RDV
-            </Link>
-          </div>
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center w-full">
+      {/* Text + city list */}
+      <div className="flex flex-col gap-6">
+        <div>
+          <span className="eyebrow block mb-4">Chez vous, en toute sérénité</span>
+          <h2>Je viens à vous.</h2>
         </div>
+        <p className="leading-relaxed">
+          Je me déplace à votre domicile, à Versailles et ses environs, afin de
+          vous offrir un moment de soin dans votre cocon, sans contraintes de
+          déplacement, dans un environnement familier et rassurant, propice au
+          lien et à la détente.
+        </p>
 
-        <div className="lg:w-1/2 rounded-2xl overflow-hidden border border-border">
-          <table className="w-full text-base">
-            <thead>
-              <tr className="bg-secondary">
-                <th className="text-left px-4 py-3 font-semibold text-primary">Zone</th>
-                <th className="text-left px-4 py-3 font-semibold text-primary">Distance</th>
-                <th className="text-left px-4 py-3 font-semibold text-primary">Forfait</th>
-              </tr>
-            </thead>
-            <tbody>
-              {zones.map((row, i) => (
-                <tr key={row.zone} className={i % 2 === 0 ? "bg-background" : "bg-secondary/40"}>
-                  <td className="px-4 py-4 font-medium">{row.zone}</td>
-                  <td className="px-4 py-4 text-muted-foreground">{row.distance}</td>
-                  <td className="px-4 py-4 font-semibold text-primary">{row.tarif}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        {/* City list */}
+        <ul className="grid grid-cols-2 gap-x-6 gap-y-3 mt-2">
+          {cities.map((city) => (
+            <li key={city} className="flex items-center gap-3 text-base" style={{ color: "var(--muted-foreground)" }}>
+              <span
+                className="rounded-full shrink-0"
+                style={{ width: 6, height: 6, background: "var(--primary)" }}
+                aria-hidden
+              />
+              {city}
+            </li>
+          ))}
+        </ul>
+
+        <Link
+          href="/parentheses"
+          aria-label="Découvrir les soins à domicile"
+          className="mt-2 self-start italic text-primary border-b border-primary/40 pb-0.5 text-sm tracking-wide hover:border-primary transition-colors duration-200">
+          Découvrir les soins à domicile →
+        </Link>
       </div>
 
-      {/* Carte pleine largeur */}
+      {/* SVG Zone Map */}
       <div
-        className="w-full h-[480px] relative overflow-hidden"
+        className="rounded-3xl overflow-hidden"
         style={{
-          maskImage: "linear-gradient(to bottom, transparent, black 6%, black 94%, transparent), linear-gradient(to right, transparent, black 3%, black 97%, transparent)",
-          maskComposite: "intersect",
-          WebkitMaskImage: "linear-gradient(to bottom, transparent, black 6%, black 94%, transparent), linear-gradient(to right, transparent, black 3%, black 97%, transparent)",
-          WebkitMaskComposite: "source-in",
+          aspectRatio: "1/1",
+          background: "var(--cream-warm)",
+          boxShadow: "var(--shadow-m)",
         }}>
-        <ZoneMapClient />
+        <ZoneMapSVG />
       </div>
-
     </div>
+  );
+}
+
+function ZoneMapSVG() {
+  return (
+    <svg viewBox="0 0 400 400" width="100%" height="100%" style={{ display: "block" }}>
+      <defs>
+        <radialGradient id="zoneGrad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#E8CFCF" stopOpacity="0.6" />
+          <stop offset="60%" stopColor="#E8CFCF" stopOpacity="0.18" />
+          <stop offset="100%" stopColor="#E8CFCF" stopOpacity="0" />
+        </radialGradient>
+      </defs>
+      <rect width="400" height="400" fill="#F4ECDF" />
+      <path
+        d="M-20 130 C 80 100, 160 180, 260 140 S 420 120, 440 160"
+        stroke="#9CAB8E" strokeOpacity="0.35" strokeWidth="1.5" fill="none"
+      />
+      <path
+        d="M-20 280 C 100 250, 200 310, 320 280 S 420 260, 440 300"
+        stroke="#9CAB8E" strokeOpacity="0.25" strokeWidth="1.5" fill="none"
+      />
+      {Array.from({ length: 36 }).map((_, i) => {
+        const x = (i * 53) % 400;
+        const y = ((i * 71) % 380) + 10;
+        return (
+          <circle key={i} cx={x} cy={y} r="2" fill="#9CAB8E" opacity="0.25" />
+        );
+      })}
+      <circle cx="200" cy="200" r="150" fill="url(#zoneGrad)" />
+      <circle
+        cx="200" cy="200" r="150"
+        fill="none" stroke="#D4A0A0" strokeOpacity="0.55" strokeDasharray="4 6"
+      />
+      <circle
+        cx="200" cy="200" r="100"
+        fill="none" stroke="#D4A0A0" strokeOpacity="0.3" strokeDasharray="2 6"
+      />
+      <circle cx="200" cy="200" r="7" fill="#B88A8A" />
+      <circle cx="200" cy="200" r="14" fill="#B88A8A" opacity="0.25" />
+      <text
+        x="200" y="230"
+        textAnchor="middle"
+        fontFamily="Dancing Script, cursive"
+        fontSize="22"
+        fill="#B88A8A">
+        Versailles
+      </text>
+      {[
+        { x: 110, y: 130, name: "Le Chesnay" },
+        { x: 305, y: 150, name: "Vélizy" },
+        { x: 90, y: 260, name: "Saint-Cloud" },
+        { x: 320, y: 280, name: "Jouy-en-Josas" },
+        { x: 200, y: 90, name: "Bougival" },
+        { x: 200, y: 330, name: "Buc" },
+      ].map((c) => (
+        <g key={c.name}>
+          <circle cx={c.x} cy={c.y} r="3" fill="#7A8B6E" />
+          <text
+            x={c.x}
+            y={c.y - 8}
+            textAnchor="middle"
+            fontFamily="Cormorant Garamond, serif"
+            fontSize="13"
+            fill="#6B5F58"
+            fontStyle="italic">
+            {c.name}
+          </text>
+        </g>
+      ))}
+    </svg>
   );
 }

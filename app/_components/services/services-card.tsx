@@ -11,7 +11,7 @@ export default function Card() {
           <h4 className="font-bold text-2xl py-8 text-center">{item?.title}</h4>
           <p className="pb-8 text-text text-lg">{item?.desc}</p>
 
-          <ActionButton href={"services"} ariaLabel={"Voir plus"}>
+          <ActionButton href={"/parentheses"} ariaLabel={"Voir plus"}>
             Voir Plus
           </ActionButton>
         </div>
