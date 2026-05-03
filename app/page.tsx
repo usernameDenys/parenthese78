@@ -10,10 +10,8 @@ export default function Home() {
   return (
     <main className="bg-background">
       {/* Hero */}
-      <section className="pt-36 pb-24 bg-background">
-        <Container>
-          <HeroSection />
-        </Container>
+      <section className="bg-background overflow-hidden h-svh">
+        <HeroSection />
       </section>
 
       {/* Services overview */}

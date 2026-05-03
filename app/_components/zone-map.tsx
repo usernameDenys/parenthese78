@@ -13,7 +13,7 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
 const VERSAILLES: [number, number] = [48.8049, 2.1204];
-const COLOR = "#5a52a3";
+const COLOR = "#B88A8A";
 
 const zones = [
   { radius: 30000, label: "Zone 3 — +20 €", fillOpacity: 0.06 },
@@ -24,7 +24,7 @@ const zones = [
 function FitBounds() {
   const map = useMap();
   useEffect(() => {
-    const bounds = L.latLng(VERSAILLES).toBounds(30000 * 2 * 0.6);
+    const bounds = L.latLng(VERSAILLES).toBounds(30000 * 2 * 0.8);
     map.fitBounds(bounds, { animate: false });
   }, [map]);
   return null;
