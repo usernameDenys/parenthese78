@@ -1,8 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Container } from "../_components/container";
-import ActionButton from "../_components/action-button";
-import placeholderImage from "@/assets/IMG-20260323-WA0087.webp";
-import { FiAward, FiBookOpen } from "react-icons/fi";
+import faustineImage from "@/assets/faustine.webp";
 import FormationsTimeline from "./_components/formations-timeline";
 
 const formations = [
@@ -12,7 +11,7 @@ const formations = [
     detail: "Institut de Puériculture et de Périnatalogie de Paris",
   },
   {
-    year: "2009-2025",
+    year: "2009–2025",
     title: "Expérience en néonatologie",
     detail: "Accompagnement de nouveau-nés et de leurs familles",
   },
@@ -34,8 +33,7 @@ const formations = [
   {
     year: "2026",
     title: "Praticienne Réflexologie Bébé Émotionnelle EDBN®",
-    detail:
-      "Formée par Caroline Hamon — École du Bien Naître (EDBN®, Suresnes)",
+    detail: "Formée par Caroline Hamon — École du Bien Naître (EDBN®, Suresnes)",
   },
   {
     year: "2026",
@@ -72,160 +70,160 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <main className="bg-background">
-      {/* Qui suis-je */}
-      <section className="min-h-screen pt-30 lg:pt-0 flex items-center">
+
+      {/* Page header */}
+      <section className="pt-40 pb-20 text-center bg-secondary">
         <Container>
-          <div className="flex flex-col items-center w-full lg:flex-row gap-12 lg:gap-20">
-            <div className="w-full lg:w-1/2 flex justify-center">
-              <div className="relative">
-                <div className="relative w-72 h-80 md:w-96 md:h-[480px] rounded-[34%_66%_64%_36%/30%_32%_68%_70%] overflow-hidden shadow-2xl">
-                  <Image
-                    src={placeholderImage}
-                    alt="Faustine, accompagnante périnatale à domicile à Versailles"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                {/* Badge expérience */}
-                <div
-                  className="absolute -bottom-6 -right-4 bg-white flex items-center gap-3"
-                  style={{
-                    padding: "16px 20px",
-                    borderRadius: "var(--radius-card)",
-                    boxShadow: "var(--shadow-m)",
-                    maxWidth: "240px",
-                  }}>
-                  <span
-                    className="font-heading leading-none shrink-0"
-                    style={{ fontSize: "2.2rem", color: "var(--primary)" }}>
-                    {new Date().getFullYear() - 2009}+
-                  </span>
-                  <span
-                    className="text-sm italic leading-snug"
-                    style={{ color: "var(--muted-foreground)" }}>
-                    années d&apos;expérience auprès des familles, depuis 2009
-                  </span>
-                </div>
-              </div>
+          <div className="max-w-xl mx-auto flex flex-col gap-4">
+            <span className="eyebrow">À propos</span>
+            <h1>Faustine</h1>
+            <p className="italic text-muted-foreground text-lg leading-relaxed max-w-md mx-auto">
+              Infirmière puéricultrice diplômée d&apos;État depuis 2009,
+              accompagnante périnatale à domicile. Maman, basée à Versailles.
+            </p>
+          </div>
+        </Container>
+      </section>
+
+      {/* Split: image + Mon histoire */}
+      <section className="py-20 lg:py-28">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+            <div
+              className="relative overflow-hidden w-full"
+              style={{
+                borderRadius: "var(--radius-img)",
+                aspectRatio: "4 / 5",
+                boxShadow: "var(--shadow-m)",
+              }}
+            >
+              <Image
+                src={faustineImage}
+                alt="Faustine, accompagnante périnatale à domicile à Versailles"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
             </div>
-            <div className="w-full lg:w-1/2 flex flex-col gap-6">
-              <h1 className="font-bold text-5xl md:text-6xl lg:text-7xl">
-                Qui suis-je ?
-              </h1>
-              <p className="leading-relaxed">
+
+            <div className="flex flex-col gap-5">
+              <span className="eyebrow">Mon histoire</span>
+              <h2>Qui suis-je&nbsp;?</h2>
+              <p>
                 Je suis Faustine, Infirmière Puéricultrice diplômée d&apos;État
-                depuis 2009, avec plus de 15 ans d&apos;expérience en service de
-                néonatologie. Aujourd&apos;hui, je mets cette expertise au
-                service des parents et de leurs enfants à domicile, avec un
-                accompagnement sur mesure, en douceur et en confiance.
+                depuis 2009, avec plus de 15&nbsp;ans d&apos;expérience en
+                service de néonatologie. Aujourd&apos;hui, je mets cette
+                expertise au service des parents et de leurs enfants à domicile,
+                avec un accompagnement sur mesure, en douceur et en confiance.
               </p>
-              <p className="text-muted-foreground leading-relaxed">
+              <p>
                 Chaque soin et chaque atelier est pensé pour renforcer le lien
                 parent-enfant, favoriser le bien-être et apporter sérénité et
                 confiance aux familles.
               </p>
-              <div className="flex flex-col gap-3 sm:flex-row sm:gap-4 w-full sm:w-auto">
-                <ActionButton
-                  href="/parentheses"
-                  ariaLabel="Découvrir les prestations">
-                  Découvrir les prestations
-                </ActionButton>
-                <ActionButton
-                  href="/contact"
-                  ariaLabel="Me contacter"
-                  variant="outline">
-                  Me contacter
-                </ActionButton>
+              <p>
+                Quand je suis devenue maman à mon tour, j&apos;ai compris
+                combien le retour à la maison pouvait être vertigineux. Combien
+                on avait besoin, pendant ces premiers mois, qu&apos;on vienne —
+                non pas pour vérifier, mais pour soutenir.
+              </p>
+              <div
+                className="font-heading text-primary leading-none mt-2"
+                style={{ fontSize: "2rem" }}
+              >
+                — Faustine
               </div>
             </div>
           </div>
+        </Container>
+      </section>
+
+      {/* Timeline */}
+      <section className="py-20 lg:py-28 bg-secondary">
+        <Container>
+          <div className="section-head">
+            <span className="eyebrow">Parcours &amp; formations</span>
+            <h2>Mon expertise</h2>
+            <p>
+              Plus de 15&nbsp;années de formation et d&apos;expérience auprès
+              des familles.
+            </p>
+          </div>
+          <FormationsTimeline formations={formations} />
         </Container>
       </section>
 
       {/* Manifeste */}
-      <section className="py-24 bg-secondary">
+      <section className="py-20 lg:py-28 bg-rose-mist">
         <Container>
-          <div className="max-w-3xl mx-auto flex flex-col gap-6">
-            <div className="flex items-center gap-3 mb-2">
-              <FiBookOpen className="text-primary" size={24} />
-              <span className="text-sm font-semibold text-primary uppercase tracking-widest">
-                Manifeste Parenthèse
-              </span>
+          <div className="max-w-2xl mx-auto">
+            <div className="text-center mb-10">
+              <span className="eyebrow">Manifeste</span>
+              <h2 className="mt-4">Ce en quoi je crois</h2>
             </div>
-            <h2 className="font-bold text-5xl md:text-6xl text-primary">
-              Ce en quoi je crois
-            </h2>
-            <div className="flex flex-col gap-5">
+            <ul className="flex flex-col gap-6">
               {manifesteLines.map((line, i) => (
-                <p
-                  key={i}
-                  className={
-                    i === manifesteLines.length - 1
-                      ? "font-semibold text-primary text-lg"
-                      : "text-muted-foreground leading-relaxed"
-                  }>
-                  {line}
-                </p>
+                <li key={i} className="flex gap-4 items-start" style={{ lineHeight: 1.6 }}>
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    className="shrink-0 mt-1"
+                    style={{ color: "var(--color-primary)" }}
+                  >
+                    <path
+                      d="M12 2C9 6 4 8 4 13a8 8 0 0 0 16 0c0-5-5-7-8-11Z"
+                      fill="currentColor"
+                      opacity="0.25"
+                    />
+                    <path
+                      d="M12 2C15 6 20 8 20 13a8 8 0 0 1-16 0c0-5 5-7 8-11Z"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M12 2v18"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      strokeLinecap="round"
+                      opacity="0.4"
+                    />
+                  </svg>
+                  <span
+                    className="text-foreground"
+                    style={{ fontSize: "1.1rem" }}
+                  >
+                    {line}
+                  </span>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </Container>
       </section>
 
-      {/* Formations */}
-      <section className="py-24">
+      {/* CTA banner */}
+      <section className="text-center py-20 lg:py-28 bg-secondary">
         <Container>
-          <div className="flex flex-col gap-12">
-            <div className="flex flex-col gap-4">
-              <div className="flex items-center gap-3">
-                <FiAward className="text-primary" size={24} />
-                <span className="text-sm font-semibold text-primary uppercase tracking-widest">
-                  Parcours & formations
-                </span>
-              </div>
-              <h2 className="font-bold text-5xl md:text-6xl lg:text-7xl">
-                Mon expertise
-              </h2>
-            </div>
-
-            <FormationsTimeline formations={formations} />
+          <div className="max-w-xl mx-auto flex flex-col items-center gap-6">
+            <h2>Faisons connaissance.</h2>
+            <p className="italic text-lg leading-relaxed max-w-md">
+              Le premier appel est offert — quelques minutes pour parler de
+              vous, de votre famille, de ce dont vous avez besoin.
+            </p>
+            <Link
+              href="/contact"
+              aria-label="Me contacter"
+              className="h-12 px-8 flex items-center justify-center bg-primary text-secondary rounded-full font-sans font-medium text-lg shadow-m hover:-translate-y-0.5 transition-transform duration-200"
+            >
+              Me contacter →
+            </Link>
           </div>
         </Container>
       </section>
 
-      {/* Engagement */}
-      <section className="py-24 bg-secondary">
-        <Container>
-          <div className="max-w-3xl mx-auto flex flex-col items-center text-center gap-6">
-            <h2 className="font-bold text-5xl md:text-6xl lg:text-7xl">
-              Mon engagement
-            </h2>
-            <p className="text-muted-foreground leading-relaxed">
-              Parenthèse est un espace où prendre soin n&apos;est pas un détail,
-              mais une fondation. Chaque famille que j&apos;accompagne reçoit
-              écoute, attention et gestes professionnels, dans la douceur et la
-              confiance.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              Mon objectif est simple : vous offrir un accompagnement qui vous
-              ressemble, sécurisant et sur mesure, pour vous et votre enfant.
-            </p>
-            <div className="flex flex-col gap-3 sm:flex-row sm:gap-4 w-full sm:w-auto mt-4">
-              <ActionButton
-                href="/parentheses"
-                ariaLabel="Découvrir les prestations">
-                Découvrir les prestations
-              </ActionButton>
-              <ActionButton
-                href="/rdv"
-                ariaLabel="Prendre rendez-vous"
-                variant="outline">
-                Prendre rendez-vous
-              </ActionButton>
-            </div>
-          </div>
-        </Container>
-      </section>
     </main>
   );
 }
