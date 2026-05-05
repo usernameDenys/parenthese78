@@ -4,47 +4,48 @@ import { motion } from "framer-motion";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-type Formation = {
-  year: string;
-  title: string;
-  detail: string;
-};
+type Formation = { year: string; title: string; detail: string };
 
-export default function FormationsTimeline({ formations }: { formations: Formation[] }) {
+export default function FormationsTimeline({
+  formations,
+}: {
+  formations: Formation[];
+}) {
   return (
-    <div className="flex flex-col gap-0">
-      {formations.map((item, i) => {
-        const showYear = item.year !== formations[i - 1]?.year;
-        return (
-          <motion.div
-            key={i}
-            className="flex gap-6 pb-8 relative"
-            initial={{ opacity: 0, y: 36, x: -12 }}
-            whileInView={{ opacity: 1, y: 0, x: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.75, ease, delay: i * 0.1 }}>
-            {/* Ligne verticale */}
-            {i < formations.length - 1 && (
-              <div className="absolute left-[72px] top-8 bottom-0 w-px bg-border" />
-            )}
-            {/* Badge année */}
-            <div className="shrink-0 w-36 text-right">
-              {showYear && (
-                <span className="text-sm font-bold text-primary bg-secondary py-1.5 rounded-full inline-flex items-center justify-center w-full">
-                  {item.year}
-                </span>
-              )}
-            </div>
-            {/* Dot */}
-            <div className="shrink-0 w-3 h-3 rounded-full bg-primary mt-1.5 z-10" />
-            {/* Contenu */}
-            <div className="flex flex-col gap-1 pb-2">
-              <p className="font-semibold">{item.title}</p>
-              <p className="text-base text-muted-foreground">{item.detail}</p>
-            </div>
-          </motion.div>
-        );
-      })}
+    <div className="relative max-w-2xl mx-auto">
+      <div
+        className="absolute top-2 bottom-12 w-px"
+        style={{
+          left: "4px",
+          background:
+            "linear-gradient(to bottom, var(--color-rose-light), transparent)",
+        }}
+      />
+      {formations.map((item, i) => (
+        <motion.div
+          key={i}
+          className="relative pl-12 pb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.7, ease, delay: i * 0.07 }}
+        >
+          <div
+            className="absolute top-2 w-2.5 h-2.5 rounded-full bg-primary z-10"
+            style={{ left: 0, boxShadow: "0 0 0 4px var(--color-secondary)" }}
+          />
+          <div
+            className="font-heading text-primary leading-none mb-1.5"
+            style={{ fontSize: "1.7rem" }}
+          >
+            {item.year}
+          </div>
+          <p className="font-medium text-foreground mb-1">{item.title}</p>
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            {item.detail}
+          </p>
+        </motion.div>
+      ))}
     </div>
   );
 }
