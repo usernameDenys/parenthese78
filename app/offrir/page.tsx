@@ -1,284 +1,29 @@
-import Link from "next/link";
 import { Container } from "../_components/container";
-import ActionButton from "../_components/action-button";
-import {
-  FiGift,
-  FiMail,
-  FiSmartphone,
-  FiCalendar,
-  FiDroplet,
-  FiHeart,
-  FiWind,
-  FiMoon,
-  FiStar,
-  FiLayers,
-} from "react-icons/fi";
-import { ReactNode } from "react";
+import { OffrirForm } from "./_components/offrir-form";
 
 export const metadata = {
   title: "Offrir une parenthèse — PARENTHÈSE",
   description:
-    "Offrez un moment de douceur avec une carte cadeau Parenthèse — soins bébé, massages, accompagnement. Valable 6 mois, personnalisable.",
+    "Offrez un moment de douceur avec une carte cadeau Parenthèse — soins bébé, massages, accompagnement. Valable 12 mois, personnalisable.",
 };
-
-const giftIdeas: { occasion: string; soin: string; icon: ReactNode; price: string; href: string }[] = [
-  {
-    occasion: "Pour une naissance",
-    soin: "Thérapeutique Bain Bébé®",
-    icon: <FiDroplet size={20} />,
-    price: "130 €",
-    href: "/parentheses#naissance",
-  },
-  {
-    occasion: "Pour une future maman",
-    soin: "Massage prénatal",
-    icon: <FiHeart size={20} />,
-    price: "110 €",
-    href: "/parentheses#maternite",
-  },
-  {
-    occasion: "Pour un post-partum soutenu",
-    soin: "Soin Rebozo",
-    icon: <FiWind size={20} />,
-    price: "170 €",
-    href: "/parentheses#maternite",
-  },
-  {
-    occasion: "Pour un jeune parent",
-    soin: "Accompagnement sommeil",
-    icon: <FiMoon size={20} />,
-    price: "80 €",
-    href: "/parentheses#parentalite",
-  },
-  {
-    occasion: "Pour un enfant",
-    soin: "Massage enfant",
-    icon: <FiStar size={20} />,
-    price: "45 €",
-    href: "/parentheses#massage-enfant",
-  },
-  {
-    occasion: "Pour un accompagnement complet",
-    soin: "Formule « Premiers jours »",
-    icon: <FiLayers size={20} />,
-    price: "185 €",
-    href: "/parentheses#formules",
-  },
-];
-
-const steps = [
-  {
-    icon: <FiMail className="text-primary" size={22} />,
-    title: "Contactez-moi",
-    desc: "Par message ou via le formulaire de contact en précisant le soin ou le montant souhaité.",
-  },
-  {
-    icon: <FiSmartphone className="text-primary" size={22} />,
-    title: "Personnalisez",
-    desc: "Indiquez le prénom de la personne bénéficiaire et le message à inscrire sur la carte.",
-  },
-  {
-    icon: <FiGift className="text-primary" size={22} />,
-    title: "Recevez la carte",
-    desc: "La carte est envoyée après réception du règlement — en version numérique ou imprimée.",
-  },
-  {
-    icon: <FiCalendar className="text-primary" size={22} />,
-    title: "Profitez",
-    desc: "La carte cadeau est valable 6 mois à compter de la date d'émission.",
-  },
-];
 
 export default function OffrirPage() {
   return (
     <main className="bg-background">
-
-      {/* Header */}
-      <section className="pt-36 pb-16 bg-secondary">
+      <section className="pt-40 pb-20 text-center bg-secondary">
         <Container>
-          <div className="max-w-2xl flex flex-col gap-4">
-            <p className="text-sm font-semibold text-primary uppercase tracking-widest italic">
-              Carte cadeau
-            </p>
-            <h1 className="font-bold text-5xl md:text-6xl lg:text-7xl">
-              Offrir une parenthèse
-            </h1>
-            <p className="text-muted-foreground leading-relaxed text-lg">
-              Offrez un moment de douceur, de soin et de présence à ceux que
-              vous aimez. La carte cadeau Parenthèse est disponible pour un
-              soin spécifique, une formule ou un montant libre.
+          <div className="max-w-2xl mx-auto flex flex-col gap-4">
+            <span className="eyebrow">Offrir une parenthèse</span>
+            <h1>Offrir une Parenthèse</h1>
+            <p className="italic text-muted-foreground text-lg leading-relaxed max-w-lg mx-auto">
+              Un cadeau doux, utile et profondément attentionné — pour
+              accompagner les débuts de la vie.
             </p>
           </div>
         </Container>
       </section>
 
-      {/* Choisir un soin */}
-      <section className="py-16 bg-accent">
-        <Container>
-          <div className="max-w-2xl flex flex-col gap-4">
-            <h2 className="font-bold text-4xl md:text-5xl">Choisir un soin à offrir</h2>
-            <p className="text-muted-foreground">Sélectionnez le soin que vous souhaitez offrir, puis contactez-moi pour finaliser la carte cadeau.</p>
-            <div className="flex flex-col gap-2">
-              <label htmlFor="soin-select" className="font-semibold text-sm text-muted-foreground uppercase tracking-wide">
-                Soin
-              </label>
-              <select
-                id="soin-select"
-                className="w-full rounded-xl border border-border bg-background px-4 py-3 text-foreground font-medium focus:outline-none focus:ring-2 focus:ring-primary">
-                <option value="">— Choisir un soin —</option>
-                <optgroup label="Pour la femme">
-                  <option value="maternite">Parenthèse Maternité — 110 € / 150 €</option>
-                  <option value="postnatale">Parenthèse Postnatale — 110 € / 150 €</option>
-                  <option value="rebozo">Soin Rebozo — 170 €</option>
-                  <option value="equilibre">Parenthèse Équilibre féminin — 110 € / 150 €</option>
-                  <option value="reflexologie">Réflexologie émotionnelle — 90 €</option>
-                  <option value="rituel">Rituel Rebozo — 500 €</option>
-                </optgroup>
-                <optgroup label="Pour le bébé">
-                  <option value="naissance">Parenthèse Naissance (Bain bébé) — 130 €</option>
-                  <option value="lien">Parenthèse Lien (Bain enveloppé) — à définir</option>
-                  <option value="massage-bebe">Massage bébé — à définir</option>
-                  <option value="reflexologie-bebe">Réflexologie bébé émotionnelle — à définir</option>
-                </optgroup>
-                <optgroup label="Pour les parents">
-                  <option value="sommeil">Sommeil de l&apos;enfant (0–3 ans) — à définir</option>
-                </optgroup>
-                <optgroup label="Pour les enfants">
-                  <option value="massage-enfant">Massage enfant — à définir</option>
-                  <option value="reflexologie-enfant">Réflexologie émotionnelle enfant — à définir</option>
-                </optgroup>
-                <optgroup label="Formules">
-                  <option value="formule-maternite">Parenthèse Continuité — Maternité</option>
-                  <option value="formule-naissance">Parenthèse Continuité — Naissance</option>
-                  <option value="formule-postpartum">Parenthèse Continuité — Post-partum</option>
-                  <option value="formule-enfance">Parenthèse Continuité — Enfance</option>
-                </optgroup>
-              </select>
-            </div>
-            <ActionButton href="/contact" ariaLabel="Contacter pour offrir un soin">
-              Contacter pour offrir ce soin
-            </ActionButton>
-          </div>
-        </Container>
-      </section>
-
-      {/* Infos pratiques */}
-      <section className="py-16">
-        <Container>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl">
-            <div className="flex flex-col gap-2 p-6 rounded-2xl bg-secondary">
-              <FiGift className="text-primary" size={24} />
-              <p className="font-semibold text-primary">Personnalisable</p>
-              <p className="text-base text-muted-foreground">
-                Soin spécifique, formule ou montant libre — avec prénom et
-                message.
-              </p>
-            </div>
-            <div className="flex flex-col gap-2 p-6 rounded-2xl bg-secondary">
-              <FiCalendar className="text-primary" size={24} />
-              <p className="font-semibold text-primary">Valable 6 mois</p>
-              <p className="text-base text-muted-foreground">
-                À compter de la date d&apos;émission. Prolongation
-                exceptionnelle sur demande.
-              </p>
-            </div>
-            <div className="flex flex-col gap-2 p-6 rounded-2xl bg-secondary">
-              <FiMail className="text-primary" size={24} />
-              <p className="font-semibold text-primary">Numérique ou imprimée</p>
-              <p className="text-base text-muted-foreground">
-                Nominative et non remboursable. Envoyée après réception du
-                règlement.
-              </p>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* Idées cadeaux */}
-      <section className="py-16 bg-secondary">
-        <Container>
-          <div className="flex flex-col gap-10">
-            <div className="flex flex-col gap-2">
-              <h2 className="font-bold text-5xl md:text-6xl">
-                Idées de cadeaux
-              </h2>
-              <p className="text-muted-foreground">
-                Les soins les plus offerts, pour chaque occasion.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {giftIdeas.map((idea) => (
-                <Link
-                  key={idea.soin}
-                  href={idea.href}
-                  className="group flex flex-col gap-3 p-6 rounded-2xl bg-background border border-border hover:border-primary transition-colors duration-200">
-                  <span className="text-primary">{idea.icon}</span>
-                  <div className="flex flex-col gap-1">
-                    <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
-                      {idea.occasion}
-                    </p>
-                    <p className="font-bold text-primary group-hover:underline underline-offset-4">
-                      {idea.soin}
-                    </p>
-                  </div>
-                  <p className="text-sm font-semibold text-primary mt-auto">
-                    à partir de {idea.price}
-                  </p>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* Comment commander */}
-      <section className="py-16">
-        <Container>
-          <div className="flex flex-col gap-10">
-            <h2 className="font-bold text-5xl md:text-6xl">
-              Comment commander ?
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {steps.map((step, i) => (
-                <div key={i} className="flex flex-col gap-4">
-                  <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center">
-                    {step.icon}
-                  </div>
-                  <div className="flex flex-col gap-1">
-                    <p className="font-semibold">{step.title}</p>
-                    <p className="text-base text-muted-foreground leading-relaxed">
-                      {step.desc}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* CTA */}
-      <section className="py-16 bg-secondary">
-        <Container>
-          <div className="flex flex-col items-center text-center gap-6 max-w-xl mx-auto">
-            <h2 className="font-bold text-5xl md:text-6xl">
-              Prête à offrir ce moment ?
-            </h2>
-            <p className="text-muted-foreground">
-              Contactez-moi pour commander votre carte cadeau Parenthèse.
-            </p>
-            <div className="flex flex-col gap-3 sm:flex-row sm:gap-4 w-full sm:w-auto">
-              <ActionButton href="/contact" ariaLabel="Commander une carte cadeau">
-                Commander une carte cadeau
-              </ActionButton>
-              <ActionButton href="/parentheses" ariaLabel="Voir tous les soins" variant="outline">
-                Voir tous les soins
-              </ActionButton>
-            </div>
-          </div>
-        </Container>
-      </section>
-
+      <OffrirForm />
     </main>
   );
 }
