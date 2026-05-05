@@ -25,9 +25,14 @@ export function Header() {
   return (
     <header className="text-text fixed top-0 w-full z-50 bg-white/92 backdrop-blur-md">
       <Container>
-        <div className="flex items-center justify-between py-4">
+        <div className="flex items-center justify-between py-1">
           <Link href="/" role="link" aria-label="Retour à l'accueil">
-            <Image src={logo} alt="Parenthèse" height={48} className="h-12 w-auto" />
+            <Image
+              src={logo}
+              alt="Parenthèse"
+              height={64}
+              className="h-16 w-auto"
+            />
           </Link>
 
           {/* Desktop */}
@@ -53,7 +58,7 @@ export function Header() {
             href="rdv"
             aria-label="Prendre rendez-vous en ligne"
             role="link"
-            className="hidden md:flex items-center justify-center px-6 h-12 bg-white text-primary rounded-full  hover:bg-primary hover:text-secondary shadow-m">
+            className="hidden md:flex items-center justify-center px-6 h-12 bg-primary text-secondary rounded-full shadow-m hover:bg-white hover:border hover:border-sage hover:text-text transition-colors duration-200">
             Prendre rendez-vous
           </Link>
 
