@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Container } from "../_components/container";
 import faustineImage from "@/assets/faustine.webp";
+import faustine2Image from "@/assets/faustine2.webp";
 import FormationsTimeline from "./_components/formations-timeline";
 
 const formations = [
@@ -205,21 +206,39 @@ export default function AboutPage() {
       </section>
 
       {/* CTA banner */}
-      <section className="text-center py-20 lg:py-28 bg-secondary">
+      <section className="py-20 lg:py-28 bg-secondary">
         <Container>
-          <div className="max-w-xl mx-auto flex flex-col items-center gap-6">
-            <h2>Faisons connaissance.</h2>
-            <p className="italic text-lg leading-relaxed max-w-md">
-              Le premier appel est offert — quelques minutes pour parler de
-              vous, de votre famille, de ce dont vous avez besoin.
-            </p>
-            <Link
-              href="/contact"
-              aria-label="Me contacter"
-              className="h-12 px-8 flex items-center justify-center bg-primary text-secondary rounded-full font-sans font-medium text-lg shadow-m hover:-translate-y-0.5 transition-transform duration-200"
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center max-w-4xl mx-auto">
+            <div
+              className="relative overflow-hidden w-full"
+              style={{
+                borderRadius: "var(--radius-img)",
+                aspectRatio: "4 / 5",
+                boxShadow: "var(--shadow-m)",
+              }}
             >
-              Me contacter →
-            </Link>
+              <Image
+                src={faustine2Image}
+                alt="Faustine, accompagnante périnatale à domicile à Versailles"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+            <div className="flex flex-col items-start gap-6">
+              <h2>Faisons connaissance.</h2>
+              <p className="italic text-lg leading-relaxed">
+                Le premier appel est offert — quelques minutes pour parler de
+                vous, de votre famille, de ce dont vous avez besoin.
+              </p>
+              <Link
+                href="/contact"
+                aria-label="Me contacter"
+                className="h-12 px-8 flex items-center justify-center bg-primary text-secondary rounded-full font-sans font-medium text-lg shadow-m hover:-translate-y-0.5 transition-transform duration-200"
+              >
+                Me contacter →
+              </Link>
+            </div>
           </div>
         </Container>
       </section>

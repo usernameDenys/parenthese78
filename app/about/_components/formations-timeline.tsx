@@ -34,12 +34,6 @@ export default function FormationsTimeline({
             className="absolute top-2 w-2.5 h-2.5 rounded-full bg-primary z-10"
             style={{ left: 0, boxShadow: "0 0 0 4px var(--color-secondary)" }}
           />
-          <div
-            className="font-heading text-primary leading-none mb-1.5"
-            style={{ fontSize: "1.7rem" }}
-          >
-            {item.year}
-          </div>
           <p className="font-medium text-foreground mb-1">{item.title}</p>
           <p className="text-sm text-muted-foreground leading-relaxed">
             {item.detail}
