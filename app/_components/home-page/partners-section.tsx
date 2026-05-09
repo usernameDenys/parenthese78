@@ -2,11 +2,11 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import bain4 from "@/assets/bain4.jpg";
-import bain5 from "@/assets/bain5.jpg";
-import bain6 from "@/assets/bain6.jpg";
-import bain7 from "@/assets/bain7.jpg";
-import edbn from "@/assets/Macaron ABN.png";
+import bain4 from "@/assets/bain4.webp";
+import bain5 from "@/assets/bain5.webp";
+import bain6 from "@/assets/bain6.webp";
+import bain7 from "@/assets/bain7.webp";
+import edbn from "@/assets/Macaron_ABN.webp";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
