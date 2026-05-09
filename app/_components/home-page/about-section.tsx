@@ -1,4 +1,4 @@
-import img from "@/assets/IMG-20250912-WA0075.jpg";
+import img from "@/assets/IMG-20250912-WA0075.webp";
 import Image from "next/image";
 import ActionButton from "../action-button";
 

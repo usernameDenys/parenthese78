@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import bg from "@/assets/bain7.webp";
+import bg from "@/assets/bain5.webp";
 
 export default function ParallaxSection() {
   const ref = useRef<HTMLDivElement>(null);
@@ -20,19 +20,21 @@ export default function ParallaxSection() {
       ref={ref}
       className="relative overflow-hidden w-full"
       style={{ height: "clamp(480px, 70vh, 720px)" }}>
-      <motion.div
-        className="absolute inset-0 w-full"
-        style={{ y }}
+      <div
+        className="absolute inset-x-0"
+        style={{ top: "-25%", bottom: "-25%" }}
         aria-hidden="true">
-        <Image
-          src={bg}
-          alt=""
-          fill
-          className="object-cover"
-          sizes="100vw"
-          priority={false}
-        />
-      </motion.div>
+        <motion.div className="relative w-full h-full" style={{ y }}>
+          <Image
+            src={bg}
+            alt=""
+            fill
+            className="object-cover object-[center_10%]"
+            sizes="100vw"
+            priority={false}
+          />
+        </motion.div>
+      </div>
 
       <div
         className="absolute inset-0"

@@ -1,6 +1,6 @@
 "use client";
 
-import heroImage from "@/assets/2.webp";
+import heroImage from "@/assets/bain4.webp";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -22,9 +22,9 @@ export default function HeroSection() {
             position: "absolute",
             top: "50%",
             left: "50%",
-            width: "100vh",
-            height: "100vw",
-            transform: "translate(-50%, -50%) rotate(-90deg)",
+            width: "100vw",
+            height: "100vh",
+            transform: "translate(-50%, -50%)",
           }}>
           <Image
             alt="Faustine, accompagnante périnatale à domicile à Versailles"
