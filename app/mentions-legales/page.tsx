@@ -55,6 +55,34 @@ export default function MentionsLegalesPage() {
               </p>
             </div>
 
+            <div id="cookies" className="flex flex-col gap-6">
+              <h2 className="font-bold text-xl text-primary">Politique de cookies</h2>
+
+              <div className="flex flex-col gap-2">
+                <h3 className="font-medium text-foreground">Cookies nécessaires — toujours actifs</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  Ces cookies sont indispensables au fonctionnement du site. Ils ne collectent aucune donnée personnelle identifiable et ne peuvent pas être désactivés. Ils incluent notamment la mémorisation de vos préférences de cookies.
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <h3 className="font-medium text-foreground">Cookies analytiques — soumis à votre consentement</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  Avec votre accord, nous utilisons Google Analytics (Google LLC) pour mesurer l'audience du site de façon anonyme : pages visitées, durée des sessions, provenance du trafic. Ces données sont agrégées et ne permettent pas de vous identifier personnellement. Google peut transférer ces données vers ses serveurs aux États-Unis.
+                </p>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  Vous pouvez retirer votre consentement à tout moment en effaçant les cookies de votre navigateur via ses paramètres.
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <h3 className="font-medium text-foreground">Polices de caractères</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  Les polices utilisées sur ce site (Dancing Script, Cormorant Garamond) sont hébergées directement sur nos serveurs via la fonctionnalité d'auto-hébergement de Next.js. Aucune requête n'est envoyée à Google lors de votre visite.
+                </p>
+              </div>
+            </div>
+
             <div className="flex flex-col gap-4">
               <h2 className="font-bold text-xl text-primary">Création du site</h2>
               <p className="text-muted-foreground text-base leading-relaxed">

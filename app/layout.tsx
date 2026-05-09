@@ -3,6 +3,7 @@ import { Dancing_Script, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import { Header } from "./_components/header";
 import Footer from "./_components/footer";
+import CookieBanner from "./_components/cookie-banner";
 
 const dancingScript = Dancing_Script({
   subsets: ["latin"],
@@ -34,6 +35,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <CookieBanner />
       </body>
     </html>
   );
