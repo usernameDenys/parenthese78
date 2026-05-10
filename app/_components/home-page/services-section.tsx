@@ -87,11 +87,11 @@ export default function ServicesSection() {
                 style={{ color: "var(--primary)", fontSize: "1.9rem" }}>
                 {cat.title}
               </h3>
-              <p className="text-base leading-relaxed">{cat.desc}</p>
+              <p className="text-[1.2rem] leading-relaxed">{cat.desc}</p>
               <Link
                 href="/parentheses"
                 aria-label={`Découvrir les soins ${cat.title}`}
-                className="mt-2 italic text-primary border-b border-primary/40 pb-0.5 text-sm tracking-wide hover:border-primary transition-colors duration-200">
+                className="mt-2 italic text-primary border-b border-primary/40 pb-0.5 text-base tracking-wide hover:border-primary transition-colors duration-200">
                 Découvrir →
               </Link>
             </div>

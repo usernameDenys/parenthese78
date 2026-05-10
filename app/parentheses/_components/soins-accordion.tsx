@@ -117,7 +117,7 @@ function SoinItem({
                   className="italic leading-relaxed"
                   style={{
                     color: "var(--foreground)",
-                    fontSize: "1.08rem",
+                    fontSize: "1.2rem",
                     borderLeft: "2px solid var(--rose-light)",
                     paddingLeft: "1rem",
                   }}>
@@ -125,7 +125,7 @@ function SoinItem({
                 </p>
 
                 {!soin.comingSoon && (
-                  <p className="leading-relaxed" style={{ fontSize: "1rem" }}>
+                  <p className="leading-relaxed" style={{ fontSize: "1.1rem" }}>
                     {soin.description}
                   </p>
                 )}
@@ -146,7 +146,7 @@ function SoinItem({
                       {soin.bienfaits.map((b, i) => (
                         <li
                           key={i}
-                          className="flex gap-3 py-2 text-sm"
+                          className="flex gap-3 py-2 text-base"
                           style={{
                             color: "var(--muted-foreground)",
                             borderBottom: "1px dotted var(--border)",
@@ -171,7 +171,7 @@ function SoinItem({
                       }}>
                       Pour qui ?
                     </h4>
-                    <p className="text-sm leading-relaxed">{soin.pourQui}</p>
+                    <p className="text-base leading-relaxed">{soin.pourQui}</p>
                   </div>
                 )}
               </div>
@@ -225,7 +225,7 @@ function SoinItem({
                     }}>
                     Déroulement
                   </h4>
-                  <p className="text-sm leading-relaxed" style={{ color: "var(--muted-foreground)" }}>
+                  <p className="text-base leading-relaxed" style={{ color: "var(--muted-foreground)" }}>
                     Je me déplace à votre domicile avec tout le nécessaire. Nous
                     prenons d&apos;abord un temps d&apos;échange pour adapter le
                     soin à vos besoins, puis je réalise le soin avec des gestes
@@ -238,13 +238,13 @@ function SoinItem({
                   <Link
                     href="/contact"
                     aria-label={`Réserver ${soin.nom}`}
-                    className="flex items-center justify-center px-6 h-11 bg-primary text-white rounded-full font-medium text-sm shadow-m transition-all duration-300 hover:bg-foreground hover:-translate-y-px">
+                    className="flex items-center justify-center px-6 h-12 bg-primary text-white rounded-full font-medium text-base shadow-m transition-all duration-300 hover:bg-foreground hover:-translate-y-px">
                     Réserver
                   </Link>
                   <Link
                     href="/offrir"
                     aria-label={`Offrir ${soin.nom}`}
-                    className="flex items-center justify-center px-6 h-11 border border-primary text-foreground rounded-full font-medium text-sm transition-all duration-300 hover:bg-primary hover:text-white">
+                    className="flex items-center justify-center px-6 h-12 border border-primary text-foreground rounded-full font-medium text-base transition-all duration-300 hover:bg-primary hover:text-white">
                     Offrir
                   </Link>
                 </div>

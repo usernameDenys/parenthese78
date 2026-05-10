@@ -58,7 +58,7 @@ export default function ZoneSection() {
         <Link
           href="/parentheses"
           aria-label="Découvrir les soins à domicile"
-          className="mt-2 self-start italic text-primary border-b border-primary/40 pb-0.5 text-sm tracking-wide hover:border-primary transition-colors duration-200">
+          className="mt-2 self-start italic text-primary border-b border-primary/40 pb-0.5 text-base tracking-wide hover:border-primary transition-colors duration-200">
           Découvrir les soins à domicile →
         </Link>
       </div>

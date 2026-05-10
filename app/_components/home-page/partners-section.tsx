@@ -52,7 +52,7 @@ export default function PartnersSection() {
         <Image src={edbn} alt="École du Bien Naître — EDBN" className="h-20 w-auto shrink-0" />
         <div className="flex flex-col gap-1">
           <p className="font-bold text-primary">Ambassadrice École du Bien Naître</p>
-          <p className="text-muted-foreground text-base leading-relaxed">
+          <p className="text-muted-foreground text-[1.2rem] leading-relaxed">
             Praticienne formée et certifiée par l&apos;EDBN® — Méthodes Sonia Krief.
             Une approche transmise et reconnue, centrée sur le respect du rythme
             et des besoins de chacun.
@@ -70,7 +70,7 @@ export default function PartnersSection() {
         <p className="font-bold text-primary text-lg">
           Regard&apos;Hélina Photographie
         </p>
-        <p className="text-muted-foreground text-base leading-relaxed">
+        <p className="text-muted-foreground text-[1.2rem] leading-relaxed">
           Je collabore avec Cécile, photographe spécialisée dans la maternité
           et les premiers jours de vie. Elle capture avec délicatesse les
           moments précieux de votre famille — son approche douce et respectueuse
