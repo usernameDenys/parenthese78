@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
+import { BOOKING_URL } from "@/app/lib/booking";
 
 export type Soin = {
   id: string;
@@ -236,7 +237,9 @@ function SoinItem({
                 {/* Actions */}
                 <div className="flex gap-3 flex-wrap">
                   <Link
-                    href="/contact"
+                    href={BOOKING_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     aria-label={`Réserver ${soin.nom}`}
                     className="flex items-center justify-center px-6 h-12 bg-primary text-white rounded-full font-medium text-base shadow-m transition-all duration-300 hover:bg-foreground hover:-translate-y-px">
                     Réserver
