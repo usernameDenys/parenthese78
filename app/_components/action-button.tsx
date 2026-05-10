@@ -6,6 +6,7 @@ type ActionButtonProps = {
   ariaLabel: string;
   children: ReactNode;
   variant?: "primary" | "outline";
+  external?: boolean;
 };
 
 export default function ActionButton({
@@ -13,6 +14,7 @@ export default function ActionButton({
   ariaLabel,
   children,
   variant = "primary",
+  external,
 }: ActionButtonProps) {
   const styles =
     variant === "outline"
@@ -23,6 +25,7 @@ export default function ActionButton({
     <Link
       href={href}
       aria-label={ariaLabel}
+      {...(external && { target: "_blank", rel: "noopener noreferrer" })}
       className={`
         w-full sm:w-auto sm:px-8
         h-12 max-h-14

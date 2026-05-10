@@ -2,6 +2,7 @@ import { Container } from "@/app/_components/container";
 import ActionButton from "@/app/_components/action-button";
 import SoinsAccordion, { type Soin } from "./_components/soins-accordion";
 import CatNav from "./_components/cat-nav";
+import { BOOKING_URL } from "@/app/lib/booking";
 
 export const metadata = {
   title: "Les Parenthèses — Soins & accompagnements | Parenthèse",
@@ -165,18 +166,6 @@ const soinsBebe = [
     tarif: "À préciser",
     comingSoon: true,
   },
-  {
-    id: "reflexologie-bebe",
-    nom: "Réflexologie bébé émotionnelle",
-    sous: "Douceur & équilibre",
-    accroche: "Un soin doux pour apaiser les tensions et soutenir le bien-être émotionnel de bébé.",
-    description: "Contenu à venir — contactez-moi pour en savoir plus.",
-    bienfaits: [],
-    pourQui: "",
-    duree: "À préciser",
-    tarif: "À préciser",
-    comingSoon: true,
-  },
 ];
 
 const soinsParents = [
@@ -289,7 +278,7 @@ function CategorySection({
         <SoinsAccordion soins={soins} />
 
         <div className="flex flex-wrap gap-4 mt-12">
-          <ActionButton href={ctaHref} ariaLabel={ctaLabel}>
+          <ActionButton href={ctaHref} ariaLabel={ctaLabel} external>
             {ctaLabel}
           </ActionButton>
           <ActionButton href="/offrir" ariaLabel="Offrir une parenthèse" variant="outline">
@@ -323,7 +312,7 @@ export default function ParenthesesPage() {
               À domicile, à Versailles et ses environs · À vivre ou à offrir
             </p>
             <div className="flex flex-wrap gap-3 mt-2 justify-center">
-              <ActionButton href="/contact" ariaLabel="Réserver un soin">
+              <ActionButton href={BOOKING_URL} ariaLabel="Réserver un soin" external>
                 Réserver un soin
               </ActionButton>
               <ActionButton href="/offrir" ariaLabel="Offrir une parenthèse" variant="outline">
@@ -344,7 +333,7 @@ export default function ParenthesesPage() {
         desc="Des soins pour accompagner les grandes étapes de la vie féminine"
         soins={soinsF}
         ctaLabel="Réserver un soin femme"
-        ctaHref="/contact"
+        ctaHref={BOOKING_URL}
       />
 
       {/* Pour le bébé */}
@@ -355,7 +344,7 @@ export default function ParenthesesPage() {
         desc="Accueillir, apaiser et créer du lien dès les premiers instants"
         soins={soinsBebe}
         ctaLabel="Réserver un soin bébé"
-        ctaHref="/contact"
+        ctaHref={BOOKING_URL}
         bg="var(--secondary)"
       />
 
@@ -367,7 +356,7 @@ export default function ParenthesesPage() {
         desc="Soutenir, rassurer et accompagner votre nouveau rôle"
         soins={soinsParents}
         ctaLabel="Réserver un accompagnement"
-        ctaHref="/contact"
+        ctaHref={BOOKING_URL}
       />
 
       {/* Pour les enfants */}
@@ -378,7 +367,7 @@ export default function ParenthesesPage() {
         desc="Des soins pour accompagner les enfants dans leur développement émotionnel et leur bien-être"
         soins={soinsEnfants}
         ctaLabel="Réserver un soin"
-        ctaHref="/contact"
+        ctaHref={BOOKING_URL}
         bg="var(--secondary)"
       />
 
@@ -402,7 +391,7 @@ export default function ParenthesesPage() {
           </div>
 
           <div className="flex flex-wrap gap-4 mt-12">
-            <ActionButton href="/contact" ariaLabel="Construire ma parenthèse">
+            <ActionButton href={BOOKING_URL} ariaLabel="Construire ma parenthèse" external>
               Construire ma Parenthèse
             </ActionButton>
             <ActionButton href="/offrir" ariaLabel="Offrir une parenthèse" variant="outline">
