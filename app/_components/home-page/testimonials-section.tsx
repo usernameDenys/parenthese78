@@ -57,7 +57,7 @@ export default function TestimonialsSection() {
 
             <p
               className="italic leading-relaxed mb-6"
-              style={{ color: "var(--foreground)", fontSize: "1.05rem" }}>
+              style={{ color: "var(--foreground)", fontSize: "1.2rem" }}>
               {t.quote}
             </p>
 

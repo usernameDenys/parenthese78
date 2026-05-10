@@ -55,7 +55,7 @@ export default function ApproachSection() {
             transition={{ duration: 0.8, ease, delay: i * 0.15 }}>
             <span className="text-primary">{point.icon}</span>
             <h3 className="font-bold text-lg text-primary">{point.title}</h3>
-            <p className="text-muted-foreground text-base leading-relaxed">
+            <p className="text-muted-foreground text-[1.2rem] leading-relaxed">
               {point.desc}
             </p>
           </motion.div>

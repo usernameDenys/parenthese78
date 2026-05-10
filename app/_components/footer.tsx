@@ -47,24 +47,24 @@ const Footer = () => {
               <Link href="/">
                 <Image src={logo} alt="Parenthèse" height={56} className="h-14 w-auto" />
               </Link>
-              <p className="text-muted-foreground text-base leading-relaxed">
+              <p className="text-muted-foreground text-[1.2rem] leading-relaxed">
                 Soins bien-être périnataux à domicile à Versailles et ses
                 environs, pour les bébés et leurs parents.
               </p>
               <ul className="space-y-2 pt-2">
-                <li className="flex items-center gap-2 text-sm text-muted-foreground">
+                <li className="flex items-center gap-2 text-base text-muted-foreground">
                   <FiPhone className="shrink-0 text-primary" />
                   <a href="tel:+33622009039" className="hover:text-primary transition-colors duration-200">
                     06.22.00.90.39
                   </a>
                 </li>
-                <li className="flex items-center gap-2 text-sm text-muted-foreground">
+                <li className="flex items-center gap-2 text-base text-muted-foreground">
                   <FiMail className="shrink-0 text-primary" />
                   <a href="mailto:parenthese78.faustine@gmail.com" className="hover:text-primary transition-colors duration-200">
                     parenthese78.faustine@gmail.com
                   </a>
                 </li>
-                <li className="flex items-start gap-2 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2 text-base text-muted-foreground">
                   <FiMapPin className="shrink-0 text-primary mt-0.5" />
                   <span>Versailles et ses environs (78)</span>
                 </li>
@@ -79,7 +79,7 @@ const Footer = () => {
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className="text-muted-foreground hover:text-primary transition-colors duration-200 text-sm">
+                      className="text-muted-foreground hover:text-primary transition-colors duration-200 text-base">
                       {link.name}
                     </Link>
                   </li>
@@ -115,7 +115,7 @@ const Footer = () => {
                     <li key={link.name}>
                       <Link
                         href={link.href}
-                        className="text-muted-foreground hover:text-primary transition-colors duration-200 text-sm">
+                        className="text-muted-foreground hover:text-primary transition-colors duration-200 text-base">
                         {link.name}
                       </Link>
                     </li>

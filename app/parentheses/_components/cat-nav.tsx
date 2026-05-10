@@ -58,7 +58,7 @@ export default function CatNav() {
               style={{
                 padding: "8px 18px",
                 borderRadius: "var(--radius-pill)",
-                fontSize: "0.95rem",
+                fontSize: "1.1rem",
                 fontFamily: "var(--font-cormorant), serif",
                 border: `1px solid ${active ? "transparent" : "transparent"}`,
                 background: active ? "var(--primary)" : "transparent",

@@ -60,7 +60,7 @@ export default function ParallaxSection() {
           Le temps suspendu d&apos;une parenthèse
         </h2>
         <p
-          className="text-base italic leading-relaxed max-w-xl"
+          className="text-[1.2rem] italic leading-relaxed max-w-xl"
           style={{ color: "rgba(255,255,255,0.92)" }}>
           Un instant pour ralentir, écouter, recevoir. Pour soi, pour son bébé,
           pour ce nouveau lien qui se tisse — avec douceur et conscience.
