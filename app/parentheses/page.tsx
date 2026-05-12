@@ -2,7 +2,7 @@ import { Container } from "@/app/_components/container";
 import ActionButton from "@/app/_components/action-button";
 import SoinsAccordion, { type Soin } from "./_components/soins-accordion";
 import CatNav from "./_components/cat-nav";
-import { BOOKING_URL } from "@/app/lib/booking";
+import { BOOKING_URL, calUrl } from "@/app/lib/booking";
 
 export const metadata = {
   title: "Les Parenthèses — Soins & accompagnements | Parenthèse",
@@ -30,6 +30,7 @@ const soinsF = [
     pourQui: "Pour toutes les femmes enceintes, à partir du 2ᵉ trimestre.",
     duree: "1h ou 1h30",
     tarif: "110 € – 150 €",
+    reservationUrl: calUrl("maternite"),
   },
   {
     id: "postnatale",
@@ -49,6 +50,7 @@ const soinsF = [
       "Pour toutes les jeunes mamans, dès les premiers jours après la naissance (selon votre état de fatigue et votre récupération).",
     duree: "1h – 1h30",
     tarif: "110 € – 150 €",
+    reservationUrl: calUrl("postnatale"),
   },
   {
     id: "rebozo",
@@ -68,6 +70,7 @@ const soinsF = [
       "Pour les femmes, à différentes étapes de leur vie : en post-partum, lors d'un changement ou d'une transition, ou simplement pour prendre un temps pour soi.",
     duree: "1h30",
     tarif: "170 €",
+    reservationUrl: calUrl("soin-rebozo"),
   },
   {
     id: "equilibre",
@@ -87,6 +90,7 @@ const soinsF = [
       "Pour les femmes en désir de grossesse, ou concernées par des inconforts liés au cycle menstruel.",
     duree: "1h ou 1h30",
     tarif: "110 € – 150 €",
+    reservationUrl: calUrl("equilibre-feminin"),
   },
   {
     id: "reflexologie",
@@ -106,6 +110,7 @@ const soinsF = [
       "Pour les femmes adultes qui ressentent le besoin de se recentrer, d'apaiser leurs émotions, ou de traverser une période plus sensible. Soin proposé hors grossesse.",
     duree: "1h10",
     tarif: "90 €",
+    reservationUrl: calUrl("reflexologie"),
   },
   {
     id: "rituel",
@@ -119,6 +124,7 @@ const soinsF = [
     duree: "Environ 3h",
     tarif: "500 €",
     premium: true,
+    reservationUrl: calUrl("rituel-rebozo"),
   },
 ];
 
@@ -141,6 +147,7 @@ const soinsBebe = [
       "Pour les nouveau-nés, idéalement dans les 21 premiers jours qui suivent la naissance ou le terme prévu.",
     duree: "Environ 1h30",
     tarif: "130 €",
+    reservationUrl: calUrl("parenthese-naissance"),
   },
   {
     id: "lien",

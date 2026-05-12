@@ -55,7 +55,7 @@ export function Header() {
 
           {/* CTA */}
           <Link
-            href="rdv"
+            href="/rdv"
             aria-label="Prendre rendez-vous en ligne"
             role="link"
             className="hidden md:flex items-center justify-center px-6 h-12 bg-primary text-secondary rounded-full shadow-m hover:bg-white hover:border hover:border-sage hover:text-text transition-colors duration-200">
@@ -106,7 +106,7 @@ export function Header() {
               </Link>
             ))}
             <Link
-              href="rdv"
+              href="/rdv"
               aria-label="Prendre rendez-vous en ligne"
               role="link"
               className="mt-4 flex items-center justify-center px-6 h-12 border bg-white text-primary rounded-full  hover:bg-primary hover:text-secondary">
