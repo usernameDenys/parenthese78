@@ -15,6 +15,7 @@ export type Soin = {
   pourQui: string;
   duree: string;
   tarif: string;
+  reservationUrl?: string;
   premium?: boolean;
   comingSoon?: boolean;
 };
@@ -237,7 +238,7 @@ function SoinItem({
                 {/* Actions */}
                 <div className="flex gap-3 flex-wrap">
                   <Link
-                    href={BOOKING_URL}
+                    href={soin.reservationUrl ?? BOOKING_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Réserver ${soin.nom}`}

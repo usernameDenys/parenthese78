@@ -47,16 +47,14 @@ export default function BookingWidget() {
 
   return (
     <div className="flex flex-col gap-8">
-      <div
-        className="flex gap-2 overflow-x-auto pb-2 [&::-webkit-scrollbar]:hidden"
-        style={{ scrollbarWidth: "none" }}>
+      <div className="flex flex-wrap justify-center gap-2">
         {SERVICES.map((s) => {
           const active = selected === s.id;
           return (
             <button
               key={s.id}
               onClick={() => setSelected(s.id)}
-              className="flex flex-col items-start shrink-0 px-5 py-3 rounded-2xl border transition-all duration-200 text-left"
+              className="flex flex-col items-start px-5 py-3 rounded-2xl border transition-all duration-200 text-left w-[calc(50%-4px)] sm:w-52"
               style={{
                 background: active ? "var(--primary)" : "var(--background)",
                 borderColor: active ? "var(--primary)" : "var(--border)",
@@ -64,13 +62,13 @@ export default function BookingWidget() {
               }}>
               <span
                 className="font-medium leading-tight"
-                style={{ fontSize: "0.92rem" }}>
+                style={{ fontSize: "1rem" }}>
                 {s.label}
               </span>
               <span
                 className="leading-tight mt-0.5"
                 style={{
-                  fontSize: "0.78rem",
+                  fontSize: "0.88rem",
                   color: active ? "rgba(255,255,255,0.75)" : "var(--ink-mute)",
                 }}>
                 {s.sous}
@@ -87,7 +85,7 @@ export default function BookingWidget() {
           key={selected}
           calLink={`${CAL_USERNAME}/${selected}`}
           style={{ width: "100%", minHeight: 680 }}
-          config={{ theme: "light", layout: "month_view" }}
+          config={{ theme: "light" }}
         />
       </div>
     </div>
