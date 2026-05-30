@@ -16,6 +16,11 @@ export const navItems: NavItems[] = [
     ariaLabel: "Découvrir tous les soins et accompagnements",
   },
   {
+    label: "Quel accompagnement ?",
+    href: "quel-accompagnement",
+    ariaLabel: "Guide pour choisir le bon accompagnement",
+  },
+  {
     label: "Offrir une parenthèse",
     href: "offrir",
     ariaLabel: "Offrir une parenthèse en cadeau",

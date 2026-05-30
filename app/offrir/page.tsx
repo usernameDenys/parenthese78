@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Container } from "../_components/container";
 import { OffrirForm } from "./_components/offrir-form";
 
@@ -18,6 +19,15 @@ export default function OffrirPage() {
             <p className="italic text-muted-foreground text-lg leading-relaxed max-w-lg mx-auto">
               Un cadeau doux, utile et profondément attentionné — pour
               accompagner les débuts de la vie.
+            </p>
+            <p className="text-sm mt-2" style={{ color: "var(--ink-mute)" }}>
+              Vous ne savez pas quel soin offrir ?{" "}
+              <Link
+                href="/quel-accompagnement"
+                className="underline underline-offset-4 transition-colors hover:text-primary"
+                style={{ color: "var(--sage-deep)" }}>
+                Consultez notre guide →
+              </Link>
             </p>
           </div>
         </Container>

@@ -378,6 +378,27 @@ export default function ParenthesesPage() {
         bg="var(--secondary)"
       />
 
+      {/* Guide CTA */}
+      <section className="py-20" style={{ background: "var(--secondary)" }}>
+        <Container>
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8 max-w-4xl mx-auto text-center md:text-left">
+            <div className="flex flex-col gap-3">
+              <span className="eyebrow">Vous hésitez ?</span>
+              <h2 className="text-3xl md:text-4xl">Vous ne savez pas quel soin choisir ?</h2>
+              <p className="leading-relaxed max-w-lg" style={{ color: "var(--muted-foreground)" }}>
+                Notre guide vous oriente en quelques questions vers la Parenthèse
+                la plus adaptée à votre besoin.
+              </p>
+            </div>
+            <div className="shrink-0">
+              <ActionButton href="/quel-accompagnement" ariaLabel="Consulter le guide d'accompagnement">
+                Consulter le guide
+              </ActionButton>
+            </div>
+          </div>
+        </Container>
+      </section>
+
       {/* Les Formules */}
       <section className="py-24 bg-accent">
         <Container>
