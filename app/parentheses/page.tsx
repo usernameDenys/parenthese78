@@ -153,25 +153,61 @@ const soinsBebe = [
     id: "lien",
     nom: "Parenthèse Lien",
     sous: "Bain enveloppé",
-    accroche: "Un moment doux pour prolonger le lien et accompagner bébé dans ses premières semaines.",
-    description: "Contenu à venir — contactez-moi pour en savoir plus.",
-    bienfaits: [],
-    pourQui: "",
-    duree: "À préciser",
-    tarif: "À préciser",
-    comingSoon: true,
+    accroche: "Un moment de douceur et de lien avec votre bébé, pour apprendre à le baigner avec confiance et sérénité.",
+    description:
+      "Le bain enveloppé est un accompagnement du bain du nouveau-né, pensé pour offrir un moment rassurant et apaisant. Grâce à l'enveloppement dans un lange et à des gestes délicats, il permet de retrouver des sensations connues et sécurisantes. Vous êtes pleinement acteurs du soin : je vous guide pas à pas afin que vous puissiez prendre confiance dans les gestes et vivre pleinement ce temps partagé.",
+    bienfaits: [
+      "Apaiser et rassurer votre bébé",
+      "Favoriser la sérénité du bain",
+      "Soutenir le lien parent-bébé",
+      "Accompagner les premiers gestes parentaux",
+      "Partager un temps de douceur en famille",
+    ],
+    pourQui:
+      "Pour les nouveau-nés et leurs parents, idéalement dans les premières semaines de vie.",
+    duree: "Environ 1h à 1h30",
+    tarif: "120 €",
+    reservationUrl: calUrl("parenthese-lien"),
   },
   {
     id: "massage-bebe",
     nom: "Massage bébé",
     sous: "Toucher et présence",
-    accroche: "Un apprentissage du massage pour créer du lien, apaiser et accompagner bébé.",
-    description: "Contenu à venir — contactez-moi pour en savoir plus.",
-    bienfaits: [],
-    pourQui: "",
-    duree: "À préciser",
-    tarif: "À préciser",
-    comingSoon: true,
+    accroche: "Une parenthèse de douceur et de partage pour apprendre à masser votre bébé en confiance. Un langage d'amour par le toucher.",
+    description:
+      "Le massage bébé est un moment privilégié de connexion, où le toucher devient un véritable moyen de communication. À travers des gestes simples, respectueux et adaptés à l'âge de votre enfant, vous apprenez à reconnaître ses besoins, à lire ses signaux et à renforcer votre lien. Pendant la séance, vous massez vous-même votre bébé, à son rythme — je vous guide pas à pas et réalise les gestes en parallèle sur un poupon.",
+    bienfaits: [
+      "Favoriser la détente et l'apaisement",
+      "Soulager certaines tensions digestives",
+      "Soutenir le développement sensoriel et émotionnel",
+      "Accompagner certains moments du quotidien (pleurs, agitation, endormissement…)",
+      "Renforcer le lien parent-enfant",
+    ],
+    pourQui:
+      "Pour les bébés et jeunes enfants de 0 à 3 ans, accompagnés d'un ou de leurs parents.",
+    duree: "Environ 1h",
+    tarif: "70 €",
+    reservationUrl: calUrl("massage-bebe"),
+  },
+  {
+    id: "reflexologie-bebe",
+    nom: "Réflexologie Bébé Émotionnelle®",
+    sous: "Douceur réflexe — 0 à 13 ans",
+    accroche: "Accompagner les émotions de votre enfant par le toucher réflexe, en douceur et en présence.",
+    description:
+      "La Réflexologie Bébé Émotionnelle est une approche douce inspirée de la réflexologie plantaire, adaptée aux bébés et aux jeunes enfants de 0 à 13 ans. Par de légères stimulations sur certaines zones réflexes des pieds, elle permet d'accompagner les émotions et certaines tensions du quotidien — sommeil, séparation, agitation, poussées dentaires, changement de vie… Je propose deux formes : l'atelier parent-enfant (vous pratiquez les gestes guidés), ou la séance individuelle (je réalise directement le soin).",
+    bienfaits: [
+      "Favoriser l'apaisement émotionnel",
+      "Soutenir le sommeil et la détente",
+      "Accompagner certaines étapes de transition (crèche, école, déménagement…)",
+      "Soulager certains inconforts du quotidien",
+      "Offrir un temps d'écoute et de réassurance",
+    ],
+    pourQui:
+      "Pour les bébés et les enfants jusqu'à 13 ans, accompagnés d'un de leurs parents.",
+    duree: "1h",
+    tarif: "70 €",
+    reservationUrl: calUrl("reflexologie-bebe"),
   },
 ];
 
@@ -180,25 +216,41 @@ const soinsParents = [
     id: "parentalite",
     nom: "Soutien à la parentalité",
     sous: "Accompagnement Post-Partum",
-    accroche: "Un espace pour souffler, poser vos questions et trouver vos repères en douceur.",
-    description: "Contenu à venir — contactez-moi pour en savoir plus.",
-    bienfaits: [],
-    pourQui: "",
-    duree: "À préciser",
-    tarif: "À préciser",
-    comingSoon: true,
+    accroche: "Un espace bienveillant pour déposer vos questionnements, être écouté sans jugement et trouver des ressources adaptées à votre réalité de parents.",
+    description:
+      "Chaque famille est unique, chaque bébé est différent. L'arrivée d'un enfant bouleverse le quotidien, les repères et l'équilibre familial. Entre fatigue, émotions, questions et charge mentale, il est parfois précieux de pouvoir être accompagné. Allaitement, organisation du quotidien, pleurs, sommeil, émotions du post-partum, place du couple, confiance parentale… chaque séance s'adapte à vos besoins du moment, que ce soit en anténatal ou en postnatal.",
+    bienfaits: [
+      "Se sentir écouté et soutenu dans son vécu de parent",
+      "Trouver des repères et des ressources adaptées",
+      "Prendre confiance dans son rôle parental",
+      "Mieux comprendre les besoins de son enfant",
+      "Traverser le post-partum avec davantage de sérénité",
+    ],
+    pourQui:
+      "Pour les futurs parents et les jeunes parents, dès la grossesse et durant les premières années de l'enfant.",
+    duree: "1h",
+    tarif: "75 €",
+    reservationUrl: calUrl("soutien-parentalite"),
   },
   {
     id: "sommeil",
     nom: "Sommeil de l'enfant",
     sous: "De 0 à 3 ans",
-    accroche: "Un accompagnement doux pour aider toute la famille à retrouver un sommeil apaisé.",
-    description: "Contenu à venir — contactez-moi pour en savoir plus.",
-    bienfaits: [],
-    pourQui: "",
-    duree: "À préciser",
-    tarif: "À préciser",
-    comingSoon: true,
+    accroche: "Un accompagnement pour mieux comprendre le sommeil de votre enfant et retrouver plus de sérénité au quotidien.",
+    description:
+      "Le sommeil des tout-petits est souvent source de questionnements et de stress pour les parents. Cet accompagnement vous propose un temps dédié pour mieux comprendre ce qui se joue autour du sommeil de votre enfant et trouver des ajustements adaptés à votre famille, dans le respect de son développement. Ensemble, nous échangeons autour de votre quotidien afin de trouver des repères adaptés à votre enfant et à votre parentalité.",
+    bienfaits: [
+      "Mieux comprendre le sommeil de son enfant",
+      "Retrouver des repères adaptés à son rythme",
+      "Apaiser les tensions autour du coucher et des nuits",
+      "Prendre confiance dans ses choix parentaux",
+      "Retrouver davantage de sérénité au quotidien",
+    ],
+    pourQui:
+      "Pour les parents d'enfants de 0 à 3 ans qui souhaitent être accompagnés autour du sommeil.",
+    duree: "1h",
+    tarif: "80 €",
+    reservationUrl: calUrl("sommeil-enfant"),
   },
 ];
 
@@ -206,26 +258,21 @@ const soinsEnfants = [
   {
     id: "massage-enfant",
     nom: "Massage enfant",
-    sous: "Jusqu'à 13 ans",
-    accroche: "Un soin doux pour accompagner l'enfant dans son bien-être et ses émotions.",
-    description: "Contenu à venir — contactez-moi pour en savoir plus.",
-    bienfaits: [],
-    pourQui: "",
-    duree: "À préciser",
-    tarif: "À préciser",
-    comingSoon: true,
-  },
-  {
-    id: "reflexologie-enfant",
-    nom: "Réflexologie émotionnelle enfant",
-    sous: "Équilibre & douceur",
-    accroche: "Un soin pour apaiser les émotions de l'enfant et soutenir son développement.",
-    description: "Contenu à venir — contactez-moi pour en savoir plus.",
-    bienfaits: [],
-    pourQui: "",
-    duree: "À préciser",
-    tarif: "À préciser",
-    comingSoon: true,
+    sous: "De 4 à 13 ans",
+    accroche: "Un temps de détente et de reconnexion pour accompagner votre enfant dans son bien-être corporel et émotionnel.",
+    description:
+      "À cet âge, l'enfant grandit, découvre, apprend, s'adapte… Le massage lui permet de ralentir, de relâcher les tensions physiques et émotionnelles accumulées dans son quotidien, et de retrouver une sensation de sécurité dans son corps. Ce soin peut accompagner différentes périodes : fatigue, agitation, stress, changement (école, séparation, émotions fortes). Le massage est réalisé dans le respect total du consentement et de la disponibilité de l'enfant. Option possible : ajout de 15 min de Réflexologie Bébé Émotionnelle (+15 €).",
+    bienfaits: [
+      "Favoriser la détente et l'apaisement",
+      "Aider à relâcher les tensions corporelles",
+      "Soutenir l'équilibre émotionnel",
+      "Améliorer la conscience corporelle",
+      "Renforcer le sentiment de sécurité intérieure",
+    ],
+    pourQui: "Pour les enfants de 4 à 13 ans, accompagnés d'un parent.",
+    duree: "20 min (4–7 ans) · 30 min (8–12 ans)",
+    tarif: "45 € (4–7 ans) · 55 € (8–12 ans)",
+    reservationUrl: calUrl("massage-enfant"),
   },
 ];
 
@@ -419,11 +466,8 @@ export default function ParenthesesPage() {
           </div>
 
           <div className="flex flex-wrap gap-4 mt-12">
-            <ActionButton href={BOOKING_URL} ariaLabel="Construire ma parenthèse" external>
+            <ActionButton href="/formules" ariaLabel="Construire ma parenthèse">
               Construire ma Parenthèse
-            </ActionButton>
-            <ActionButton href="/offrir" ariaLabel="Offrir une parenthèse" variant="outline">
-              Offrir une Parenthèse
             </ActionButton>
           </div>
         </Container>
