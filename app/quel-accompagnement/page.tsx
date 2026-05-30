@@ -81,7 +81,7 @@ const categories = [
       {
         question: "Mon enfant traverse des émotions fortes",
         suggestions: [
-          { label: "Réflexologie Bébé Émotionnelle®", href: "/parentheses#cat-enfants" },
+          { label: "Réflexologie Bébé Émotionnelle®", href: "/parentheses#cat-bebe" },
           { label: "Massage enfant avec option RBE", href: "/parentheses#cat-enfants" },
         ],
       },
