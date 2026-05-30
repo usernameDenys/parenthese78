@@ -40,6 +40,36 @@ const SERVICES = [
     label: "Parenthèse Naissance",
     sous: "Bain Bébé®",
   },
+  {
+    id: "parenthese-lien",
+    label: "Parenthèse Lien",
+    sous: "Bain enveloppé",
+  },
+  {
+    id: "massage-bebe",
+    label: "Massage bébé",
+    sous: "Toucher et présence",
+  },
+  {
+    id: "reflexologie-bebe",
+    label: "Réflexologie Bébé Émotionnelle®",
+    sous: "0–13 ans",
+  },
+  {
+    id: "soutien-parentalite",
+    label: "Soutien à la parentalité",
+    sous: "Post-Partum",
+  },
+  {
+    id: "sommeil-enfant",
+    label: "Sommeil de l'enfant",
+    sous: "0–3 ans",
+  },
+  {
+    id: "massage-enfant",
+    label: "Massage enfant",
+    sous: "4–13 ans",
+  },
 ];
 
 export default function BookingWidget() {
