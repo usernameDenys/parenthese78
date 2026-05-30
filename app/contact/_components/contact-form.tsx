@@ -20,9 +20,26 @@ export default function ContactForm() {
     e.preventDefault();
     setStatus("loading");
 
-    // TODO: brancher un service d'envoi (Resend, EmailJS, etc.)
-    await new Promise((r) => setTimeout(r, 1000));
-    setStatus("success");
+    const form = e.currentTarget;
+    const payload = {
+      name: (form.elements.namedItem("name") as HTMLInputElement).value,
+      email: (form.elements.namedItem("email") as HTMLInputElement).value,
+      phone: (form.elements.namedItem("phone") as HTMLInputElement).value,
+      subject: (form.elements.namedItem("subject") as HTMLSelectElement).value,
+      message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) throw new Error();
+      setStatus("success");
+    } catch {
+      setStatus("error");
+    }
   }
 
   if (status === "success") {
