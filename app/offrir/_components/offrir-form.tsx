@@ -190,7 +190,7 @@ export function OffrirForm() {
             </div>
             <p className="mt-8 italic text-muted-foreground leading-relaxed" style={{ fontSize: "0.95rem" }}>
               La carte est envoyée par email à la personne de votre choix (ou à
-              vous, pour la remettre en main propre). Valable 12 mois.
+              vous, pour la remettre en main propre). Valable 6 mois.
             </p>
           </div>
 
@@ -462,7 +462,7 @@ export function OffrirForm() {
                     </span>
                   </div>
                   <p className="text-xs italic" style={{ color: "var(--color-ink-mute)" }}>
-                    Valable 12 mois · Règlement après contact de Faustine
+                    Valable 6 mois · Règlement après contact de Faustine
                   </p>
                 </div>
 

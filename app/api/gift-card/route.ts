@@ -85,7 +85,7 @@ function recipientEmailHtml(data: GiftCardPayload): string {
             </p>
             <p style="font-size:15px;color:#6B5F58;margin:0 0 28px;line-height:1.7;">
               La carte cadeau est jointe à cet email en PDF.
-              Elle est valable <strong style="color:#3D3530;">12 mois</strong> à compter de ce jour.
+              Elle est valable <strong style="color:#3D3530;">6 mois</strong> à compter de ce jour.
             </p>
 
             <!-- Contact -->
