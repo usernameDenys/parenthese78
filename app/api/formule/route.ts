@@ -3,6 +3,7 @@ import nodemailer from "nodemailer";
 
 export interface FormulePayload {
   formuleNom: string;
+  formuleDesc?: string;
   seances: string[];
   mode: "moi" | "offrir";
   prenom: string;
@@ -53,10 +54,8 @@ function faustineEmailHtml(data: FormulePayload): string {
 
       <tr>
         <td style="padding:28px 36px 0;">
-          <p style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:#998C84;margin:0 0 12px;">Séances choisies</p>
-          <ul style="margin:0;padding:0 0 0 16px;">
-            ${data.seances.map(s => `<li style="font-size:15px;color:#3D3530;line-height:1.8;">${s}</li>`).join("")}
-          </ul>
+          <p style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:#998C84;margin:0 0 10px;">Description de la formule</p>
+          <p style="font-size:15px;color:#3D3530;line-height:1.7;margin:0;font-style:italic;">${data.formuleDesc || "—"}</p>
         </td>
       </tr>
 
