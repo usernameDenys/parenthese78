@@ -307,8 +307,6 @@ function CategorySection({
   subtitle,
   desc,
   soins,
-  ctaLabel,
-  ctaHref,
   bg,
 }: {
   id: string;
@@ -316,8 +314,6 @@ function CategorySection({
   subtitle: string;
   desc: string;
   soins: Soin[];
-  ctaLabel: string;
-  ctaHref: string;
   bg?: string;
 }) {
   return (
@@ -330,15 +326,6 @@ function CategorySection({
         </div>
 
         <SoinsAccordion soins={soins} />
-
-        <div className="flex flex-wrap gap-4 mt-12">
-          <ActionButton href={ctaHref} ariaLabel={ctaLabel} external>
-            {ctaLabel}
-          </ActionButton>
-          <ActionButton href="/offrir" ariaLabel="Offrir une parenthèse" variant="outline">
-            Offrir une Parenthèse
-          </ActionButton>
-        </div>
       </Container>
     </section>
   );
@@ -386,8 +373,6 @@ export default function ParenthesesPage() {
         subtitle="Parenthèse au féminin"
         desc="Des soins pour accompagner les grandes étapes de la vie féminine"
         soins={soinsF}
-        ctaLabel="Réserver un soin femme"
-        ctaHref={BOOKING_URL}
       />
 
       {/* Pour le bébé */}
@@ -397,8 +382,6 @@ export default function ParenthesesPage() {
         subtitle="Parenthèse pour bébé"
         desc="Accueillir, apaiser et créer du lien dès les premiers instants"
         soins={soinsBebe}
-        ctaLabel="Réserver un soin bébé"
-        ctaHref={BOOKING_URL}
         bg="var(--secondary)"
       />
 
@@ -409,8 +392,6 @@ export default function ParenthesesPage() {
         subtitle="Parenthèse pour les parents"
         desc="Soutenir, rassurer et accompagner votre nouveau rôle"
         soins={soinsParents}
-        ctaLabel="Réserver un accompagnement"
-        ctaHref={BOOKING_URL}
       />
 
       {/* Pour les enfants */}
@@ -420,8 +401,6 @@ export default function ParenthesesPage() {
         subtitle="Parenthèse enfance"
         desc="Des soins pour accompagner les enfants dans leur développement émotionnel et leur bien-être"
         soins={soinsEnfants}
-        ctaLabel="Réserver un soin"
-        ctaHref={BOOKING_URL}
         bg="var(--secondary)"
       />
 
