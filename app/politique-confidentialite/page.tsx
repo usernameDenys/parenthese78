@@ -17,7 +17,7 @@ export default function PolitiqueConfidentialitePage() {
                 Politique de confidentialité
               </h1>
               <p className="text-muted-foreground text-sm">
-                Dernière mise à jour : avril 2026
+                Dernière mise à jour : mai 2026
               </p>
             </div>
 

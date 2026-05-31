@@ -76,6 +76,24 @@ export default function MentionsLegalesPage() {
             </div>
 
             <div className="flex flex-col gap-4">
+              <h2 className="font-bold text-xl text-primary">Nom de domaine</h2>
+              <div className="text-muted-foreground text-sm leading-relaxed flex flex-col gap-1">
+                <p>
+                  <span className="font-medium text-foreground">Registrar :</span>{" "}
+                  OVH SAS
+                </p>
+                <p>
+                  <span className="font-medium text-foreground">Adresse :</span>{" "}
+                  2 rue Kellermann, 59100 Roubaix, France
+                </p>
+                <p>
+                  <span className="font-medium text-foreground">Site :</span>{" "}
+                  ovh.com
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-4">
               <h2 className="font-bold text-xl text-primary">
                 Propriété intellectuelle
               </h2>
