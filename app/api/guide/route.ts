@@ -75,7 +75,7 @@ function emailHtml(data: GuidePayload): string {
         <tr>
           <td style="padding:16px 36px 24px;background:#FBF7F2;border-top:1px solid #E5DAD0;">
             <p style="font-size:12px;color:#998C84;font-style:italic;margin:0;">
-              Parenthèse — parenthese78.faustine@gmail.com
+              Parenthèse — contact@parenthese78.fr
             </p>
           </td>
         </tr>
@@ -103,7 +103,7 @@ export async function POST(req: NextRequest) {
 
     await transporter.sendMail({
       from: `"Parenthèse Site" <${process.env.GMAIL_USER}>`,
-      to: process.env.GMAIL_USER,
+      to: "contact@parenthese78.fr",
       subject: `[Guide] Demande de conseil — ${data.prenom}`,
       html: emailHtml(data),
     });
