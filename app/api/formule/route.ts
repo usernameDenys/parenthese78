@@ -97,7 +97,7 @@ function faustineEmailHtml(data: FormulePayload): string {
       <tr>
         <td style="padding:24px 36px;background:#FBF7F2;border-top:1px solid #E5DAD0;margin-top:12px;">
           <p style="font-size:12px;color:#998C84;font-style:italic;margin:0;">
-            Parenthèse — parenthese78.faustine@gmail.com
+            Parenthèse — contact@parenthese78.fr
           </p>
         </td>
       </tr>
@@ -140,7 +140,7 @@ function confirmationEmailHtml(data: FormulePayload): string {
             <tr><td style="padding:20px 24px;">
               <p style="font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:#998C84;margin:0 0 10px;">Contact</p>
               <p style="font-size:14px;color:#3D3530;margin:0 0 4px;">📞 06.22.00.90.39</p>
-              <p style="font-size:14px;color:#3D3530;margin:0;">✉️ parenthese78.faustine@gmail.com</p>
+              <p style="font-size:14px;color:#3D3530;margin:0;">✉️ contact@parenthese78.fr</p>
             </td></tr>
           </table>
         </td>
@@ -178,7 +178,7 @@ export async function POST(req: NextRequest) {
     promises.push(
       transporter.sendMail({
         from: `"Parenthèse Site" <${process.env.GMAIL_USER}>`,
-        to: process.env.GMAIL_USER,
+        to: "contact@parenthese78.fr",
         replyTo: data.contact.includes("@") ? data.contact : undefined,
         subject: `[Formule] ${data.formuleNom} — ${data.prenom}`,
         html: faustineEmailHtml(data),

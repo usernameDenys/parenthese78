@@ -94,7 +94,7 @@ function recipientEmailHtml(data: GiftCardPayload): string {
                 <td style="padding:20px 24px;">
                   <p style="font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:#998C84;margin:0 0 10px;">Contact</p>
                   <p style="font-size:14px;color:#3D3530;margin:0 0 4px;">📞 06.22.00.90.39</p>
-                  <p style="font-size:14px;color:#3D3530;margin:0;">✉️ parenthese78.faustine@gmail.com</p>
+                  <p style="font-size:14px;color:#3D3530;margin:0;">✉️ contact@parenthese78.fr</p>
                 </td>
               </tr>
             </table>
@@ -282,7 +282,7 @@ export async function POST(req: NextRequest) {
     emailPromises.push(
       transporter.sendMail({
         from: `"Parenthèse Site" <${process.env.GMAIL_USER}>`,
-        to: process.env.GMAIL_USER,
+        to: "contact@parenthese78.fr",
         replyTo: data.fromEmail,
         subject: `Nouvelle carte cadeau — ${data.amount} € pour ${recipientName}`,
         html: faustineEmailHtml(data),
