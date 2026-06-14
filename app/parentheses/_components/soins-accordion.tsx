@@ -15,6 +15,7 @@ export type Soin = {
   pourQui: string;
   duree: string;
   tarif: string;
+  deroulement?: string;
   reservationUrl?: string;
   premium?: boolean;
   comingSoon?: boolean;
@@ -228,10 +229,7 @@ function SoinItem({
                     Déroulement
                   </h4>
                   <p className="text-base leading-relaxed" style={{ color: "var(--muted-foreground)" }}>
-                    Je me déplace à votre domicile avec tout le nécessaire. Nous
-                    prenons d&apos;abord un temps d&apos;échange pour adapter le
-                    soin à vos besoins, puis je réalise le soin avec des gestes
-                    doux et enveloppants, dans une position confortable.
+                    {soin.deroulement ?? "Je me déplace à votre domicile avec tout le nécessaire. Nous prenons d'abord un temps d'échange pour adapter le soin à vos besoins, puis je réalise le soin avec des gestes doux et enveloppants, dans une position confortable."}
                   </p>
                 </div>
 

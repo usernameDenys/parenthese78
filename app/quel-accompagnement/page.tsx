@@ -53,7 +53,7 @@ const categories = [
         ],
       },
       {
-        question: "J'ai besoin de créer du lien avec mon bébé",
+        question: "Je souhaite développer la complicité avec mon bébé.",
         suggestions: [
           { label: "Massage bébé", href: "/parentheses#cat-bebe" },
         ],
@@ -96,7 +96,7 @@ const categories = [
       {
         question: "Je me sens fatigué(e), dépassé(e), ou j'ai des questions de puériculture",
         suggestions: [
-          { label: "Soutien à la parentalité — Post-Partum", href: "/parentheses#cat-parents" },
+          { label: "Soutien à la parentalité — Pré ou post partum", href: "/parentheses#cat-parents" },
         ],
       },
       {
