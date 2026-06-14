@@ -16,6 +16,7 @@ export default function AboutSection() {
               src={img}
               alt="Photo"
               fill
+              sizes="(max-width: 768px) 300px, 400px"
               className="object-cover object-top  shadow-lg md:shadow-none "
             />
           </div>
