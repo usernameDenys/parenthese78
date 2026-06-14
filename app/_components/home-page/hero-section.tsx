@@ -30,6 +30,7 @@ export default function HeroSection() {
             alt="Faustine, accompagnante périnatale à domicile à Versailles"
             src={heroImage}
             fill
+            sizes="100vw"
             className="object-cover"
             style={{ filter: "grayscale(0.1) contrast(1.02)" }}
             priority

@@ -62,6 +62,7 @@ export default function ServicesSection() {
                 src={cat.image}
                 alt={cat.alt}
                 fill
+                sizes="(max-width: 768px) 100vw, 33vw"
                 className="object-cover transition-transform duration-500 hover:scale-[1.04]"
                 style={{ filter: "grayscale(0.1)", objectPosition: cat.objectPosition ?? "center" }}
               />
