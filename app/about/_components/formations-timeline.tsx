@@ -12,8 +12,9 @@ export default function FormationsTimeline({
   formations: Formation[];
 }) {
   return (
-    <div className="relative max-w-2xl mx-auto">
+    <ol className="relative max-w-2xl mx-auto list-none">
       <div
+        aria-hidden="true"
         className="absolute top-2 bottom-12 w-px"
         style={{
           left: "4px",
@@ -22,7 +23,7 @@ export default function FormationsTimeline({
         }}
       />
       {formations.map((item, i) => (
-        <motion.div
+        <motion.li
           key={i}
           className="relative pl-12 pb-12"
           initial={{ opacity: 0, y: 20 }}
@@ -31,6 +32,7 @@ export default function FormationsTimeline({
           transition={{ duration: 0.7, ease, delay: i * 0.07 }}
         >
           <div
+            aria-hidden="true"
             className="absolute top-2 w-2.5 h-2.5 rounded-full bg-primary z-10"
             style={{ left: 0, boxShadow: "0 0 0 4px var(--color-secondary)" }}
           />
@@ -38,8 +40,8 @@ export default function FormationsTimeline({
           <p className="text-sm text-muted-foreground leading-relaxed">
             {item.detail}
           </p>
-        </motion.div>
+        </motion.li>
       ))}
-    </div>
+    </ol>
   );
 }

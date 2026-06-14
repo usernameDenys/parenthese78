@@ -303,7 +303,7 @@ export function GiftCardDocument({
                 Soins bien-être périnataux à domicile · Versailles (78)
               </Text>
               <Text style={s.footerText}>
-                parenthese78.faustine@gmail.com · 06.22.00.90.39
+                contact@parenthese78.fr · 06.22.00.90.39
               </Text>
             </View>
             <View style={s.validityBadge}>

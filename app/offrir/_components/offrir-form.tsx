@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, Fragment } from "react";
+import { FiCheckCircle } from "react-icons/fi";
 import type { GiftCardPayload } from "@/app/api/gift-card/route";
 
 const SOINS_OPTIONS = [
@@ -123,7 +124,7 @@ export function OffrirForm() {
               className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-8"
               style={{ background: "var(--color-rose-mist)" }}
             >
-              <span className="text-2xl">🌿</span>
+              <FiCheckCircle className="text-primary" size={32} />
             </div>
             <h2 className="mb-4">Merci !</h2>
             <p className="text-muted-foreground leading-relaxed mb-2">
@@ -200,30 +201,47 @@ export function OffrirForm() {
             style={{ boxShadow: "var(--shadow-s)" }}
           >
             {/* Step indicator */}
-            <div className="flex items-center mb-8">
+            <nav aria-label="Étapes de commande" className="flex items-center mb-8">
               {[1, 2, 3].map((n) => (
                 <Fragment key={n}>
-                  <div
-                    onClick={() => n < step && setStep(n)}
-                    className="w-8 h-8 rounded-full flex items-center justify-center font-heading leading-none transition-all duration-300 shrink-0"
-                    style={{
-                      fontSize: "1.2rem",
-                      background: step >= n ? "var(--color-primary)" : "var(--color-secondary)",
-                      color: step >= n ? "white" : "var(--color-ink-mute)",
-                      cursor: n < step ? "pointer" : "default",
-                    }}
-                  >
-                    {n}
-                  </div>
+                  {n < step ? (
+                    <button
+                      type="button"
+                      onClick={() => setStep(n)}
+                      aria-label={`Retour à l'étape ${n}`}
+                      className="w-8 h-8 rounded-full flex items-center justify-center font-heading leading-none transition-all duration-300 shrink-0 cursor-pointer"
+                      style={{
+                        fontSize: "1.2rem",
+                        background: "var(--color-primary)",
+                        color: "white",
+                      }}
+                    >
+                      {n}
+                    </button>
+                  ) : (
+                    <span
+                      aria-current={step === n ? "step" : undefined}
+                      aria-label={`Étape ${n}${step === n ? " (actuelle)" : ""}`}
+                      className="w-8 h-8 rounded-full flex items-center justify-center font-heading leading-none transition-all duration-300 shrink-0"
+                      style={{
+                        fontSize: "1.2rem",
+                        background: step >= n ? "var(--color-primary)" : "var(--color-secondary)",
+                        color: step >= n ? "white" : "var(--color-ink-mute)",
+                      }}
+                    >
+                      {n}
+                    </span>
+                  )}
                   {n < 3 && (
                     <div
+                      aria-hidden="true"
                       className="flex-1 h-px mx-1 transition-all duration-300"
                       style={{ background: step > n ? "var(--color-primary)" : "var(--color-border)" }}
                     />
                   )}
                 </Fragment>
               ))}
-            </div>
+            </nav>
 
             {/* ── Step 1 ── */}
             {step === 1 && (
@@ -236,8 +254,8 @@ export function OffrirForm() {
                 </p>
 
                 <div className="mb-6">
-                  <label className={labelCls}>Soin à offrir</label>
-                  <select value={selectedSoin} onChange={handleSoinChange} className={inputCls}>
+                  <label htmlFor="gift-soin" className={labelCls}>Soin à offrir</label>
+                  <select id="gift-soin" value={selectedSoin} onChange={handleSoinChange} className={inputCls}>
                     <option value="">Carte cadeau (montant libre)</option>
                     {SOINS_OPTIONS.map((group) => (
                       <optgroup key={group.label} label={group.label}>
@@ -273,8 +291,9 @@ export function OffrirForm() {
                 </div>
 
                 <div className="mb-8">
-                  <label className={labelCls}>Montant libre</label>
+                  <label htmlFor="gift-custom-amount" className={labelCls}>Montant libre</label>
                   <input
+                    id="gift-custom-amount"
                     type="number"
                     placeholder="Votre montant en €"
                     value={custom}
@@ -304,8 +323,9 @@ export function OffrirForm() {
 
                 <div className="grid grid-cols-2 gap-4 mb-4">
                   <div>
-                    <label className={labelCls}>Votre prénom</label>
+                    <label htmlFor="gift-from-preview" className={labelCls}>Votre prénom</label>
                     <input
+                      id="gift-from-preview"
                       value={fromFirstName}
                       onChange={(e) => setFromFirstName(e.target.value)}
                       placeholder="Camille"
@@ -313,8 +333,9 @@ export function OffrirForm() {
                     />
                   </div>
                   <div>
-                    <label className={labelCls}>Prénom du destinataire</label>
+                    <label htmlFor="gift-to-preview" className={labelCls}>Prénom du destinataire</label>
                     <input
+                      id="gift-to-preview"
                       value={toFirstName}
                       onChange={(e) => setToFirstName(e.target.value)}
                       placeholder="Élise"
@@ -324,8 +345,9 @@ export function OffrirForm() {
                 </div>
 
                 <div className="mb-8">
-                  <label className={labelCls}>Petit mot (optionnel)</label>
+                  <label htmlFor="gift-message" className={labelCls}>Petit mot (optionnel)</label>
                   <textarea
+                    id="gift-message"
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder="Ma chère Élise, prends ce moment pour toi..."
@@ -369,8 +391,9 @@ export function OffrirForm() {
                 </p>
                 <div className="grid grid-cols-2 gap-4 mb-4">
                   <div>
-                    <label className={labelCls}>Prénom</label>
+                    <label htmlFor="gift-from-firstname" className={labelCls}>Prénom</label>
                     <input
+                      id="gift-from-firstname"
                       value={fromFirstName}
                       onChange={(e) => setFromFirstName(e.target.value)}
                       placeholder="Camille"
@@ -378,8 +401,9 @@ export function OffrirForm() {
                     />
                   </div>
                   <div>
-                    <label className={labelCls}>Nom</label>
+                    <label htmlFor="gift-from-lastname" className={labelCls}>Nom</label>
                     <input
+                      id="gift-from-lastname"
                       value={fromLastName}
                       onChange={(e) => setFromLastName(e.target.value)}
                       placeholder="Martin"
@@ -389,9 +413,11 @@ export function OffrirForm() {
                 </div>
                 <div className="grid grid-cols-2 gap-4 mb-6">
                   <div>
-                    <label className={labelCls}>Email *</label>
+                    <label htmlFor="gift-from-email" className={labelCls}>Email <span aria-hidden="true">*</span><span className="sr-only">(requis)</span></label>
                     <input
+                      id="gift-from-email"
                       type="email"
+                      required
                       value={fromEmail}
                       onChange={(e) => setFromEmail(e.target.value)}
                       placeholder="vous@exemple.fr"
@@ -399,9 +425,11 @@ export function OffrirForm() {
                     />
                   </div>
                   <div>
-                    <label className={labelCls}>Téléphone *</label>
+                    <label htmlFor="gift-from-phone" className={labelCls}>Téléphone <span aria-hidden="true">*</span><span className="sr-only">(requis)</span></label>
                     <input
+                      id="gift-from-phone"
                       type="tel"
+                      required
                       value={fromPhone}
                       onChange={(e) => setFromPhone(e.target.value)}
                       placeholder="06 00 00 00 00"
@@ -419,8 +447,9 @@ export function OffrirForm() {
                 </p>
                 <div className="grid grid-cols-2 gap-4 mb-4">
                   <div>
-                    <label className={labelCls}>Prénom</label>
+                    <label htmlFor="gift-to-firstname" className={labelCls}>Prénom</label>
                     <input
+                      id="gift-to-firstname"
                       value={toFirstName}
                       onChange={(e) => setToFirstName(e.target.value)}
                       placeholder="Élise"
@@ -428,8 +457,9 @@ export function OffrirForm() {
                     />
                   </div>
                   <div>
-                    <label className={labelCls}>Nom</label>
+                    <label htmlFor="gift-to-lastname" className={labelCls}>Nom</label>
                     <input
+                      id="gift-to-lastname"
                       value={toLastName}
                       onChange={(e) => setToLastName(e.target.value)}
                       placeholder="Dupont"
@@ -438,8 +468,9 @@ export function OffrirForm() {
                   </div>
                 </div>
                 <div className="mb-2">
-                  <label className={labelCls}>Email du destinataire (optionnel)</label>
+                  <label htmlFor="gift-to-email" className={labelCls}>Email du destinataire (optionnel)</label>
                   <input
+                    id="gift-to-email"
                     type="email"
                     value={toEmail}
                     onChange={(e) => setToEmail(e.target.value)}
@@ -467,7 +498,7 @@ export function OffrirForm() {
                 </div>
 
                 {errorMsg && (
-                  <p className="text-sm mb-4" style={{ color: "#b85a5a", fontStyle: "italic" }}>
+                  <p role="alert" className="text-sm mb-4" style={{ color: "#b85a5a", fontStyle: "italic" }}>
                     {errorMsg}
                   </p>
                 )}

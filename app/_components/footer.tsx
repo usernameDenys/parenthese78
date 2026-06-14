@@ -61,8 +61,8 @@ const Footer = () => {
                 </li>
                 <li className="flex items-center gap-2 text-base text-muted-foreground">
                   <FiMail className="shrink-0 text-primary" />
-                  <a href="mailto:parenthese78.faustine@gmail.com" className="hover:text-primary transition-colors duration-200">
-                    parenthese78.faustine@gmail.com
+                  <a href="mailto:contact@parenthese78.fr" className="hover:text-primary transition-colors duration-200">
+                    contact@parenthese78.fr
                   </a>
                 </li>
                 <li className="flex items-start gap-2 text-base text-muted-foreground">

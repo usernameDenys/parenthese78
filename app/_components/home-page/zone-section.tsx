@@ -31,6 +31,7 @@ export default function ZoneSection() {
         {/* Tarifs table */}
         <div className="rounded-2xl overflow-hidden" style={{ border: "1px solid var(--border)" }}>
           <table className="w-full text-base">
+            <caption className="sr-only">Tarifs de déplacement selon la zone d&apos;intervention</caption>
             <thead>
               <tr style={{ background: "var(--secondary)" }}>
                 <th className="text-left px-5 py-3 font-medium uppercase tracking-widest" style={{ fontSize: "0.78rem", color: "var(--ink-mute)" }}>Zone</th>

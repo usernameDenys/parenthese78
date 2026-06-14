@@ -18,8 +18,8 @@ const infos = [
   {
     icon: <FiMail className="text-primary shrink-0" size={20} />,
     label: "Email",
-    value: "parenthese78.faustine@gmail.com",
-    href: "mailto:parenthese78.faustine@gmail.com",
+    value: "contact@parenthese78.fr",
+    href: "mailto:contact@parenthese78.fr",
   },
   {
     icon: <FiMapPin className="text-primary shrink-0" size={20} />,

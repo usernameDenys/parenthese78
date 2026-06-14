@@ -44,7 +44,7 @@ export default function MentionsLegalesPage() {
                 </p>
                 <p>
                   <span className="font-medium text-foreground">Email :</span>{" "}
-                  parenthese78.faustine@gmail.com
+                  contact@parenthese78.fr
                 </p>
                 <p>
                   <span className="font-medium text-foreground">

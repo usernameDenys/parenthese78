@@ -25,7 +25,7 @@ export default function PolitiqueConfidentialitePage() {
               <h2 className="font-bold text-xl text-primary">Responsable du traitement</h2>
               <p className="text-muted-foreground text-base leading-relaxed">
                 Faustine [NOM À COMPLÉTER], micro-entreprise Parenthèse —
-                parenthese78.faustine@gmail.com
+                contact@parenthese78.fr
               </p>
             </div>
 
@@ -79,9 +79,9 @@ export default function PolitiqueConfidentialitePage() {
               <p className="text-muted-foreground text-base leading-relaxed">
                 Pour exercer ces droits, contactez-nous à :{" "}
                 <a
-                  href="mailto:parenthese78.faustine@gmail.com"
+                  href="mailto:contact@parenthese78.fr"
                   className="text-primary hover:underline underline-offset-4">
-                  parenthese78.faustine@gmail.com
+                  contact@parenthese78.fr
                 </a>
               </p>
             </div>
