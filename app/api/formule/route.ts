@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import { getIp, rateLimit } from "@/app/lib/rate-limit";
+import { esc } from "@/app/lib/escape-html";
 
 export interface FormulePayload {
   formuleNom: string;
@@ -44,7 +46,7 @@ function faustineEmailHtml(data: FormulePayload): string {
           <div style="font-size:13px;color:rgba(255,255,255,0.85);letter-spacing:2px;text-transform:uppercase;font-style:italic;margin-bottom:4px;">
             ${isOffrir ? "Formule à offrir" : "Demande de formule"}
           </div>
-          <div style="font-family:'Georgia',serif;font-size:22px;color:#FFFFFF;">${data.formuleNom}</div>
+          <div style="font-family:'Georgia',serif;font-size:22px;color:#FFFFFF;">${esc(data.formuleNom)}</div>
         </td>
       </tr>
 
@@ -57,7 +59,7 @@ function faustineEmailHtml(data: FormulePayload): string {
       <tr>
         <td style="padding:28px 36px 0;">
           <p style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:#998C84;margin:0 0 10px;">Description de la formule</p>
-          <p style="font-size:15px;color:#3D3530;line-height:1.7;margin:0;font-style:italic;">${data.formuleDesc || "—"}</p>
+          <p style="font-size:15px;color:#3D3530;line-height:1.7;margin:0;font-style:italic;">${esc(data.formuleDesc) || "—"}</p>
         </td>
       </tr>
 
@@ -67,8 +69,8 @@ function faustineEmailHtml(data: FormulePayload): string {
           <p style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:#7A8B6E;margin:0 0 12px;">Destinataire du cadeau</p>
           <table width="100%" cellpadding="0" cellspacing="0" style="background:#FBF7F2;border-radius:10px;border:1px solid #E8CFCF;">
             <tr><td style="padding:18px 22px;">
-              <p style="font-size:16px;font-weight:bold;color:#3D3530;margin:0 0 4px;">${data.destinatairePrenom || "—"}</p>
-              ${data.destinataireContact ? `<p style="font-size:14px;color:#6B5F58;margin:0;">${data.destinataireContact}</p>` : ""}
+              <p style="font-size:16px;font-weight:bold;color:#3D3530;margin:0 0 4px;">${esc(data.destinatairePrenom) || "—"}</p>
+              ${data.destinataireContact ? `<p style="font-size:14px;color:#6B5F58;margin:0;">${esc(data.destinataireContact)}</p>` : ""}
             </td></tr>
           </table>
         </td>
@@ -79,8 +81,8 @@ function faustineEmailHtml(data: FormulePayload): string {
           <p style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:#998C84;margin:0 0 12px;">${isOffrir ? "L'offreur" : "Coordonnées"}</p>
           <table width="100%" cellpadding="0" cellspacing="0" style="background:#FBF7F2;border-radius:10px;border:1px solid #E8CFCF;">
             <tr><td style="padding:18px 22px;">
-              <p style="font-size:16px;font-weight:bold;color:#3D3530;margin:0 0 4px;">${data.prenom}</p>
-              <p style="font-size:14px;color:#6B5F58;margin:0;">${data.contact}</p>
+              <p style="font-size:16px;font-weight:bold;color:#3D3530;margin:0 0 4px;">${esc(data.prenom)}</p>
+              <p style="font-size:14px;color:#6B5F58;margin:0;">${esc(data.contact)}</p>
             </td></tr>
           </table>
         </td>
@@ -91,7 +93,7 @@ function faustineEmailHtml(data: FormulePayload): string {
         <td style="padding:20px 36px 0;">
           <p style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:#998C84;margin:0 0 10px;">Message</p>
           <div style="border-left:3px solid #E8CFCF;padding-left:16px;">
-            <p style="font-size:14px;color:#6B5F58;font-style:italic;line-height:1.7;margin:0;">« ${data.message} »</p>
+            <p style="font-size:14px;color:#6B5F58;font-style:italic;line-height:1.7;margin:0;">« ${esc(data.message)} »</p>
           </div>
         </td>
       </tr>` : ""}
@@ -127,12 +129,12 @@ function confirmationEmailHtml(data: FormulePayload): string {
       <tr>
         <td style="padding:32px 48px;">
           <p style="font-size:17px;color:#3D3530;margin:0 0 16px;line-height:1.6;">
-            Merci ${data.prenom},
+            Merci ${esc(data.prenom)},
           </p>
           <p style="font-size:15px;color:#6B5F58;margin:0 0 20px;line-height:1.7;">
             ${isOffrir
-      ? `Votre demande de formule <strong style="color:#3D3530;">${data.formuleNom}</strong> à offrir à <strong style="color:#3D3530;">${data.destinatairePrenom || "votre proche"}</strong> a bien été reçue.`
-      : `Votre demande pour la formule <strong style="color:#3D3530;">${data.formuleNom}</strong> a bien été reçue.`
+      ? `Votre demande de formule <strong style="color:#3D3530;">${esc(data.formuleNom)}</strong> à offrir à <strong style="color:#3D3530;">${esc(data.destinatairePrenom) || "votre proche"}</strong> a bien été reçue.`
+      : `Votre demande pour la formule <strong style="color:#3D3530;">${esc(data.formuleNom)}</strong> a bien été reçue.`
     }
           </p>
           <p style="font-size:15px;color:#6B5F58;margin:0 0 28px;line-height:1.7;">
@@ -161,6 +163,10 @@ function confirmationEmailHtml(data: FormulePayload): string {
 }
 
 export async function POST(req: NextRequest) {
+  if (!rateLimit(getIp(req))) {
+    return NextResponse.json({ error: "Trop de requêtes. Réessayez dans quelques minutes." }, { status: 429 });
+  }
+
   try {
     const data: FormulePayload = await req.json();
 
@@ -169,6 +175,14 @@ export async function POST(req: NextRequest) {
     }
     if (data.mode === "offrir" && !data.destinatairePrenom) {
       return NextResponse.json({ error: "Prénom du destinataire manquant." }, { status: 400 });
+    }
+
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (data.contact.includes("@") && !emailRe.test(data.contact)) {
+      return NextResponse.json({ error: "Adresse email invalide." }, { status: 400 });
+    }
+    if (data.prenom.length > 100 || data.contact.length > 200 || (data.message?.length ?? 0) > 2000) {
+      return NextResponse.json({ error: "Un champ dépasse la longueur autorisée." }, { status: 400 });
     }
     if (!process.env.SMTP_USER || !process.env.SMTP_PASSWORD) {
       return NextResponse.json({ error: "Configuration email manquante." }, { status: 500 });
