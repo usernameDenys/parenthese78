@@ -68,7 +68,7 @@ export default function ServicesSection() {
             </div>
 
             {/* Floating icon */}
-            <div className="flex justify-center">
+            <div className="flex justify-center" aria-hidden="true">
               <div
                 className="relative -mt-9 z-10 flex items-center justify-center rounded-full bg-white border border-border text-primary"
                 style={{

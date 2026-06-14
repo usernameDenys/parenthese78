@@ -25,6 +25,8 @@ export default function CookieBanner() {
 
   return (
     <div
+      role="region"
+      aria-label="Consentement aux cookies"
       className="fixed bottom-0 left-0 right-0 z-50 border-t border-border"
       style={{ background: "var(--color-secondary)", boxShadow: "var(--shadow-l)" }}
     >

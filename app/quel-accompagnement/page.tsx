@@ -156,6 +156,7 @@ function NeedCard({
               {s.label}
             </span>
             <span
+              aria-hidden="true"
               className="shrink-0 transition-transform duration-200 group-hover:translate-x-1"
               style={{ color: "var(--primary)" }}>
               →

@@ -16,8 +16,9 @@ export default function ParallaxSection() {
   const y = useTransform(scrollYProgress, [0, 1], ["-22%", "22%"]);
 
   return (
-    <div
+    <section
       ref={ref}
+      aria-label="Une présence, un souffle"
       className="relative overflow-hidden w-full"
       style={{ height: "clamp(480px, 70vh, 720px)" }}>
       <div
@@ -66,6 +67,6 @@ export default function ParallaxSection() {
           pour ce nouveau lien qui se tisse — avec douceur et conscience.
         </p>
       </div>
-    </div>
+    </section>
   );
 }

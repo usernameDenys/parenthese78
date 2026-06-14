@@ -37,13 +37,13 @@ export default function TestimonialsSection() {
       {/* 3-col testimonial grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
         {testimonials.map((t) => (
-          <div
+          <figure
             key={t.name}
             className="relative bg-background rounded-[18px] border border-border p-10"
             style={{ paddingTop: "2.5rem" }}>
             {/* Decorative quote mark */}
             <span
-              aria-hidden
+              aria-hidden="true"
               className="absolute font-heading leading-none pointer-events-none select-none"
               style={{
                 top: "-1.75rem",
@@ -55,16 +55,19 @@ export default function TestimonialsSection() {
               &ldquo;
             </span>
 
-            <p
-              className="italic leading-relaxed mb-6"
-              style={{ color: "var(--foreground)", fontSize: "1.2rem" }}>
-              {t.quote}
-            </p>
+            <blockquote>
+              <p
+                className="italic leading-relaxed mb-6"
+                style={{ color: "var(--foreground)", fontSize: "1.2rem" }}>
+                {t.quote}
+              </p>
+            </blockquote>
 
-            <div
+            <figcaption
               className="flex items-center gap-4 pt-5"
               style={{ borderTop: "1px solid var(--border)" }}>
               <div
+                aria-hidden="true"
                 className="rounded-full flex items-center justify-center font-heading shrink-0"
                 style={{
                   width: 44,
@@ -76,17 +79,17 @@ export default function TestimonialsSection() {
                 {t.initial}
               </div>
               <div>
-                <div className="font-medium" style={{ color: "var(--foreground)" }}>
+                <cite className="not-italic font-medium" style={{ color: "var(--foreground)" }}>
                   {t.name}
-                </div>
+                </cite>
                 <div
                   className="text-sm italic"
                   style={{ color: "var(--ink-mute)" }}>
                   {t.meta}
                 </div>
               </div>
-            </div>
-          </div>
+            </figcaption>
+          </figure>
         ))}
       </div>
 

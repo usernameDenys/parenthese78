@@ -146,7 +146,7 @@ export default function ContactForm() {
       </button>
 
       {status === "error" && (
-        <p className="text-sm text-red-500 text-center">
+        <p role="alert" className="text-sm text-red-500 text-center">
           Une erreur est survenue. Veuillez réessayer ou me contacter par email.
         </p>
       )}

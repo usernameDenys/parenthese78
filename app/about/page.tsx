@@ -170,6 +170,7 @@ export default function AboutPage() {
                     height="18"
                     viewBox="0 0 24 24"
                     fill="none"
+                    aria-hidden="true"
                     className="shrink-0 mt-1"
                     style={{ color: "var(--color-primary)" }}
                   >

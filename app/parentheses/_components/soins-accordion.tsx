@@ -38,13 +38,12 @@ function SoinItem({
         boxShadow: isOpen ? "var(--shadow-m)" : "none",
       }}>
       {/* Header — always visible */}
-      <div
-        role="button"
-        tabIndex={0}
+      <button
+        type="button"
         aria-expanded={isOpen}
+        aria-controls={`soin-body-${soin.id}`}
         onClick={onToggle}
-        onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && onToggle()}
-        className="grid items-center gap-6 px-6 md:px-8 py-6 md:py-7 cursor-pointer transition-colors duration-200 select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset"
+        className="w-full grid items-center gap-6 px-6 md:px-8 py-6 md:py-7 text-left cursor-pointer transition-colors duration-200 select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset"
         style={{
           gridTemplateColumns: "1fr auto",
           background: isOpen ? "var(--secondary)" : "transparent",
@@ -78,7 +77,7 @@ function SoinItem({
 
         {/* Toggle button */}
         <div
-          aria-hidden
+          aria-hidden="true"
           className="rounded-full border flex items-center justify-center shrink-0 transition-all duration-300"
           style={{
             width: 44,
@@ -98,13 +97,14 @@ function SoinItem({
             style={{ width: 1.5, height: 14, background: "currentColor" }}
           />
         </div>
-      </div>
+      </button>
 
       {/* Body — animated */}
       <AnimatePresence initial={false}>
         {isOpen && (
           <motion.div
             key="body"
+            id={`soin-body-${soin.id}`}
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}

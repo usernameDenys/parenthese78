@@ -54,6 +54,7 @@ export default function CatNav() {
             <button
               key={cat.id}
               onClick={() => scrollTo(cat.id)}
+              aria-current={active ? "true" : undefined}
               className="italic transition-all duration-200 cursor-pointer"
               style={{
                 padding: "8px 18px",
