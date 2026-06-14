@@ -15,10 +15,12 @@ export interface FormulePayload {
 
 function createTransporter() {
   return nodemailer.createTransport({
-    service: "gmail",
+    host: "ssl0.ovh.net",
+    port: 465,
+    secure: true,
     auth: {
-      user: process.env.GMAIL_USER,
-      pass: process.env.GMAIL_APP_PASSWORD,
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASSWORD,
     },
   });
 }
@@ -168,7 +170,7 @@ export async function POST(req: NextRequest) {
     if (data.mode === "offrir" && !data.destinatairePrenom) {
       return NextResponse.json({ error: "Prénom du destinataire manquant." }, { status: 400 });
     }
-    if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
+    if (!process.env.SMTP_USER || !process.env.SMTP_PASSWORD) {
       return NextResponse.json({ error: "Configuration email manquante." }, { status: 500 });
     }
 
@@ -177,7 +179,7 @@ export async function POST(req: NextRequest) {
 
     promises.push(
       transporter.sendMail({
-        from: `"Parenthèse Site" <${process.env.GMAIL_USER}>`,
+        from: `"Parenthèse Site" <${process.env.SMTP_USER}>`,
         to: "contact@parenthese78.fr",
         replyTo: data.contact.includes("@") ? data.contact : undefined,
         subject: `[Formule] ${data.formuleNom} — ${data.prenom}`,
@@ -189,7 +191,7 @@ export async function POST(req: NextRequest) {
     if (senderEmail) {
       promises.push(
         transporter.sendMail({
-          from: `"Parenthèse" <${process.env.GMAIL_USER}>`,
+          from: `"Parenthèse" <${process.env.SMTP_USER}>`,
           to: senderEmail,
           subject: `Votre demande de formule — ${data.formuleNom}`,
           html: confirmationEmailHtml(data),
