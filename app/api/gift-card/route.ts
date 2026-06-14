@@ -19,10 +19,12 @@ export interface GiftCardPayload {
 
 function createTransporter() {
   return nodemailer.createTransport({
-    service: "gmail",
+    host: "ssl0.ovh.net",
+    port: 465,
+    secure: true,
     auth: {
-      user: process.env.GMAIL_USER,
-      pass: process.env.GMAIL_APP_PASSWORD,
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASSWORD,
     },
   });
 }
@@ -233,8 +235,8 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Champs obligatoires manquants." }, { status: 400 });
     }
 
-    if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
-      console.error("GMAIL_USER or GMAIL_APP_PASSWORD not set");
+    if (!process.env.SMTP_USER || !process.env.SMTP_PASSWORD) {
+      console.error("SMTP_USER or SMTP_PASSWORD not set");
       return NextResponse.json({ error: "Configuration email manquante." }, { status: 500 });
     }
 
@@ -269,7 +271,7 @@ export async function POST(req: NextRequest) {
     if (data.toEmail) {
       emailPromises.push(
         transporter.sendMail({
-          from: `"Parenthèse" <${process.env.GMAIL_USER}>`,
+          from: `"Parenthèse" <${process.env.SMTP_USER}>`,
           to: data.toEmail,
           subject: `${senderFirstName} vous offre une Parenthèse 🌿`,
           html: recipientEmailHtml(data),
@@ -281,7 +283,7 @@ export async function POST(req: NextRequest) {
     // Notification email to Faustine
     emailPromises.push(
       transporter.sendMail({
-        from: `"Parenthèse Site" <${process.env.GMAIL_USER}>`,
+        from: `"Parenthèse Site" <${process.env.SMTP_USER}>`,
         to: "contact@parenthese78.fr",
         replyTo: data.fromEmail,
         subject: `Nouvelle carte cadeau — ${data.amount} € pour ${recipientName}`,
@@ -293,7 +295,7 @@ export async function POST(req: NextRequest) {
     // Email to sender (confirmation + PDF so they can print it)
     emailPromises.push(
       transporter.sendMail({
-        from: `"Parenthèse" <${process.env.GMAIL_USER}>`,
+        from: `"Parenthèse" <${process.env.SMTP_USER}>`,
         to: data.fromEmail,
         subject: `Votre carte cadeau Parenthèse — ${data.amount} €`,
         html: `

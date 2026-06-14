@@ -11,10 +11,12 @@ export interface ContactPayload {
 
 function createTransporter() {
   return nodemailer.createTransport({
-    service: "gmail",
+    host: "ssl0.ovh.net",
+    port: 465,
+    secure: true,
     auth: {
-      user: process.env.GMAIL_USER,
-      pass: process.env.GMAIL_APP_PASSWORD,
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASSWORD,
     },
   });
 }
@@ -98,14 +100,14 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Champs obligatoires manquants." }, { status: 400 });
     }
 
-    if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
+    if (!process.env.SMTP_USER || !process.env.SMTP_PASSWORD) {
       return NextResponse.json({ error: "Configuration email manquante." }, { status: 500 });
     }
 
     const transporter = createTransporter();
 
     await transporter.sendMail({
-      from: `"Parenthèse Site" <${process.env.GMAIL_USER}>`,
+      from: `"Parenthèse Site" <${process.env.SMTP_USER}>`,
       to: "contact@parenthese78.fr",
       replyTo: data.email,
       subject: `[Contact] ${data.subject} — ${data.name}`,
