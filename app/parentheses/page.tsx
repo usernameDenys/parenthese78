@@ -15,8 +15,8 @@ export const metadata = {
 const soinsF = [
   {
     id: "maternite",
-    nom: "Parenthèse Maternité",
-    sous: "Massage prénatal",
+    nom: "Massage prénatal",
+    sous: "Parenthèse Maternité",
     accroche: "Un moment pour ralentir, relâcher les tensions et vous reconnecter à votre corps… et à votre bébé.",
     description:
       "La grossesse transforme le corps et les émotions. Cette Parenthèse Maternité vous offre un temps pour vous, pour soulager les tensions et vous détendre en profondeur.",
@@ -34,8 +34,8 @@ const soinsF = [
   },
   {
     id: "postnatale",
-    nom: "Parenthèse Postnatale",
-    sous: "Massage postnatal",
+    nom: "Massage postnatal",
+    sous: "Parenthèse Postnatale",
     accroche: "Un moment pour se retrouver, relâcher le corps et s'accorder une pause après la naissance.",
     description:
       "Le post-partum est une période intense, faite de bouleversements physiques et émotionnels. Cette Parenthèse Postnatale vous offre un temps pour vous, pour relâcher les tensions, vous détendre en profondeur et vous reconnecter à votre corps.",
@@ -74,8 +74,8 @@ const soinsF = [
   },
   {
     id: "equilibre",
-    nom: "Parenthèse Équilibre féminin",
-    sous: "Massage holistique au féminin",
+    nom: "Massage holistique au féminin",
+    sous: "Parenthèse Équilibre féminin",
     accroche: "Un soin pour accompagner le corps féminin dans ses cycles, ses transitions et ses besoins profonds.",
     description:
       "Le corps féminin traverse de nombreuses variations au fil du cycle et des étapes de vie. Ce soin d'accompagnement global agit à la fois sur le corps et les émotions, pour favoriser l'équilibre et le mieux-être.",
@@ -131,8 +131,8 @@ const soinsF = [
 const soinsBebe = [
   {
     id: "naissance",
-    nom: "Parenthèse Naissance",
-    sous: "Thérapeutique Bain Bébé® — Méthode Sonia Krief",
+    nom: "Thérapeutique Bain Bébé® — Méthode Sonia Krief",
+    sous: "Parenthèse Naissance",
     accroche: "Un moment suspendu pour accueillir votre bébé, apaiser ses tensions et lui permettre de revivre en douceur les sensations de la vie in utero.",
     description:
       "La naissance est un passage intense pour le bébé. Le Thérapeutique Bain Bébé est un soin unique, qui lui permet de relâcher les tensions liées à la grossesse et à l'accouchement, dans un environnement sécurisant et enveloppant. Un moment profondément émouvant, pour votre bébé… et pour vous.",
@@ -151,8 +151,8 @@ const soinsBebe = [
   },
   {
     id: "lien",
-    nom: "Parenthèse Lien",
-    sous: "Bain enveloppé",
+    nom: "Bain enveloppé",
+    sous: "Parenthèse Lien",
     accroche: "Un moment de douceur et de lien avec votre bébé, pour apprendre à le baigner avec confiance et sérénité.",
     description:
       "Le bain enveloppé est un accompagnement du bain du nouveau-né, pensé pour offrir un moment rassurant et apaisant. Grâce à l'enveloppement dans un lange et à des gestes délicats, il permet de retrouver des sensations connues et sécurisantes. Vous êtes pleinement acteurs du soin : je vous guide pas à pas afin que vous puissiez prendre confiance dans les gestes et vivre pleinement ce temps partagé.",
@@ -215,8 +215,9 @@ const soinsParents = [
   {
     id: "parentalite",
     nom: "Soutien à la parentalité",
-    sous: "Accompagnement Post-Partum",
+    sous: "Accompagnement pré ou post partum",
     accroche: "Un espace bienveillant pour déposer vos questionnements, être écouté sans jugement et trouver des ressources adaptées à votre réalité de parents.",
+    deroulement: "Je me déplace à votre domicile pour un temps d'échange dans un cadre simple et bienveillant. Nous prenons le temps d'aborder votre situation, vos questionnements et vos besoins du moment. Ensemble, nous explorons des pistes adaptées à votre réalité familiale afin de vous apporter des repères, du soutien et des ressources concrètes.",
     description:
       "Chaque famille est unique, chaque bébé est différent. L'arrivée d'un enfant bouleverse le quotidien, les repères et l'équilibre familial. Entre fatigue, émotions, questions et charge mentale, il est parfois précieux de pouvoir être accompagné. Allaitement, organisation du quotidien, pleurs, sommeil, émotions du post-partum, place du couple, confiance parentale… chaque séance s'adapte à vos besoins du moment, que ce soit en anténatal ou en postnatal.",
     bienfaits: [
@@ -237,6 +238,7 @@ const soinsParents = [
     nom: "Sommeil de l'enfant",
     sous: "De 0 à 3 ans",
     accroche: "Un accompagnement pour mieux comprendre le sommeil de votre enfant et retrouver plus de sérénité au quotidien.",
+    deroulement: "Je me déplace à votre domicile pour un temps d'échange autour du sommeil de votre enfant. Nous prenons le temps de comprendre votre quotidien, les habitudes de sommeil de votre enfant et les difficultés que vous pouvez rencontrer. Je vous propose ensuite des pistes d'accompagnement personnalisées, adaptées à votre enfant, à votre rythme familial et à vos besoins.",
     description:
       "Le sommeil des tout-petits est souvent source de questionnements et de stress pour les parents. Cet accompagnement vous propose un temps dédié pour mieux comprendre ce qui se joue autour du sommeil de votre enfant et trouver des ajustements adaptés à votre famille, dans le respect de son développement. Ensemble, nous échangeons autour de votre quotidien afin de trouver des repères adaptés à votre enfant et à votre parentalité.",
     bienfaits: [

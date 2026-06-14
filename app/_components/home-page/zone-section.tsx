@@ -17,10 +17,10 @@ export default function ZoneSection() {
           <h2>Je viens à vous.</h2>
         </div>
         <p className="leading-relaxed">
-          Je me déplace à votre domicile, à Versailles et ses environs, afin de
-          vous offrir un moment de soin dans votre cocon, sans contraintes de
-          déplacement, dans un environnement familier et rassurant, propice au
-          lien et à la détente.
+          Je me déplace à votre domicile, à Versailles et ses environs
+          (78-91-92-75), afin de vous offrir un moment de soin dans votre
+          cocon, sans contraintes de déplacement, dans un environnement
+          familier et rassurant, propice au lien et à la détente.
         </p>
         <p className="leading-relaxed" style={{ color: "var(--muted-foreground)" }}>
           Au-delà de la zone incluse, un forfait déplacement s&apos;applique
