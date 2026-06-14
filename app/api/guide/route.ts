@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import { getIp, rateLimit } from "@/app/lib/rate-limit";
+import { esc } from "@/app/lib/escape-html";
 
 export interface GuidePayload {
   prenom: string;
@@ -57,8 +59,8 @@ function emailHtml(data: GuidePayload): string {
             <table width="100%" cellpadding="0" cellspacing="0" style="background:#FBF7F2;border-radius:10px;border:1px solid #E8CFCF;">
               <tr>
                 <td style="padding:18px 22px;">
-                  <p style="font-size:16px;font-weight:bold;color:#3D3530;margin:0 0 6px;">${data.prenom}</p>
-                  <p style="font-size:14px;color:#6B5F58;margin:0;">${data.contact}</p>
+                  <p style="font-size:16px;font-weight:bold;color:#3D3530;margin:0 0 6px;">${esc(data.prenom)}</p>
+                  <p style="font-size:14px;color:#6B5F58;margin:0;">${esc(data.contact)}</p>
                 </td>
               </tr>
             </table>
@@ -69,7 +71,7 @@ function emailHtml(data: GuidePayload): string {
           <td style="padding:24px 36px 28px;">
             <p style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:#998C84;margin:0 0 12px;">Besoin exprimé</p>
             <div style="border-left:3px solid #C8D4C0;padding-left:16px;">
-              <p style="font-size:15px;color:#3D3530;line-height:1.7;margin:0;white-space:pre-wrap;">${data.besoin}</p>
+              <p style="font-size:15px;color:#3D3530;line-height:1.7;margin:0;white-space:pre-wrap;">${esc(data.besoin)}</p>
             </div>
           </td>
         </tr>
@@ -90,11 +92,19 @@ function emailHtml(data: GuidePayload): string {
 }
 
 export async function POST(req: NextRequest) {
+  if (!rateLimit(getIp(req))) {
+    return NextResponse.json({ error: "Trop de requêtes. Réessayez dans quelques minutes." }, { status: 429 });
+  }
+
   try {
     const data: GuidePayload = await req.json();
 
     if (!data.prenom || !data.contact || !data.besoin) {
       return NextResponse.json({ error: "Champs obligatoires manquants." }, { status: 400 });
+    }
+
+    if (data.prenom.length > 100 || data.contact.length > 200 || data.besoin.length > 2000) {
+      return NextResponse.json({ error: "Un champ dépasse la longueur autorisée." }, { status: 400 });
     }
 
     if (!process.env.SMTP_USER || !process.env.SMTP_PASSWORD) {

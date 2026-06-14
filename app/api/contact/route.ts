@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import { getIp, rateLimit } from "@/app/lib/rate-limit";
+import { esc } from "@/app/lib/escape-html";
 
 export interface ContactPayload {
   name: string;
@@ -43,7 +45,7 @@ function emailHtml(data: ContactPayload): string {
         <tr>
           <td style="background:#B88A8A;padding:24px 36px;">
             <div style="font-size:13px;color:rgba(255,255,255,0.85);letter-spacing:2px;text-transform:uppercase;font-style:italic;margin-bottom:4px;">Nouveau message</div>
-            <div style="font-family:'Georgia',serif;font-size:22px;color:#FFFFFF;">${data.subject}</div>
+            <div style="font-family:'Georgia',serif;font-size:22px;color:#FFFFFF;">${esc(data.subject)}</div>
           </td>
         </tr>
 
@@ -59,9 +61,9 @@ function emailHtml(data: ContactPayload): string {
             <table width="100%" cellpadding="0" cellspacing="0" style="background:#FBF7F2;border-radius:10px;border:1px solid #E8CFCF;">
               <tr>
                 <td style="padding:18px 22px;">
-                  <p style="font-size:16px;font-weight:bold;color:#3D3530;margin:0 0 6px;">${data.name}</p>
-                  <p style="font-size:14px;color:#6B5F58;margin:0 0 4px;">✉️ <a href="mailto:${data.email}" style="color:#B88A8A;">${data.email}</a></p>
-                  ${data.phone ? `<p style="font-size:14px;color:#6B5F58;margin:0;">📞 <a href="tel:${data.phone}" style="color:#B88A8A;">${data.phone}</a></p>` : ""}
+                  <p style="font-size:16px;font-weight:bold;color:#3D3530;margin:0 0 6px;">${esc(data.name)}</p>
+                  <p style="font-size:14px;color:#6B5F58;margin:0 0 4px;">✉️ <a href="mailto:${esc(data.email)}" style="color:#B88A8A;">${esc(data.email)}</a></p>
+                  ${data.phone ? `<p style="font-size:14px;color:#6B5F58;margin:0;">📞 <a href="tel:${esc(data.phone)}" style="color:#B88A8A;">${esc(data.phone)}</a></p>` : ""}
                 </td>
               </tr>
             </table>
@@ -72,7 +74,7 @@ function emailHtml(data: ContactPayload): string {
           <td style="padding:24px 36px 28px;">
             <p style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:#998C84;margin:0 0 12px;">Message</p>
             <div style="border-left:3px solid #E8CFCF;padding-left:16px;">
-              <p style="font-size:15px;color:#3D3530;line-height:1.7;margin:0;white-space:pre-wrap;">${data.message}</p>
+              <p style="font-size:15px;color:#3D3530;line-height:1.7;margin:0;white-space:pre-wrap;">${esc(data.message)}</p>
             </div>
           </td>
         </tr>
@@ -93,11 +95,23 @@ function emailHtml(data: ContactPayload): string {
 }
 
 export async function POST(req: NextRequest) {
+  if (!rateLimit(getIp(req))) {
+    return NextResponse.json({ error: "Trop de requêtes. Réessayez dans quelques minutes." }, { status: 429 });
+  }
+
   try {
     const data: ContactPayload = await req.json();
 
     if (!data.name || !data.email || !data.subject || !data.message) {
       return NextResponse.json({ error: "Champs obligatoires manquants." }, { status: 400 });
+    }
+
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRe.test(data.email)) {
+      return NextResponse.json({ error: "Adresse email invalide." }, { status: 400 });
+    }
+    if (data.name.length > 100 || data.subject.length > 200 || data.message.length > 5000) {
+      return NextResponse.json({ error: "Un champ dépasse la longueur autorisée." }, { status: 400 });
     }
 
     if (!process.env.SMTP_USER || !process.env.SMTP_PASSWORD) {

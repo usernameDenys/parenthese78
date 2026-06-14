@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import { getIp, rateLimit } from "@/app/lib/rate-limit";
+import { esc } from "@/app/lib/escape-html";
 import { renderToBuffer, type DocumentProps } from "@react-pdf/renderer";
 import { createElement, type ReactElement } from "react";
 import { GiftCardDocument, type GiftCardData } from "@/app/offrir/_components/gift-card-pdf";
@@ -58,11 +60,11 @@ function recipientEmailHtml(data: GiftCardPayload): string {
         <tr>
           <td style="padding:40px 48px;">
             <p style="font-size:18px;color:#3D3530;margin:0 0 16px;line-height:1.6;">
-              Chère ${recipientName || "vous"},
+              Chère ${esc(recipientName) || "vous"},
             </p>
             <p style="font-size:16px;color:#6B5F58;margin:0 0 28px;line-height:1.7;font-style:italic;">
-              ${senderName} vous offre un moment rien que pour vous —
-              une <strong style="color:#3D3530;font-style:normal;">${displaySoin}</strong>
+              ${esc(senderName)} vous offre un moment rien que pour vous —
+              une <strong style="color:#3D3530;font-style:normal;">${esc(displaySoin)}</strong>
               à domicile, à Versailles et ses environs.
             </p>
 
@@ -70,12 +72,12 @@ function recipientEmailHtml(data: GiftCardPayload): string {
             <table width="100%" cellpadding="0" cellspacing="0" style="background:#F5E6E2;border-radius:12px;border:1px solid #E8CFCF;margin-bottom:28px;">
               <tr>
                 <td style="padding:28px 32px;">
-                  <div style="font-family:'Georgia',serif;font-size:48px;color:#B88A8A;line-height:1;margin-bottom:8px;">${data.amount} €</div>
-                  <div style="font-size:14px;color:#6B5F58;font-style:italic;">${displaySoin}</div>
+                  <div style="font-family:'Georgia',serif;font-size:48px;color:#B88A8A;line-height:1;margin-bottom:8px;">${esc(data.amount)} €</div>
+                  <div style="font-size:14px;color:#6B5F58;font-style:italic;">${esc(displaySoin)}</div>
                   ${data.message ? `
                   <div style="margin-top:20px;padding-top:16px;border-top:1px solid #E8CFCF;">
                     <p style="font-size:14px;color:#6B5F58;font-style:italic;line-height:1.6;margin:0;">
-                      « ${data.message} »
+                      « ${esc(data.message)} »
                     </p>
                   </div>` : ""}
                 </td>
@@ -146,7 +148,7 @@ function faustineEmailHtml(data: GiftCardPayload): string {
         <tr>
           <td style="background:#B88A8A;padding:24px 36px;">
             <div style="font-size:13px;color:rgba(255,255,255,0.85);letter-spacing:2px;text-transform:uppercase;font-style:italic;margin-bottom:4px;">Nouvelle commande</div>
-            <div style="font-family:'Georgia',serif;font-size:22px;color:#FFFFFF;">Carte cadeau — ${data.amount} €</div>
+            <div style="font-family:'Georgia',serif;font-size:22px;color:#FFFFFF;">Carte cadeau — ${esc(data.amount)} €</div>
           </td>
         </tr>
 
@@ -161,8 +163,8 @@ function faustineEmailHtml(data: GiftCardPayload): string {
         <tr>
           <td style="padding:28px 36px 0;">
             <p style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:#998C84;margin:0 0 6px;">Soin commandé</p>
-            <p style="font-size:18px;color:#3D3530;margin:0 0 4px;">${displaySoin}</p>
-            <p style="font-size:24px;font-family:'Georgia',serif;color:#B88A8A;margin:0;">${data.amount} €</p>
+            <p style="font-size:18px;color:#3D3530;margin:0 0 4px;">${esc(displaySoin)}</p>
+            <p style="font-size:24px;font-family:'Georgia',serif;color:#B88A8A;margin:0;">${esc(data.amount)} €</p>
           </td>
         </tr>
 
@@ -175,9 +177,9 @@ function faustineEmailHtml(data: GiftCardPayload): string {
             <table width="100%" cellpadding="0" cellspacing="0" style="background:#FBF7F2;border-radius:10px;border:1px solid #E8CFCF;">
               <tr>
                 <td style="padding:18px 22px;">
-                  <p style="font-size:16px;font-weight:bold;color:#3D3530;margin:0 0 8px;">${senderName || data.fromFirstName}</p>
-                  <p style="font-size:14px;color:#6B5F58;margin:0 0 4px;">✉️ <a href="mailto:${data.fromEmail}" style="color:#B88A8A;">${data.fromEmail}</a></p>
-                  <p style="font-size:14px;color:#6B5F58;margin:0;">📞 <a href="tel:${data.fromPhone}" style="color:#B88A8A;">${data.fromPhone}</a></p>
+                  <p style="font-size:16px;font-weight:bold;color:#3D3530;margin:0 0 8px;">${esc(senderName || data.fromFirstName)}</p>
+                  <p style="font-size:14px;color:#6B5F58;margin:0 0 4px;">✉️ <a href="mailto:${esc(data.fromEmail)}" style="color:#B88A8A;">${esc(data.fromEmail)}</a></p>
+                  <p style="font-size:14px;color:#6B5F58;margin:0;">📞 <a href="tel:${esc(data.fromPhone)}" style="color:#B88A8A;">${esc(data.fromPhone)}</a></p>
                 </td>
               </tr>
             </table>
@@ -191,8 +193,8 @@ function faustineEmailHtml(data: GiftCardPayload): string {
             <table width="100%" cellpadding="0" cellspacing="0" style="background:#FBF7F2;border-radius:10px;border:1px solid #E8CFCF;">
               <tr>
                 <td style="padding:18px 22px;">
-                  <p style="font-size:16px;font-weight:bold;color:#3D3530;margin:0 0 8px;">${recipientName || data.toFirstName}</p>
-                  ${data.toEmail ? `<p style="font-size:14px;color:#6B5F58;margin:0;">✉️ <a href="mailto:${data.toEmail}" style="color:#B88A8A;">${data.toEmail}</a></p>` : `<p style="font-size:13px;color:#998C84;font-style:italic;margin:0;">Aucun email renseigné — la carte vous a été envoyée à vous.</p>`}
+                  <p style="font-size:16px;font-weight:bold;color:#3D3530;margin:0 0 8px;">${esc(recipientName || data.toFirstName)}</p>
+                  ${data.toEmail ? `<p style="font-size:14px;color:#6B5F58;margin:0;">✉️ <a href="mailto:${esc(data.toEmail)}" style="color:#B88A8A;">${esc(data.toEmail)}</a></p>` : `<p style="font-size:13px;color:#998C84;font-style:italic;margin:0;">Aucun email renseigné — la carte vous a été envoyée à vous.</p>`}
                 </td>
               </tr>
             </table>
@@ -205,7 +207,7 @@ function faustineEmailHtml(data: GiftCardPayload): string {
           <td style="padding:0 36px 20px;">
             <p style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:#998C84;margin:0 0 10px;">Message personnalisé</p>
             <div style="border-left:3px solid #E8CFCF;padding-left:16px;">
-              <p style="font-size:14px;color:#6B5F58;font-style:italic;line-height:1.7;margin:0;">« ${data.message} »</p>
+              <p style="font-size:14px;color:#6B5F58;font-style:italic;line-height:1.7;margin:0;">« ${esc(data.message)} »</p>
             </div>
           </td>
         </tr>` : ""}
@@ -228,11 +230,29 @@ function faustineEmailHtml(data: GiftCardPayload): string {
 }
 
 export async function POST(req: NextRequest) {
+  if (!rateLimit(getIp(req))) {
+    return NextResponse.json({ error: "Trop de requêtes. Réessayez dans quelques minutes." }, { status: 429 });
+  }
+
   try {
     const data: GiftCardPayload = await req.json();
 
     if (!data.fromFirstName || !data.fromEmail || !data.fromPhone || !data.amount) {
       return NextResponse.json({ error: "Champs obligatoires manquants." }, { status: 400 });
+    }
+
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRe.test(data.fromEmail)) {
+      return NextResponse.json({ error: "Adresse email invalide." }, { status: 400 });
+    }
+    if (data.toEmail && !emailRe.test(data.toEmail)) {
+      return NextResponse.json({ error: "Adresse email du destinataire invalide." }, { status: 400 });
+    }
+    if (typeof data.amount !== "number" || data.amount <= 0 || data.amount > 2000) {
+      return NextResponse.json({ error: "Montant invalide." }, { status: 400 });
+    }
+    if (data.message && data.message.length > 500) {
+      return NextResponse.json({ error: "Le message dépasse la longueur autorisée." }, { status: 400 });
     }
 
     if (!process.env.SMTP_USER || !process.env.SMTP_PASSWORD) {
@@ -302,7 +322,7 @@ export async function POST(req: NextRequest) {
           <div style="font-family:'Georgia',serif;max-width:560px;margin:0 auto;padding:32px 20px;color:#3D3530;">
             <div style="font-size:28px;color:#B88A8A;margin-bottom:4px;">Parenthèse</div>
             <p style="font-size:16px;color:#6B5F58;line-height:1.7;margin:20px 0;">
-              Merci ${senderFirstName}, votre carte cadeau est bien enregistrée.<br/>
+              Merci ${esc(senderFirstName)}, votre carte cadeau est bien enregistrée.<br/>
               Faustine vous contactera prochainement pour confirmer la commande et organiser le règlement.
             </p>
             <p style="font-size:14px;color:#998C84;font-style:italic;">
