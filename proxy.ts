@@ -3,11 +3,11 @@ import { NextRequest, NextResponse } from "next/server";
 export function proxy(request: NextRequest) {
   const csp = [
     `default-src 'self'`,
-    `script-src 'self' 'unsafe-inline' https://cal.eu`,
+    `script-src 'self' 'unsafe-inline' https://cal.eu https://*.cal.eu`,
     `style-src 'self' 'unsafe-inline'`,
     `img-src 'self' data: blob: https://*.basemaps.cartocdn.com`,
     `font-src 'self'`,
-    `frame-src https://cal.eu https://www.cal.eu`,
+    `frame-src https://cal.eu https://*.cal.eu`,
     `connect-src 'self' https://cal.eu https://*.cal.eu`,
     `object-src 'none'`,
     `base-uri 'self'`,
