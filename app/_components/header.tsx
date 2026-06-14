@@ -31,6 +31,9 @@ export function Header() {
               <Image
                 src={logo}
                 alt="Parenthèse"
+                width={78}
+                height={64}
+                priority
                 className="h-16 w-auto"
               />
             </Link>
