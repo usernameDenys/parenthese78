@@ -22,6 +22,15 @@ export const metadata: Metadata = {
   title: "PARENTHÈSE — Soins bien-être périnataux à domicile",
   description:
     "Accompagnement périnatal à domicile à Versailles et ses environs. Soins bébé, massages prénataux et postnataux, ateliers — par Faustine, infirmière puéricultrice.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+    ],
+    apple: { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+  },
+  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({
