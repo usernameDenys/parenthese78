@@ -18,10 +18,54 @@ const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
 });
 
+const BASE_URL = "https://www.parenthese78.fr";
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "HealthAndBeautyBusiness",
+  name: "Parenthèse",
+  description:
+    "Accompagnement périnatal à domicile à Versailles et ses environs. Soins bébé, massages prénataux et postnataux, ateliers — par Faustine, infirmière puéricultrice.",
+  url: BASE_URL,
+  telephone: "+33622009039",
+  email: "contact@parenthese78.fr",
+  image: `${BASE_URL}/logo.webp`,
+  priceRange: "€€",
+  areaServed: {
+    "@type": "AdministrativeArea",
+    name: "Versailles et ses environs (Yvelines, 78)",
+  },
+  founder: {
+    "@type": "Person",
+    name: "Faustine Pichon",
+    jobTitle: "Infirmière puéricultrice, accompagnante périnatale",
+  },
+};
+
 export const metadata: Metadata = {
+  metadataBase: new URL(BASE_URL),
   title: "PARENTHÈSE — Soins bien-être périnataux à domicile",
   description:
     "Accompagnement périnatal à domicile à Versailles et ses environs. Soins bébé, massages prénataux et postnataux, ateliers — par Faustine, infirmière puéricultrice.",
+  openGraph: {
+    title: "PARENTHÈSE — Soins bien-être périnataux à domicile",
+    description:
+      "Accompagnement périnatal à domicile à Versailles et ses environs. Soins bébé, massages prénataux et postnataux, ateliers — par Faustine, infirmière puéricultrice.",
+    url: BASE_URL,
+    siteName: "Parenthèse",
+    locale: "fr_FR",
+    type: "website",
+    images: [{ url: "/logo.webp", alt: "Parenthèse — soins périnataux à domicile" }],
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+    ],
+    apple: { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+  },
+  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({
@@ -31,6 +75,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
+      </head>
       <body className={`${dancingScript.variable} ${cormorant.variable} antialiased`}>
         <Header />
         {children}
