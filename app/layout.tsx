@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     siteName: "Parenthèse",
     locale: "fr_FR",
     type: "website",
-    images: [{ url: "/logo.webp", alt: "Parenthèse — soins périnataux à domicile" }],
+    images: [{ url: "/opengraph-image", alt: "Parenthèse — soins périnataux à domicile" }],
   },
 
   icons: {
