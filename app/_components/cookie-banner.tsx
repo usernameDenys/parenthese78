@@ -13,6 +13,7 @@ export default function CookieBanner() {
 
   function accept() {
     setCookieConsent("accepted");
+    window.dispatchEvent(new Event("cookie-consent"));
     setVisible(false);
   }
 
