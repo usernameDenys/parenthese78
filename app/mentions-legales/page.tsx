@@ -3,6 +3,7 @@ import { Container } from "../_components/container";
 export const metadata = {
   title: "Mentions légales — PARENTHÈSE",
   description: "Mentions légales du site Parenthèse.",
+  robots: { index: false, follow: false },
 };
 
 export default function MentionsLegalesPage() {
