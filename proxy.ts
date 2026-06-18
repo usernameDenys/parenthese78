@@ -3,12 +3,12 @@ import { NextRequest, NextResponse } from "next/server";
 export function proxy(request: NextRequest) {
   const csp = [
     `default-src 'self'`,
-    `script-src 'self' 'unsafe-inline' https://cal.eu https://*.cal.eu`,
+    `script-src 'self' 'unsafe-inline' https://cal.eu https://*.cal.eu https://www.googletagmanager.com`,
     `style-src 'self' 'unsafe-inline'`,
-    `img-src 'self' data: blob: https://*.basemaps.cartocdn.com`,
+    `img-src 'self' data: blob: https://*.basemaps.cartocdn.com https://www.google-analytics.com`,
     `font-src 'self'`,
     `frame-src https://cal.eu https://*.cal.eu`,
-    `connect-src 'self' https://cal.eu https://*.cal.eu`,
+    `connect-src 'self' https://cal.eu https://*.cal.eu https://www.google-analytics.com https://region1.google-analytics.com`,
     `object-src 'none'`,
     `base-uri 'self'`,
     `form-action 'self'`,
