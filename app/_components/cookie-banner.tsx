@@ -2,23 +2,29 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { getCookieConsent, setCookieConsent } from "@/lib/cookie-consent";
+import { getCookieConsent, setCookieConsent, applyGaConsent } from "@/lib/cookie-consent";
 
 export default function CookieBanner() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    if (getCookieConsent() === null) setVisible(true);
+    const consent = getCookieConsent();
+    if (consent === null) {
+      setVisible(true);
+    } else {
+      applyGaConsent(consent);
+    }
   }, []);
 
   function accept() {
     setCookieConsent("accepted");
-    window.dispatchEvent(new Event("cookie-consent"));
+    applyGaConsent("accepted");
     setVisible(false);
   }
 
   function decline() {
     setCookieConsent("declined");
+    applyGaConsent("declined");
     setVisible(false);
   }
 
