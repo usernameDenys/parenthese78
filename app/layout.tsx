@@ -5,7 +5,6 @@ import "./globals.css";
 import { Header } from "./_components/header";
 import Footer from "./_components/footer";
 import CookieBanner from "./_components/cookie-banner";
-import GoogleAnalytics from "./_components/google-analytics";
 
 const dancingScript = Dancing_Script({
   subsets: ["latin"],
@@ -86,7 +85,6 @@ export default function RootLayout({
         />
       </head>
       <body className={`${dancingScript.variable} ${cormorant.variable} antialiased`}>
-        <GoogleAnalytics />
         <Header />
         {children}
         <Footer />
