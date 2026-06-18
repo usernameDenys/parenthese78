@@ -22,7 +22,11 @@ export function setCookieConsent(value: ConsentValue) {
 
 export function applyGaConsent(value: ConsentValue) {
   if (typeof window === "undefined" || typeof window.gtag !== "function") return;
+  const state = value === "accepted" ? "granted" : "denied";
   window.gtag("consent", "update", {
-    analytics_storage: value === "accepted" ? "granted" : "denied",
+    analytics_storage: state,
+    ad_storage: "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied",
   });
 }

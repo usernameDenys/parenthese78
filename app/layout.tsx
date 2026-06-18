@@ -5,6 +5,7 @@ import "./globals.css";
 import { Header } from "./_components/header";
 import Footer from "./_components/footer";
 import CookieBanner from "./_components/cookie-banner";
+import GoogleAnalytics from "./_components/google-analytics";
 
 const dancingScript = Dancing_Script({
   subsets: ["latin"],
@@ -83,24 +84,34 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('consent', 'default', {
+                analytics_storage: 'denied',
+                ad_storage: 'denied',
+                ad_user_data: 'denied',
+                ad_personalization: 'denied',
+                wait_for_update: 2000
+              });
+            `,
+          }}
+        />
       </head>
       <body className={`${dancingScript.variable} ${cormorant.variable} antialiased`}>
         <Header />
         {children}
         <Footer />
         <CookieBanner />
+        <GoogleAnalytics />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-0BV0R9XZD0"
           strategy="afterInteractive"
         />
-        <Script id="ga-init" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('consent', 'default', { analytics_storage: 'denied' });
-            gtag('config', 'G-0BV0R9XZD0');
-          `}
+        <Script id="ga-config" strategy="afterInteractive">
+          {`gtag('js', new Date()); gtag('config', 'G-0BV0R9XZD0');`}
         </Script>
       </body>
     </html>
