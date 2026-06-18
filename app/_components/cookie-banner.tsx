@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, startTransition } from "react";
 import Link from "next/link";
 import { getCookieConsent, setCookieConsent, applyGaConsent } from "@/lib/cookie-consent";
 
@@ -10,7 +10,7 @@ export default function CookieBanner() {
   useEffect(() => {
     const consent = getCookieConsent();
     if (consent === null) {
-      setVisible(true);
+      startTransition(() => setVisible(true));
     } else {
       applyGaConsent(consent);
     }
@@ -19,6 +19,9 @@ export default function CookieBanner() {
   function accept() {
     setCookieConsent("accepted");
     applyGaConsent("accepted");
+    if (typeof window !== "undefined" && typeof window.gtag === "function") {
+      window.gtag("event", "page_view");
+    }
     setVisible(false);
   }
 
