@@ -165,6 +165,8 @@ const soinsBebe = [
     ],
     pourQui:
       "Pour les nouveau-nés et leurs parents, idéalement dans les premières semaines de vie.",
+    deroulement:
+      "Je me déplace à votre domicile, avec tout le nécessaire pour vous accompagner dans ce soin.\nNous commençons par un temps d'échange pour accueillir l'histoire de votre bébé, votre vécu et vos besoins du moment.\nJe vous guide ensuite pas à pas dans la réalisation du bain enveloppé, afin que vous puissiez découvrir les gestes en confiance et vivre pleinement ce temps avec votre bébé.\nAucun prérequis n'est nécessaire : ce moment est avant tout une invitation à l'observation, à la rencontre et au lien.\nLe rythme et les réactions de votre enfant sont toujours respectés.",
     duree: "Environ 1h à 1h30",
     tarif: "120 €",
     reservationUrl: calUrl("parenthese-lien"),
@@ -185,6 +187,8 @@ const soinsBebe = [
     ],
     pourQui:
       "Pour les bébés et jeunes enfants de 0 à 3 ans, accompagnés d'un ou de leurs parents.",
+    deroulement:
+      "Je me déplace à votre domicile, avec tout le nécessaire pour vous accompagner dans cet apprentissage.\nNous commençons par un temps d'échange afin de mieux connaître votre enfant, son rythme et vos besoins du moment.\nJe vous montre ensuite les gestes sur un poupon pendant que vous les réalisez avec votre enfant, à son rythme et dans le respect de sa disponibilité.\nAucun prérequis n'est nécessaire : il s'agit avant tout d'un temps de découverte, de partage et de lien.\nLes réactions et les besoins de votre enfant guident toujours le déroulement de la séance.",
     duree: "Environ 1h",
     tarif: "70 €",
     reservationUrl: calUrl("massage-bebe"),
@@ -205,6 +209,8 @@ const soinsBebe = [
     ],
     pourQui:
       "Pour les bébés et les enfants jusqu'à 13 ans, accompagnés d'un de leurs parents.",
+    deroulement:
+      "Je me déplace à votre domicile, avec tout le nécessaire pour vous accompagner.\nNous commençons par un temps d'échange pour accueillir l'histoire de votre enfant, mieux comprendre son rythme, ses émotions et ses besoins du moment.\nSelon la formule choisie, je vous guide pas à pas dans l'apprentissage des gestes de réflexologie que vous réalisez sur votre enfant, ou je pratique directement le soin dans le respect de sa disponibilité et de ses réactions.\nAucun prérequis n'est nécessaire : ce temps est avant tout une invitation à l'écoute, à la douceur et à l'accompagnement des émotions.\nLe rythme et les besoins de votre enfant sont toujours respectés.",
     duree: "1h",
     tarif: "70 €",
     reservationUrl: calUrl("reflexologie-bebe"),
