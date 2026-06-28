@@ -1,7 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import logo from "@/public/logo.webp";
-import { FiInstagram, FiFacebook, FiMail, FiPhone, FiMapPin } from "react-icons/fi";
+import {
+  FiInstagram,
+  FiFacebook,
+  FiMail,
+  FiPhone,
+  FiMapPin,
+} from "react-icons/fi";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -17,20 +23,23 @@ const Footer = () => {
 
   const legalLinks = [
     { name: "Mentions légales", href: "/mentions-legales" },
-    { name: "Politique de confidentialité", href: "/politique-confidentialite" },
+    {
+      name: "Politique de confidentialité",
+      href: "/politique-confidentialite",
+    },
     { name: "CGV", href: "/cgv" },
   ];
 
   const socialLinks = [
     {
       name: "Facebook",
-      href: "https://facebook.com",
+      href: "https://www.facebook.com/profile.php?id=61591156715782&",
       icon: <FiFacebook />,
       ariaLabel: "Visitez ma page Facebook",
     },
     {
       name: "Instagram",
-      href: "https://instagram.com",
+      href: "https://www.instagram.com/parenthese78.fr",
       icon: <FiInstagram />,
       ariaLabel: "Visitez mon compte Instagram",
     },
@@ -42,11 +51,16 @@ const Footer = () => {
       <div className="bg-background border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
-
             {/* Brand + Contact */}
             <div className="space-y-4">
               <Link href="/">
-                <Image src={logo} alt="Parenthèse" width={68} height={56} className="h-14 w-auto" />
+                <Image
+                  src={logo}
+                  alt="Parenthèse"
+                  width={68}
+                  height={56}
+                  className="h-14 w-auto"
+                />
               </Link>
               <p className="text-muted-foreground text-[1.2rem] leading-relaxed">
                 Soins bien-être périnataux à domicile à Versailles et ses
@@ -55,13 +69,17 @@ const Footer = () => {
               <ul className="space-y-2 pt-2">
                 <li className="flex items-center gap-2 text-base text-muted-foreground">
                   <FiPhone className="shrink-0 text-primary" />
-                  <a href="tel:+33622009039" className="hover:text-primary transition-colors duration-200">
+                  <a
+                    href="tel:+33622009039"
+                    className="hover:text-primary transition-colors duration-200">
                     06.22.00.90.39
                   </a>
                 </li>
                 <li className="flex items-center gap-2 text-base text-muted-foreground">
                   <FiMail className="shrink-0 text-primary" />
-                  <a href="mailto:contact@parenthese78.fr" className="hover:text-primary transition-colors duration-200">
+                  <a
+                    href="mailto:contact@parenthese78.fr"
+                    className="hover:text-primary transition-colors duration-200">
                     contact@parenthese78.fr
                   </a>
                 </li>
@@ -74,7 +92,9 @@ const Footer = () => {
 
             {/* Navigation */}
             <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-foreground">Navigation</h3>
+              <h3 className="text-lg font-semibold text-foreground">
+                Navigation
+              </h3>
               <ul className="space-y-2">
                 {navigationLinks.map((link) => (
                   <li key={link.name}>
@@ -124,7 +144,6 @@ const Footer = () => {
                 </ul>
               </div>
             </div>
-
           </div>
 
           {/* Bottom bar */}
