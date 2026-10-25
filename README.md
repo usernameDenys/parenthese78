@@ -12,7 +12,7 @@ Website for Faustine Pichon — perinatal wellness home visits in Versailles and
 - **Tailwind CSS v4** — configured via `globals.css`, no `tailwind.config` file
 - **Framer Motion** — scroll animations
 - **Nodemailer** — email delivery via OVH SMTP
-- **Cal.com** (`@calcom/embed-react`) — booking widget (EU server: `cal.eu`)
+- **Cal.com** (`@calcom/embed-react`) — booking widget
 - **React Leaflet** — service area map
 - **Embla Carousel** — testimonials carousel
 - **Vercel** — hosting and continuous deployment
@@ -130,7 +130,7 @@ Sends the result of the "Which treatment?" guide by email.
 
 ## Security
 
-- **CSP** — defined in `proxy.ts` (Next.js middleware). Allows: `self`, `cal.eu`, `*.cal.eu`, Google Tag Manager, Google Analytics. Blocks everything else.
+- **CSP** — defined in `proxy.ts` (Next.js middleware). Allows: `self`, `cal.com`, `*.cal.com`, Google Tag Manager, Google Analytics. Blocks everything else.
 - **Rate limiting** — in-memory, 5 requests per 10 minutes per IP across all API routes.
 - **Input validation** — required fields, max lengths, email format check.
 - **HTML escaping** — all user-supplied values are passed through `esc()` before being injected into email templates.
