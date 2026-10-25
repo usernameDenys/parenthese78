@@ -5,7 +5,7 @@ export function proxy(request: NextRequest) {
     `default-src 'self'`,
     `script-src 'self' 'unsafe-inline' https://cal.eu https://*.cal.eu https://cal.com https://*.cal.com https://www.googletagmanager.com`,
     `style-src 'self' 'unsafe-inline'`,
-    `img-src 'self' data: blob: https://*.basemaps.cartocdn.com https://www.google-analytics.com`,
+    `img-src 'self' data: blob: https://server.arcgisonline.com https://www.google-analytics.com`,
     `font-src 'self'`,
     `frame-src https://cal.eu https://*.cal.eu https://cal.com https://*.cal.com`,
     `connect-src 'self' https://cal.eu https://*.cal.eu https://cal.com https://*.cal.com https://www.google-analytics.com https://region1.google-analytics.com`,
