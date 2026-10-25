@@ -33,7 +33,7 @@ const Footer = () => {
   const socialLinks = [
     {
       name: "Facebook",
-      href: "https://www.facebook.com/profile.php?id=61591156715782&",
+      href: "https://www.facebook.com/profile.php?id=61591156715782",
       icon: <FiFacebook />,
       ariaLabel: "Visitez ma page Facebook",
     },
