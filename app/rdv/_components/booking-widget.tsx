@@ -114,8 +114,6 @@ export default function BookingWidget() {
         <Cal
           key={selected}
           calLink={`${CAL_USERNAME}/${selected}`}
-          calOrigin="https://cal.eu"
-          embedJsUrl="https://cal.eu/embed/embed.js"
           style={{ width: "100%", minHeight: 680 }}
           config={{ theme: "light" }}
         />
